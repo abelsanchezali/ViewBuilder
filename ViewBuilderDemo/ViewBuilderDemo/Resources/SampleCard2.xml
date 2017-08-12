@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+    <UIView backgroundColor="d:Color(Clear)" masksToBounds="false">
+        <m:AnchoringView>
+            <d:LinearGradientView startPoint="d:Point(0,0)" endPoint="d:Point(1,1)" style="@cellStyle">
+                <d:GradientStop color="d:Color(Red)" offset="0.0"/>
+                <d:GradientStop color="d:Color(Orange)" offset="1.0"/>
+                <m:AnchoringView>
+                    <UILabel d:name="titleLabel" font="@mediumFont" text="Advertising !Rocks" numberOfLines="0" textAlignment="d:TextAlignment(Center)" textColor="d:Color(White)"/>
+                </m:AnchoringView>
+                <m:AnchoringView anchor="m:Anchor(Top, Right)">
+                    <UIButton d:name="dismissButton" type="d:ButtonType(Custom)" title="d:StringForState(dismiss)" margin="d:EdgeInsets(8)" style="@buttonStyleSmall"/>
+                </m:AnchoringView>
+            </d:LinearGradientView>
+        </m:AnchoringView>
+    </UIView>
+</d:Content>

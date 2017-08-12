@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+        <!-- Move this to resources
+        <d:Item name="themeColor" value="d:Color(#0077B5)"/>
+         -->
+    </d:Resources>
+    <d:Panel backgroundColor="@backgroundColor">
+        <d:ScrollPanel d:name="scrollPanel" orientation="d:Orientation(Vertical)" verticalAlignment="d:Alignment(Stretch)" horizontalAlignment="d:Alignment(Stretch)" alwaysBounceVertical="true" padding="d:EdgeInsets(8)">
+            <d:StackPanel horizontalAlignment="d:Alignment(Stretch)">
+                <UILabel d:name="infoLabel" numberOfLines="0"
+                         margin="d:EdgeInsets(16)"
+                         font="@font"
+                         horizontalAlignment="d:Alignment(Stretch)"
+                         textColor="d:Color(Gray)"
+                         shadowColor="d:Color(White)"
+                         shadowOffset="d:Size(0,1)"
+                         textAlignment="d:TextAlignment(Center)"
+                         text="Pull to measure but this will hang up the app for a while... wait a little bit for the results."/>
+                <m:LayoutPerformanceResultView d:name="resultView0" title="UIStackView" margin="d:EdgeInsets(0,0,8,0)" horizontalAlignment="d:Alignment(Stretch)"/>
+                <m:LayoutPerformanceResultView d:name="resultView1" title="StackView" margin="d:EdgeInsets(0,0,8,0)" horizontalAlignment="d:Alignment(Stretch)"/>
+                <m:LayoutPerformanceResultView d:name="resultView2" title="AutoLayout + IB" margin="d:EdgeInsets(0,0,8,0)" horizontalAlignment="d:Alignment(Stretch)"/>
+                <m:LayoutPerformanceResultView d:name="resultView3" title="StackPanel" margin="d:EdgeInsets(0,0,8,0)" horizontalAlignment="d:Alignment(Stretch)"/>
+                <!-- Extra cell for displaying performance ratios -->
+                <d:Panel margin="d:EdgeInsets(24,0,0,0)" style="@cellStyle" preferredSize="d:Size(-1,100)" backgroundColor="@themeColor" horizontalAlignment="d:Alignment(Stretch)">
+                    <UILabel d:name="overviewLabel" verticalAlignment="d:Alignment(Center)" horizontalAlignment="d:Alignment(Center)" font="@bigFont" text="--" textColor="d:Color(White)"/>
+                </d:Panel>
+            </d:StackPanel>
+        </d:ScrollPanel>
+    </d:Panel>
+</d:Content>

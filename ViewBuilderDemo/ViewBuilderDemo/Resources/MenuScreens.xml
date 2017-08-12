@@ -1,0 +1,48 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document" xmlns:c="@withName(CoreFoundation)">
+    <c:NSMutableArray>
+        <m:ScreenDescriptionModel title="Debug Screen"
+                                  enabled="true"
+                                  summary="Screen for debug purposes only, for testing any code. Here you could find anything. Will be disabled if we are presenting this demo."
+                                  viewControllerName="Test00ViewController"
+                                  bundleIdentifier="@domains.m"
+                                  storyBoardName="Main"
+                                  storyBoardIdentifier="Test00ViewController"/>
+
+        <m:ScreenDescriptionModel title="Cards + Auto Layout"
+                                  summary="This screen show a basic screen with cards. That uses labels, buttons and horizontally scrolling cards that will be harder to render. All elements are arranged using constraints."
+                                  viewControllerName="CollectionViewTestViewControllerCollectionViewController"
+                                  bundleIdentifier="@domains.m"
+                                  storyBoardName="Main"
+                                  storyBoardIdentifier="CollectionViewTestViewControllerCollectionViewController"
+                                  parameter="autolayout"/>
+
+        <m:ScreenDescriptionModel title="Cards + Custom Layout"
+                                  summary="Screen with cards that uses labels, buttons and horizontally scrolling cards that will be harder to render. But all elements will be arranged without Constraints. Using a Custom Layout that runs over Manual Layout. Showing a better performance."
+                                  viewControllerName="CollectionViewTestViewControllerCollectionViewController"
+                                  bundleIdentifier="@domains.m"
+                                  storyBoardName="Main"
+                                  storyBoardIdentifier="CollectionViewTestViewControllerCollectionViewController"
+                                  parameter="customlayout"/>
+
+        <m:ScreenDescriptionModel title="Layout Performance"
+                                  summary="This screen is for measuring performance among differents layouts. Generating views with UIStackView, StackView, StackingViews and StackPanel. The process will run an increasing number of iterations."
+                                  viewControllerName="LayoutPerformanceViewController"
+                                  bundleIdentifier="@domains.m"/>
+
+        <m:ScreenDescriptionModel title="Layout Test"
+                                  summary="This screen allow you to play and with a Custom Layout cell and change some fields and watch his behavior. Also you can display his source document to see how they are defined."
+                                  viewControllerName="LayoutTestScreenViewController"
+                                  bundleIdentifier="@domains.m"/>
+
+        <m:ScreenDescriptionModel title="Onboarding Demo"
+                                  summary="This screen show how to create an basic onboarding screen, showcasing some of features, such as vector graphics, gradients and Custom Layout."
+                                  viewControllerName="OnboardingDemoViewController"
+                                  bundleIdentifier="@domains.m"/>
+
+        <m:ScreenDescriptionModel title="Document List"
+                                  summary="For browsing documents were used to build this demo. Some of these are not accessible in the app."
+                                  viewControllerName="DocumentListScreenViewController"
+                                  bundleIdentifier="@domains.m"/>
+    </c:NSMutableArray>
+</d:Content>

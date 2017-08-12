@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Item name="defaultFont" value="d:Font(name: MarkerFelt-Wide, size:30)"/>
+        <d:Item name="defaultColor" value="d:Color(Orange)"/>
+        <d:Item name="defaultBackground" value="d:Color(Gray)"/>
+        <d:Item name="defaultText" value="The quick brown fox jumps over the lazy dog"/>
+    </d:Resources>
+</d:Content>

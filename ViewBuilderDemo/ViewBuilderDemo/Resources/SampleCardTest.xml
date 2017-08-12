@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+    </d:Resources>
+    <UIView backgroundColor="d:Color(Clear)">
+        <m:AnchoringView anchor="m:Anchor(Fill)">
+            <UIScrollView masksToBounds="false" height="m:Constrained(90)">
+                <m:AnchoringView anchor="m:Anchor(Fill)">
+                    <m:StackView orientation="d:Orientation(Horizontal)">
+                        <UIView margin="d:EdgeInsets(0,5)" verticalAlignment="d:Alignment(Stretch)" width="m:Constrained(140)" height="m:Constrained(90)" document="d:PathFromBundle(SampleCell0.xml)"/>
+                        <UIView margin="d:EdgeInsets(0,5)" verticalAlignment="d:Alignment(Stretch)" width="m:Constrained(140)" height="m:Constrained(90)" document="d:PathFromBundle(SampleCell0.xml)"/>
+                        <UIView margin="d:EdgeInsets(0,5)" verticalAlignment="d:Alignment(Stretch)" width="m:Constrained(140)" height="m:Constrained(90)" document="d:PathFromBundle(SampleCell0.xml)"/>
+                        <UIView margin="d:EdgeInsets(0,5)" verticalAlignment="d:Alignment(Stretch)" width="m:Constrained(140)" height="m:Constrained(90)" document="d:PathFromBundle(SampleCell0.xml)"/>
+                        <UIView margin="d:EdgeInsets(0,5)" verticalAlignment="d:Alignment(Stretch)" width="m:Constrained(140)" height="m:Constrained(90)" document="d:PathFromBundle(SampleCell0.xml)"/>
+                        <UIView margin="d:EdgeInsets(0,5)" verticalAlignment="d:Alignment(Stretch)" width="m:Constrained(140)" height="m:Constrained(90)" document="d:PathFromBundle(SampleCell0.xml)"/>
+                    </m:StackView>
+                </m:AnchoringView>
+            </UIScrollView>
+        </m:AnchoringView>
+    </UIView>
+</d:Content>

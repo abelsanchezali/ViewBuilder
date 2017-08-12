@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+        <d:Item name="themeColor" value="d:Color(#0077B5)"/>
+        <d:Item name="logoLetters" value="M28.1835616,1.39154223 C31.290411,-1.7409692 37.2821918,0.496538966 44.5315068,7.28364706 C49.5616438,12.0569978 54,19.2170239 54,22.5732862 C54,23.9157911 48.2054795,29.1117822 36.6164384,38.1612597 L36.3945205,35.7000007 C35.7287671,28.7637254 22.339726,16.6811813 16.939726,18.0982698 C16.2,18.3220207 15.5342466,18.3220207 15.5342466,18.1728534 C15.5342466,17.7253518 26.7041096,2.88321434 28.1835616,1.39154223 Z M13.3150685,27.2669471 C18.1232877,20.5544226 18.0493151,20.6290062 23.3013699,24.2090193 C27.1479452,26.8194455 32.5051798,32.7483076 32.5051798,35.1115536 C32.5051798,37.4747997 31.4002847,37.7396242 27.9214022,40.4406755 C26.6936635,41.3939083 24.3646116,43.1931047 20.9342466,45.8382648 L20.1945205,43.3024222 C19.3068493,40.2444944 13.9808219,34.7998912 11.0958904,33.9794716 L8.87671233,33.3828027 L13.3150685,27.2669471 Z M1.47945205,49.2426543 C1.47945205,48.6459855 8.95068493,37.2346939 9.54246575,37.2346939 C10.8739726,37.2346939 17.7534247,44.3201364 17.7534247,45.5880577 C17.6794521,46.9305626 8.1369863,53.6430871 6.36164384,53.6430871 C4.58630137,53.6430871 1.47945205,50.8089101 1.47945205,49.2426543 Z M19.2328767,51.0019337 L27.9616438,45.4081633 L27.9616438,66.813658 L27.739726,88.2937364 L19.2328767,88.2937364 L19.4547945,69.647835 L19.2328767,51.0019337 Z M0.00232314251,84.7009307 L15.4625971,58 L15.4625971,74.4083932 L8.65711766,84.7009307 L0.00232314251,84.7009307 Z M32.0023231,74.8863079 L32.0023231,59 L47.2406793,84.3584258 L38.2899944,84.3584258 L32.0023231,74.8863079 Z"/>
+    </d:Resources>
+    <m:SampleTemplateView backgroundColor="d:Color(White)">
+        <!-- This two controls will be detached and his positions will be handled manually -->
+        <UIView d:name="borderView" detached="true" backgroundColor="@themeColor"/>
+        <d:ShapeView d:name="logoView" detached="true" data="@logoLetters" backgroundColor="d:Color(Clear)" fillColor="d:Color(White)"/>
+
+        <!-- Adding some button in bottom section of template -->
+        <m:SampleTemplateView.bottomSection>
+            <UIButton d:name="infoButton"
+                      tintColor="@themeColor"
+                      type="d:ButtonType(InfoLight)"
+                      margin="d:EdgeInsets(16)"
+                      horizontalAlignment="d:Alignment(Maximum)"/>
+        </m:SampleTemplateView.bottomSection>
+        <!-- Adding some info label in top section of template -->
+        <m:SampleTemplateView.topSection>
+            <UILabel horizontalAlignment="d:Alignment(Center)"
+                     margin="d:EdgeInsets(8)"
+                     font="@tinyFont"
+                     textColor="d:Color(LightGray)"
+                     numberOfLines="0"
+                     text="This is a demo for View Builder Project"/>
+        </m:SampleTemplateView.topSection>
+    </m:SampleTemplateView>
+</d:Content>

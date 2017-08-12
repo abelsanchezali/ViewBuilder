@@ -1,0 +1,146 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+        <d:Item name="leftBubbleStyle">
+            <d:ObjectStyle>
+                <d:Setter property="backgroundColor" value="d:Color(#7CB82F)"/>
+                <d:Setter property="cornerRadius" value="8"/>
+                <d:Setter property="borderColor" value="d:Color(Clear)"/>
+                <d:Setter property="margin" value="d:EdgeInsets(4,0,4,0)"/>
+                <d:Setter property="preferredSize" value="d:Size(200,-1)"/>
+                <d:Setter property="horizontalAlignment" value="d:Alignment(Minimum)"/>
+                <d:Setter property="clipsToBounds" value="true"/>
+            </d:ObjectStyle>
+        </d:Item>
+        <d:Item name="rightBubbleStyle">
+            <d:ObjectStyle>
+                <d:Setter property="backgroundColor" value="d:Color(#00A0DC)"/>
+                <d:Setter property="cornerRadius" value="8"/>
+                <d:Setter property="borderColor" value="d:Color(Clear)"/>
+                <d:Setter property="margin" value="d:EdgeInsets(4,0,4,0)"/>
+                <d:Setter property="preferredSize" value="d:Size(200,-1)"/>
+                <d:Setter property="horizontalAlignment" value="d:Alignment(Maximum)"/>
+                <d:Setter property="clipsToBounds" value="true"/>
+            </d:ObjectStyle>
+        </d:Item>
+        <d:Item name="labelStyle">
+            <d:ObjectStyle>
+                <d:Setter property="textColor" value="d:Color(White)"/>
+                <d:Setter property="horizontalAlignment" value="d:Alignment(Stretch)"/>
+                <d:Setter property="verticalAlignment" value="d:Alignment(Stretch)"/>
+                <d:Setter property="numberOfLines" value="0"/>
+                <d:Setter property="font" value="d:Font(name: AvenirNext-Regular, size:15)"/>
+                <d:Setter property="margin" value="d:EdgeInsets(8)"/>
+            </d:ObjectStyle>
+        </d:Item>
+    </d:Resources>
+
+    <d:Panel backgroundColor="d:Color(White)" clipsToBounds="true">
+        <d:ScrollPanel d:name="container" orientation="d:Orientation(Vertical)" horizontalAlignment="d:Alignment(Stretch)" verticalAlignment="d:Alignment(Stretch)">
+            <d:StackPanel d:name="messageContainer" margin="d:EdgeInsets(8)" orientation="d:Orientation(Vertical)" horizontalAlignment="d:Alignment(Stretch)" verticalAlignment="d:Alignment(Maximum)">
+                <!-- HACK: Using tag to anotate how long this bubble should wait -->
+                <d:Panel style="@leftBubbleStyle" tag="1500">
+                    <UILabel text="There are some rumors about this new framework for building UIs in iOS." style="@labelStyle"/>
+                </d:Panel>
+
+                <d:Panel style="@rightBubbleStyle" tag="1500">
+                    <UILabel text="Yes... I have been working on this project for a couple months." style="@labelStyle"/>
+                </d:Panel>
+
+                <d:Panel style="@leftBubbleStyle" tag="2000">
+                    <UILabel text="What was your motivation?" style="@labelStyle"/>
+                </d:Panel>
+
+                <d:Panel style="@rightBubbleStyle" tag="3000">
+                    <UILabel text="It's hard to reuse and build basic UI in iOS, AutoLayout and Manual Layout all the code mixed together...😅" style="@labelStyle"/>
+                </d:Panel>
+                <d:Panel style="@rightBubbleStyle" tag="2000">
+                    <UILabel text="Also there is no separation between design and view logic..." style="@labelStyle"/>
+                </d:Panel>
+
+                <d:Panel style="@leftBubbleStyle" tag="1000">
+                    <UILabel text="And what new features it brings?" style="@labelStyle"/>
+                </d:Panel>
+
+                <d:StackPanel style="@rightBubbleStyle" tag="2000">
+                    <d:LinearGradientView horizontalAlignment="d:Alignment(Stretch)"
+                        startPoint="d:Point(1,1)"
+                        endPoint="d:Point(0,0)"
+                        preferredSize="d:Size(-1,80)">
+                        <d:GradientStop color="d:Color(Red)" offset="0.0"/>
+                        <d:GradientStop color="d:Color(Blue)" offset="1.0"/>
+                    </d:LinearGradientView>
+                    <UILabel text="Built-in support for Resources, Styles, Gradients..." style="@labelStyle"/>
+                </d:StackPanel>
+
+                <d:StackPanel style="@rightBubbleStyle" tag="2500">
+                    <UILabel text="Vector graphics" style="@labelStyle"/>
+                    <d:StackPanel orientation="d:Orientation(Horizontal)"
+                        horizontalAlignment="d:Alignment(Center)"
+                        cornerRadius="5"
+                        backgroundColor="d:Color(White)"
+                        shadowRadius="5"
+                        shadowOffset="d:Size(0,0)"
+                        shadowOpacity="1.0"
+                        shadowColor="d:Color(Gray)">
+                        <d:ShapeView verticalAlignment="d:Alignment(Center)"
+                        fillColor="d:Color(#F16D64)"
+                        fillRule="d:FillRule(EvenOdd)"
+                        margin="d:EdgeInsets(8)"
+                        data="M0.883282145,46.7442276 C0.883282145,48.7343523 2.53750605,50.3486393 4.57819065,50.3486393 L47.1883736,50.3486393 C49.228991,50.3486393 50.8832821,48.7343523 50.8832821,46.7442276 L50.8832821,3.63584116 C50.8832821,1.64504414 49.228991,0.031429534 47.1883736,0.031429534 L4.57819065,0.031429534 C2.53750605,0.031429534 0.883282145,1.64504414 0.883282145,3.63584116 L0.883282145,46.7442276 L0.883282145,46.7442276 Z M12.722426,8.05113177 C15.3559795,8.05113177 16.995143,9.79585256 16.995143,11.9762493 C16.9460622,14.2057268 15.3559795,15.9020392 12.7723808,15.9020392 C10.1890511,15.9020392 8.5,14.2057268 8.5,11.9762493 C8.5,9.79585256 10.1388273,8.05113177 12.6732108,8.05113177 L12.7222915,8.05113177 L12.722426,8.05113177 Z M20.8832821,43.285633 L28.4352674,43.285633 L28.4352674,30.5972435 C28.4352674,29.9181807 28.4843482,29.2397902 28.6837641,28.7543611 C29.2297037,27.3975802 30.4723214,25.9923908 32.5585906,25.9923908 C35.2913142,25.9923908 36.3844708,28.0759707 36.3844708,31.1304087 L36.3844708,43.285633 L43.935851,43.285633 L43.935851,30.2577121 C43.935851,23.2788289 40.2100821,20.0314295 35.2414266,20.0314295 C31.1673187,20.0314295 29.3787613,22.3086431 28.3850437,23.8597302 L28.4354691,23.8597302 L28.4354691,20.5645947 L20.8834838,20.5645947 C20.9825867,22.696583 20.8834838,43.285633 20.8834838,43.285633 L20.8832821,43.285633 Z M16.4353347,43.2210383 L16.4353347,20.5 L8.88328214,20.5 L8.88328214,43.2210383 L16.4353347,43.2210383 L16.4353347,43.2210383 Z"/>
+                        <d:ShapeView verticalAlignment="d:Alignment(Center)"
+                        fillColor="d:Color(#F3C746)"
+                        fillRule="d:FillRule(EvenOdd)"
+                        margin="d:EdgeInsets(8)"
+                        data="M58.0033217,42.9641804 C57.2471717,44.7110411 56.352137,46.3190172 55.3151313,47.7973676 C53.9015938,49.8127388 52.7442214,51.2077584 51.852273,51.9824263 C50.4695988,53.2539928 48.9881621,53.9052077 47.4017903,53.9422436 C46.2629358,53.9422436 44.8895205,53.6181793 43.2908034,52.9607918 C41.6868395,52.3064906 40.21281,51.9824263 38.8650112,51.9824263 C37.4514737,51.9824263 35.9354701,52.3064906 34.3139142,52.9607918 C32.6898892,53.6181793 31.3815954,53.9607616 30.381317,53.9947112 C28.8600667,54.059524 27.3437545,53.3897912 25.83022,51.9824263 C24.8641998,51.1398592 23.655903,49.6954584 22.2084159,47.6492239 C20.6553764,45.4641048 19.3785631,42.9302308 18.3782847,40.0414292 C17.3070208,36.9211531 16.77,33.8996395 16.77,30.9744193 C16.77,27.6235946 17.4940522,24.7335585 18.944317,22.3117181 C20.0840974,20.3664066 21.6004096,18.831885 23.4981917,17.7053759 C25.3959739,16.5788667 27.4465292,16.00481 29.6547958,15.9680827 C30.8630926,15.9680827 32.4476126,16.3418368 34.4166889,17.0763825 C36.3802098,17.8133973 37.6409741,18.1871514 38.1937352,18.1871514 C38.6069943,18.1871514 40.0075693,17.7501276 42.3818802,16.8788576 C44.6271828,16.0708574 46.5221872,15.7362996 48.0746094,15.8680857 C52.2812724,16.2075816 55.4416707,17.8658648 57.543459,20.8534289 C53.7812271,23.1329896 51.9201722,26.3257943 51.9572081,30.4216582 C51.9911577,33.6119939 53.1485301,36.2668519 55.4231528,38.3748129 C56.4539858,39.3531784 57.6051856,40.1093284 58.8860111,40.6463492 C58.6082417,41.4518804 58.3150407,42.223462 58.0033217,42.9641804 L58.0033217,42.9641804 Z M48.3554651,4.99927841 C48.3554651,7.49985098 47.4419125,9.8346261 45.6209799,11.9956719 C43.4235154,14.56473 40.7655711,16.0492531 37.8832508,15.8150009 C37.8465235,15.51501 37.8252278,15.1992788 37.8252278,14.8674987 C37.8252278,12.4669539 38.870258,9.89789579 40.7260661,7.79734199 C41.6525813,6.73379389 42.8309407,5.84946876 44.2599099,5.14402712 C45.6857927,4.44910985 47.0345174,4.06480048 48.3029976,3.999 C48.3400335,4.33328002 48.3554651,4.6675909 48.3554651,4.99924755 L48.3554651,4.99927841 Z"/>
+                    </d:StackPanel>
+                    <UILabel text="with SVG compatible format..." style="@labelStyle"/>
+                </d:StackPanel>
+                <d:StackPanel style="@rightBubbleStyle" tag="2000">
+                    <UILabel text="📈 A more performant and flexible layout system" style="@labelStyle" textAlignment="d:TextAlignment(Right)"/>
+                    <UIView preferredSize="d:Size(100,1)" verticalAlignment="d:Alignment(Stretch)" horizontalAlignment="d:Alignment(Maximum)" backgroundColor="d:Color(White)" margin="d:EdgeInsets(0,0,0,0)"/>
+                    <d:StackPanel orientation="d:Orientation(Horizontal)" verticalAlignment="d:Alignment(Center)" horizontalAlignment="d:Alignment(Center)">
+                        <UILabel text="♠️" font="@mediumFont" margin="d:EdgeInsets(8,0,0,0)"/>
+                        <UILabel text="♣️" font="@mediumFont" margin="d:EdgeInsets(0,0,8,0)"/>
+                        <UILabel text="♥️" font="@mediumFont" margin="d:EdgeInsets(8,0,0,0)"/>
+                        <UILabel text="♦️" font="@mediumFont" margin="d:EdgeInsets(0,0,8,0)"/>
+                    </d:StackPanel>
+                    <UIView preferredSize="d:Size(100,1)" verticalAlignment="d:Alignment(Stretch)" backgroundColor="d:Color(White)" margin="d:EdgeInsets(0,0,0,0)"/>
+                    <UILabel text="...no more ambigous layout" style="@labelStyle"/>
+                </d:StackPanel>
+
+                <d:Panel style="@leftBubbleStyle" preferredSize="d:Size(-1,-1)" tag="2000">
+                    <UILabel text="😲" font="@bigFont" margin="d:EdgeInsets(8,14)"/>
+                </d:Panel>
+
+                <d:Panel style="@rightBubbleStyle" tag="2000">
+                    <UILabel text="And all this and much more could be used with our XML documents, but it's totally up to you" style="@labelStyle"/>
+                </d:Panel>
+
+                <d:Panel style="@leftBubbleStyle" tag="1500">
+                    <UILabel text="That's awesome I could not wait to use it" style="@labelStyle"/>
+                </d:Panel>
+
+                <d:Panel style="@rightBubbleStyle" preferredSize="d:Size(-1,-1)" tag="2000">
+                    <UILabel text="👍" font="@bigFont" margin="d:EdgeInsets(8,14)"/>
+                </d:Panel>
+
+                <d:StackPanel horizontalAlignment="d:Alignment(Stretch)" margin="d:EdgeInsets(24,-8,8,-8)">
+                    <UIView preferredSize="d:Size(-1,1)" backgroundColor="d:Color(LightGray)" horizontalAlignment="d:Alignment(Stretch)"/>
+                    <UIView preferredSize="d:Size(-1,1)" backgroundColor="d:Color(White)" horizontalAlignment="d:Alignment(Stretch)"/>
+                    <UILabel d:name="infoLabel" numberOfLines="0"
+                    margin="d:EdgeInsets(8,0,0,0)"
+                    font="@tinyFont"
+                    horizontalAlignment="d:Alignment(Stretch)"
+                    textColor="d:Color(Gray)"
+                    shadowColor="d:Color(White)"
+                    shadowOffset="d:Size(0,1)"
+                    textAlignment="d:TextAlignment(Center)"
+                    text="this conversation has ended"/>
+                </d:StackPanel>
+
+            </d:StackPanel>
+        </d:ScrollPanel>
+    </d:Panel>
+</d:Content>

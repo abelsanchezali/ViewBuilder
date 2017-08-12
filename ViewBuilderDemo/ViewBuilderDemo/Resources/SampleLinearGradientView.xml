@@ -1,0 +1,12 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <UIView>
+        <m:AnchoringView>
+            <!-- stops="d:Array(d:GradientStop(d:Color(Red), 0); d:GradientStop(d:Color(Blue), 1))" -->
+            <d:LinearGradientView size="m:Constrained(200, 200)" startPoint="d:Point(0,0)" endPoint="d:Point(1,1)" cornerRadius="3">
+                <d:GradientStop color="d:Color(Red)" offset="0.0"/>
+                <d:GradientStop color="d:Color(Orange)" offset="1.0"/>
+            </d:LinearGradientView>
+        </m:AnchoringView>
+    </UIView>
+</d:Content>

@@ -1,0 +1,35 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!-- DO NOT MODIFY, USED IN TESTS -->
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit">
+    <d:Resources>
+        <d:Item d:name="font1" name="font1" value="d:Font(name: AvenirNext-Regular, size:14)"/>
+        <d:Item name="font2" value="d:Font(name: AvenirNext-UltraLight, size:14)"/>
+        <d:Item d:name="font3" name="font3" value="d:Font(name: AvenirNext-Bold, size:14)"/>
+
+        <d:Item name="color1" value="d:Color(#FEFEFE)"/>
+
+        <d:Item name="summary" value="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."/>
+        <d:Item name="insight" value="It is a fact that a reader will be distracted by the readable content when looking its layout."/>
+
+        <d:Item name="cellStyle">
+            <d:ObjectStyle>
+                <d:Setter property="cornerRadius" value="3"/>
+                <d:Setter property="borderWidth" value="1"/>
+                <d:Setter property="borderColor" value="d:Color(#DDDDDD)"/>
+            </d:ObjectStyle>
+        </d:Item>
+
+        <d:Item name="buttonStyle">
+            <d:ObjectStyle>
+                <d:Setter property="cornerRadius" value="2"/>
+                <d:Setter property="borderWidth" value="1"/>
+                <d:Setter property="borderColor" value="d:Color(#066CFF)"/>
+                <d:Setter property="backgroundColor" value="d:Color(Clear)"/>
+                <d:Setter property="contentEdgeInsets" value="d:EdgeInsets(2, 8)"/>
+                <d:Setter property="titleColor" value="d:ColorForState(value: d:Color(#066CFF), state: d:ControlState(Normal))"/>
+                <d:Setter property="titleColor" value="d:ColorForState(value: d:Color(#066CFF), state: d:ControlState(Highlighted))"/>
+                <d:Setter property="font" value="@font3"/>
+            </d:ObjectStyle>
+        </d:Item>
+    </d:Resources>
+</d:Content>

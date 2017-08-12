@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+        <d:Item name="name" value="FileName.xml"/>
+        <d:Item name="xmlPath" value="d:Path(data: M0.98731136,0.99499226 L34.9948954,0.99499226 L34.9948954,13.0246113 L0.98731136,13.0246113 L0.98731136,0.99499226 Z M4.2424884,2.9393196 L7.1663165,2.9393196 L8.689754,5.5818977 L10.166317,2.9393196 L13.060848,2.9393196 L10.388973,7.0994759 L13.312801,11.529163 L10.330379,11.529163 L8.6370196,8.7693977 L6.9378009,11.529163 L3.9729571,11.529163 L6.9378009,7.0526009 L4.2424884,2.9393196 Z M14.133113,2.9393196 L17.625301,2.9393196 L18.972957,8.1658821 L20.314754,2.9393196 L23.795223,2.9393196 L23.795223,11.529163 L21.627254,11.529163 L21.627254,4.9783821 L19.945613,11.529163 L17.982723,11.529163 L16.306942,4.9783821 L16.306942,11.529163 L14.133113,11.529163 L14.133113,2.9393196 Z M25.482723,2.9393196 L28.13702,2.9393196 L28.13702,9.413929 L32.279598,9.413929 L32.279598,11.529163 L25.482723,11.529163 L25.482723,2.9393196 Z)"/>
+    </d:Resources>
+    <d:Panel style="@cellStyle" backgroundColor="d:Color(White)">
+        <d:StackPanel tag="2" verticalAlignment="d:Alignment(Stretch)" horizontalAlignment="d:Alignment(Stretch)" orientation="d:Orientation(Horizontal)">
+            <d:ShapeView path="@xmlPath" fillRule="d:FillRule(EvenOdd)" fillColor="d:Color(Orange)" margin="d:EdgeInsets(8)" verticalAlignment="d:Alignment(Center)"/>
+            <UILabel d:name="nameLabel" numberOfLines="0" font="@font" text="@name" margin="d:EdgeInsets(12)" verticalAlignment="d:Alignment(Center)"/>
+        </d:StackPanel>
+    </d:Panel>
+</d:Content>

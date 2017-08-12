@@ -1,0 +1,15 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+    <UIView style="@cellStyle" backgroundColor="@color">
+        <m:StackingViews orientation="d:Orientation(Vertical)" padding="d:EdgeInsets(12)">
+            <m:StackView horizontalAlignment="d:Alignment(Stretch)" orientation="d:Orientation(Horizontal)" >
+                <UIView d:name="imageView" size="m:Constrained(50,50)" cornerRadius="2" backgroundColor="d:Color(Orange)" margin="d:EdgeInsets(0,0,0,8)"/>
+                <UILabel d:name="summaryLabel" numberOfLines="0" font="@font" text="@summary"/>
+            </m:StackView>
+            <UIView margin="d:EdgeInsets(4,0)" horizontalAlignment="d:Alignment(Minimum)" backgroundColor="d:Color(#BBBBBB)" size="m:Constrained(90,1)"/>
+            <UILabel d:name="insightLabel" horizontalAlignment="d:Alignment(Stretch)" numberOfLines="0" font="@font2" text="@insight"/>
+            <UIButton d:name="button" type="d:ButtonType(Custom)" horizontalAlignment="d:Alignment(Minimum)" style="@buttonStyle" margin="d:EdgeInsets(4,60,0,0)" font="@font3" title="d:StringForState(Say thanks)"/>
+        </m:StackingViews>
+    </UIView>
+</d:Content>

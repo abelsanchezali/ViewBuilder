@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+        <d:Item name="title" value="Title"/>
+        <d:Item name="header" value=" # Iterations: "/>
+    </d:Resources>
+    <d:StackPanel padding="d:EdgeInsets(8)" style="@cellStyle" backgroundColor="d:Color(White)" orientation="d:Orientation(Vertical)">
+        <UILabel d:name="titleLabel" margin="d:EdgeInsets(0,8,0,0)" font="@mediumFont" horizontalAlignment="d:Alignment(Stretch)" numberOfLines="0" text="@title"/>
+        <d:StackPanel orientation="d:Orientation(Horizontal)" margin="d:EdgeInsets(0,8,0,0)">
+            <UILabel font="@font" verticalAlignment="d:Alignment(Center)" text="d:Text(100)" preferredSize="d:Size(40,-1)" textAlignment="d:TextAlignment(Right)"/>
+            <UILabel font="@font" verticalAlignment="d:Alignment(Center)" text="@header"/>
+            <UILabel d:name="result0Label" font="@font2" verticalAlignment="d:Alignment(Center)" numberOfLines="1" text="1.0s"/>
+        </d:StackPanel>
+        <UIView backgroundColor="@borderColor" preferredSize="d:Size(1,16)" margin="d:EdgeInsets(0,55,0,0)"/>
+        <d:StackPanel orientation="d:Orientation(Horizontal)" margin="d:EdgeInsets(0,8,0,0)">
+            <UILabel font="@font" verticalAlignment="d:Alignment(Center)" text="d:Text(1000)" preferredSize="d:Size(40,-1)" textAlignment="d:TextAlignment(Right)"/>
+            <UILabel font="@font" verticalAlignment="d:Alignment(Center)" text="@header"/>
+            <UILabel d:name="result1Label" font="@font2" verticalAlignment="d:Alignment(Center)" numberOfLines="1" text="10.0s"/>
+        </d:StackPanel>
+        <UIView backgroundColor="@borderColor" preferredSize="d:Size(1,16)" margin="d:EdgeInsets(0,55,0,0)"/>
+        <d:StackPanel orientation="d:Orientation(Horizontal)" margin="d:EdgeInsets(0,8,0,0)">
+            <UILabel font="@font" verticalAlignment="d:Alignment(Center)" text="d:Text(3000)" preferredSize="d:Size(40,-1)" textAlignment="d:TextAlignment(Right)"/>
+            <UILabel font="@font" verticalAlignment="d:Alignment(Center)" text="@header"/>
+            <UILabel d:name="result2Label" font="@font2" verticalAlignment="d:Alignment(Center)" numberOfLines="1" text="20.0s"/>
+        </d:StackPanel>
+    </d:StackPanel>
+</d:Content>

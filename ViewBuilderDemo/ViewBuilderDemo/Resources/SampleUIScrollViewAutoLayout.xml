@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Item name="labelStyle">
+            <d:ObjectStyle>
+                <d:Setter property="numberOfLines" value="1"/>
+                <d:Setter property="backgroundColor" value="d:Color(Gray)"/>
+                <d:Setter property="textColor" value="d:Color(Green)"/>
+                <d:Setter property="verticalAlignment" value="d:Alignment(Stretch)"/>
+                <d:Setter property="margin" value="d:EdgeInsets(5,0)"/>
+                <d:Setter property="cornerRadius" value="5"/>
+                <d:Setter property="masksToBounds" value="true"/>
+                <d:Setter property="borderWidth" value="1.0"/>
+                <d:Setter property="borderColor" value="d:Color(Green)"/>
+            </d:ObjectStyle>
+        </d:Item>
+    </d:Resources>
+    <UIScrollView size="m:Constrained(300, 300)" cornerRadius="5">
+        <m:AnchoringView anchor="m:Anchor(Fill)">
+            <m:StackView orientation="d:Orientation(Vertical)" width="m:Constrained(300)">
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Bold Bold Bold" font="d:Font(name: Helvetica Neue, size:20, traits: Bold)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Italic Italic Italic" font="d:Font(name: Helvetica Neue, size:20, traits: Italic)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Expanded Expanded Expanded" font="d:Font(name: Helvetica Neue, size:20, traits: Expanded)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Condensed Condensed Condensed" font="d:Font(name: Helvetica Neue, size:20, traits: Condensed)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="MonoSpace MonoSpace MonoSpace" font="d:Font(name: Helvetica Neue, size:20, traits: MonoSpace)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Vertical Vertical Vertical" font="d:Font(name: Helvetica Neue, size:20, traits: Vertical)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Italic Bold Italic Bold" font="d:Font(name: Helvetica Neue, size:20, traits: Italic, Bold)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Optimized Optimized Optimized" font="d:Font(name: Helvetica Neue, size:20, traits: Optimized)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Tight Tight Tight" font="d:Font(name: Helvetica Neue, size:20, traits: Tight)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Loose Loose Loose" font="d:Font(name: Helvetica Neue, size:20, traits: Loose)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="HelveticaNeue-UltraLight" font="d:Font(name: HelveticaNeue-UltraLight, size:20)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="GurmukhiMN-Bold" font="d:Font(name: GurmukhiMN-Bold, size:20)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="GillSans-UltraBold" font="d:Font(name: GillSans-UltraBold ,size:20)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="MarkerFelt-Wide" font="d:Font(name: MarkerFelt-Wide, size:20)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="TimesNewRomanPS-BoldItalicMT" font="d:Font(name: TimesNewRomanPS-BoldItalicMT, size:20)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Zapfino" font="d:Font(name: Zapfino size:20)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Futura-CondensedExtraBold" font="d:Font(name: Futura-CondensedExtraBold, size:20)"/>
+                <UILabel style="@labelStyle" height="m:Constrained(45)" text="Bodoni Ornaments" font="d:Font(name: Bodoni Ornaments, size:20)"/>
+            </m:StackView>
+        </m:AnchoringView>
+    </UIScrollView>
+</d:Content>
+

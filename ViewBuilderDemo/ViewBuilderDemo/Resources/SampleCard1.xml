@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+    <UIView backgroundColor="d:Color(Clear)">
+        <m:AnchoringView anchor="m:Anchor(Fill)">
+            <UICollectionView d:name="collectionView" backgroundColor="d:Color(Clear)" showsHorizontalScrollIndicator="false" masksToBounds="false" contentInset="d:EdgeInsets(0,8)"/>
+        </m:AnchoringView>
+    </UIView>
+</d:Content>

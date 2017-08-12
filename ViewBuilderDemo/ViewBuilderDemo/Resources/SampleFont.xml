@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+       <d:Resources path="d:PathFromBundle(SampleResource.xml)"/> 
+    </d:Resources>
+    <UIView frame="d:Rect(0,0,300,550)">
+        <UILabel frame="d:Rect(0,  0,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(name: Courier New, size: 20)"/>
+        <UILabel frame="d:Rect(0, 50,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(name: Arial, size: 15)"/>
+        <UILabel frame="d:Rect(0,100,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(bold: 20)"/>
+        <UILabel frame="d:Rect(0,150,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(italic: 20)"/>
+        <UILabel frame="d:Rect(0,200,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(monospaced: 20, weight: 12)"/>
+        <UILabel frame="d:Rect(0,250,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(style: Title1)"/>
+        <UILabel frame="d:Rect(0,300,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(system: 30, weight: 30)"/>
+        <UILabel frame="d:Rect(0,350,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(system: 35)"/>
+        <UILabel frame="d:Rect(0,400,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(name: Zapfino, size: 20)"/>
+        <UILabel frame="d:Rect(0,450,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(name: Palatino, size: 30)"/>
+        <UILabel frame="d:Rect(0,500,300,45)" text="@defaultText" backgroundColor="@defaultBackground" textColor="@defaultColor"
+            font="d:Font(name: Verdana, size: 30)"/>
+    </UIView>
+</d:Content>
+

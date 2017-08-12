@@ -1,0 +1,14 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+        <d:Item name="title" value="Screen Title"/>
+        <d:Item name="description" value="This is the description about what you will see on that screen."/>
+    </d:Resources>
+    <d:StackPanel orientation="d:Orientation(Vertical)" style="@cellStyle" backgroundColor="d:Color(White)">
+        <UILabel d:name="titleLabel" numberOfLines="0" font="@mediumFont" text="@title" margin="d:EdgeInsets(8)"/>
+        <UIView backgroundColor="@borderColor" preferredSize="d:Size(90,1)"/>
+        <UILabel d:name="descriptionLabel" numberOfLines="0" font="@font" text="@description" margin="d:EdgeInsets(8)" horizontalAlignment="d:Alignment(Stretch)"/>
+    </d:StackPanel>
+</d:Content>
+

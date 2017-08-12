@@ -1,0 +1,40 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Item name="font" value="d:Font(name: AppleSDGothicNeo-Regular, size:14)"/>
+        <d:Item name="color" value="d:Color(Orange)"/>
+        <d:Item name="margin" value="d:EdgeInsets(1)"/>
+        <d:Item name="vstyle">
+            <d:ObjectStyle>
+                <d:Setter property="title" value="d:StringForState(value: V state: d:ControlState(Normal))"/>
+            </d:ObjectStyle>
+        </d:Item>
+        <d:Item name="hstyle">
+            <d:ObjectStyle>
+                <d:Setter property="title" value="d:StringForState(value: H state: d:ControlState(Normal))"/>
+            </d:ObjectStyle>
+        </d:Item>
+    </d:Resources>
+
+    <UIView>
+        <m:StackingViews orientation="d:Orientation(Horizontal)">
+            <UIView height="m:Constrained(100)">
+                <m:StackingViews orientation="d:Orientation(Horizontal)">
+                    <UIButton style="@hstyle" backgroundColor ="@color" margin="@margin" verticalAlignment="d:Alignment(Minimum)"/>
+                    <UIButton style="@hstyle" backgroundColor ="@color" margin="@margin" verticalAlignment="d:Alignment(Center)"/>
+                    <UIButton style="@hstyle" backgroundColor ="@color" margin="@margin" verticalAlignment="d:Alignment(Maximum)"/>
+                    <UIButton style="@hstyle" backgroundColor ="@color" margin="@margin" verticalAlignment="d:Alignment(Stretch)"/>
+                </m:StackingViews>
+            </UIView>
+
+            <UIView width="m:Constrained(100)">
+                <m:StackingViews orientation="d:Orientation(Vertical)">
+                    <UIButton style="@vstyle" backgroundColor ="@color" margin="@margin" horizontalAlignment="d:Alignment(Minimum)"/>
+                    <UIButton style="@vstyle" backgroundColor ="@color" margin="@margin" horizontalAlignment="d:Alignment(Center)"/>
+                    <UIButton style="@vstyle" backgroundColor ="@color" margin="@margin" horizontalAlignment="d:Alignment(Maximum)"/>
+                    <UIButton style="@vstyle" backgroundColor ="@color" margin="@margin" horizontalAlignment="d:Alignment(Stretch)"/>
+                </m:StackingViews>
+            </UIView>
+        </m:StackingViews>
+    </UIView>
+</d:Content>

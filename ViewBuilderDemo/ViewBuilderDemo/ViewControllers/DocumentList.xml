@@ -1,0 +1,6 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <NSMutableArray>
+        <m:DocumentModel name="CardResources.xml" bundleIdentifier="@domains.m"/>
+    </NSMutableArray>
+</d:Content>

@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+    <UIView style="@cellStyle" backgroundColor="@color">
+        <m:AnchoringView margin="d:EdgeInsets(12)">
+            <UIStackView axis="m:Axis(Vertical)" spacing="8">
+                <UIStackView axis="m:Axis(Horizontal)" alignment="m:StackViewAlignment(Top)" spacing="8">
+                    <UIView d:name="imageView" size="m:Constrained(50,50)" cornerRadius="2" backgroundColor="d:Color(Orange)" margin="d:EdgeInsets(0,0,0,8)"/>
+                    <UILabel d:name="summaryLabel" numberOfLines="0" font="@font" text="@summary"/>
+                </UIStackView>
+                <UIView height="m:Constrained(1)">
+                    <m:AnchoringView anchor="m:Anchor(Left,Top,Bottom)">
+                        <UIView backgroundColor="d:Color(#BBBBBB)" width="m:Constrained(90)"/>
+                    </m:AnchoringView>
+                </UIView>
+                <UILabel d:name="insightLabel" numberOfLines="0" font="@font2" text="@insight"/>
+                <UIView>
+                    <m:AnchoringView anchor="m:Anchor(Left,Top,Bottom)">
+                        <UIButton d:name="button" type="d:ButtonType(Custom)" style="@buttonStyle" margin="d:EdgeInsets(0,60,0,0)" font="@font3" title="d:StringForState(Say thanks)"/>
+                    </m:AnchoringView>
+                </UIView>
+            </UIStackView>
+        </m:AnchoringView>
+    </UIView>
+</d:Content>

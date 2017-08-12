@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+    <d:Panel backgroundColor="d:Color(Clear)" masksToBounds="false">
+            <d:LinearGradientView verticalAlignment="d:Alignment(Stretch)" horizontalAlignment="d:Alignment(Stretch)"
+                startPoint="d:Point(0,0)"
+                endPoint="d:Point(1,1)"
+                style="@cellStyle">
+                <d:GradientStop color="d:Color(Red)" offset="0.0"/>
+                <d:GradientStop color="d:Color(Orange)" offset="1.0"/>
+            </d:LinearGradientView>
+
+            <UILabel verticalAlignment="d:Alignment(Center)" horizontalAlignment="d:Alignment(Center)"  d:name="titleLabel" font="@mediumFont" text="Advertising !Rocks" numberOfLines="0" textAlignment="d:TextAlignment(Center)" textColor="d:Color(White)"/>
+
+            <UIButton verticalAlignment="d:Alignment(Minimum)" horizontalAlignment="d:Alignment(Maximum)" d:name="dismissButton" type="d:ButtonType(Custom)" title="d:StringForState(dismiss)" margin="d:EdgeInsets(8)" style="@buttonStyleSmall"/>
+    </d:Panel>
+</d:Content>

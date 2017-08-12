@@ -1,0 +1,53 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
+        <d:Item name="phoneShape" value="M0.563106796,2.84217094e-14 L0.563106796,239.427807 C0.563106796,261.822895 18.6796025,280 41.0000163,280 L239.195965,280 C261.516378,280 279.632874,261.822895 279.632874,239.427807 L279.632874,5.68434189e-14 L265.331237,5.68434189e-14 L265.331237,211.359078 C265.331237,212.13086 264.70607,212.759609 263.936861,212.759609 L17.3164105,212.759609 C16.5472019,212.759609 15.9220343,212.13086 15.9220343,211.359078 L15.9220343,2.84217094e-14 L0.563106796,5.68434189e-14 Z M122.301503,232.332776 C128.937784,222.178926 142.520701,219.345085 152.642179,226.003568 C162.762172,232.66354 165.586564,246.291899 158.950283,256.445749 C152.312518,266.601089 138.729601,269.43493 128.609608,262.774958 C118.48813,256.116475 115.663738,242.488116 122.301503,232.332776 Z"/>
+    </d:Resources>
+    <d:Panel backgroundColor="@backgroundColor">
+        <!-- Top Section -->
+        <d:StackPanel d:name="topView" verticalAlignment="d:Alignment(Minimum)" horizontalAlignment="d:Alignment(Stretch)" orientation="d:Orientation(Vertical)">
+            <UILabel d:name="titleLabel"
+                     margin="d:EdgeInsets(16,0,0,0)"
+                     font="@bigFont"
+                     text="View Builder"
+                     shadowColor="d:Color(White)"
+                     shadowOffset="d:Size(0,1)"
+                     horizontalAlignment="d:Alignment(Center)"/>
+            <UILabel d:name="headlineLabel"
+                     margin="d:EdgeInsets(8)"
+                     font="@mediumFont2"
+                     textAlignment="d:TextAlignment(Center)"
+                     numberOfLines="0"
+                     shadowColor="d:Color(White)"
+                     shadowOffset="d:Size(0,1)"
+                     horizontalAlignment="d:Alignment(Stretch)"
+                     text="Now will be easier to build eye-popping UI that will lead to a great UX"/>
+        </d:StackPanel>
+        <!-- Center View -->
+        <d:Panel d:name="centerView" verticalAlignment="d:Alignment(Center)" horizontalAlignment="d:Alignment(Center)" margin="d:EdgeInsets(16,0,0,0)">
+            <m:OnboardingPhoneScreenView d:name="screenView" preferredSize="d:Size(251,213)" verticalAlignment="d:Alignment(Minimum)" horizontalAlignment="d:Alignment(Center)"/>
+            <d:ShapeView userInteractionEnabled="false" verticalAlignment="d:Alignment(Stretch)" horizontalAlignment="d:Alignment(Stretch)" data="@phoneShape" backgroundColor="d:Color(Clear)" fillRule="d:FillRule(EvenOdd)" fillColor="d:Color(Gray)" strokeColor="d:Color(Clear)"/>
+        </d:Panel>
+        <!-- Bottom Section -->
+        <d:StackPanel d:name="bottomView" verticalAlignment="d:Alignment(Maximum)" horizontalAlignment="d:Alignment(Stretch)" orientation="d:Orientation(Vertical)">
+            <d:LinearGradientView horizontalAlignment="d:Alignment(Stretch)"
+                startPoint="d:Point(0,1)"
+                endPoint="d:Point(0,0)"
+                preferredSize="d:Size(-1,10)">
+                <d:GradientStop color="d:Color(Gray)" offset="0.0"/>
+                <d:GradientStop color="d:Color(#FFFFFF00)" offset="1.0"/>
+            </d:LinearGradientView>
+            <UIView backgroundColor="@themeColorDark" preferredSize="d:Size(-1,1)" horizontalAlignment="d:Alignment(Stretch)"/>
+            <d:Panel backgroundColor="@themeColor" preferredSize="d:Size(-1,100)" horizontalAlignment="d:Alignment(Stretch)">
+                <UIButton d:name="continueButton" type="d:ButtonType(Custom)" style="@buttonStyleWhite" margin="d:EdgeInsets(8,0)" verticalAlignment="d:Alignment(Center)" horizontalAlignment="d:Alignment(Center)" title="d:StringForState(Continue)"/>
+            </d:Panel>
+        </d:StackPanel>
+        <!-- Info Button -->
+        <UIButton d:name="infoButton"
+                  tintColor="d:Color(White)"
+                  type="d:ButtonType(InfoLight)"
+                  margin="d:EdgeInsets(16)"
+                  verticalAlignment="d:Alignment(Maximum)" horizontalAlignment="d:Alignment(Maximum)"/>
+    </d:Panel>
+</d:Content>

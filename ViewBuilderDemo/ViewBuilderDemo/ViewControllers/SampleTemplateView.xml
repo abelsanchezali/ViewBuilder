@@ -1,0 +1,7 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Panel backgroundColor="d:Color(White)">
+        <d:Panel d:name="topSection" verticalAlignment="d:Alignment(Minimum)" horizontalAlignment="d:Alignment(Stretch)"/>
+        <d:Panel d:name="bottomSection" verticalAlignment="d:Alignment(Maximum)" horizontalAlignment="d:Alignment(Stretch)"/>
+    </d:Panel>
+</d:Content>

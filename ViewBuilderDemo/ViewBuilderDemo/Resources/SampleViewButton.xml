@@ -1,0 +1,12 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+    <d:Resources>
+        <d:Item name="buttonStyle">
+            <d:ObjectStyle>
+                <d:Setter property="title" value="d:StringForState(value: HIGHLIGTHED state: d:ControlState(Highlighted))"/>
+                <d:Setter property="title" value="d:StringForState(value: NORMAL state: d:ControlState(Normal))"/>
+            </d:ObjectStyle>
+        </d:Item>
+    </d:Resources>
+    <UIButton style="@buttonStyle" type="d:ButtonType(System)"/>
+</d:Content>
