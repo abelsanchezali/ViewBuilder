@@ -394,17 +394,12 @@
 				B522F9CE1D43065600BD2219 /* PropertyCollection.swift */,
 				B522F9D01D4402A300BD2219 /* TextDeserializerServiceProtocolDelegateAdapter.swift */,
 				B5063A1B1D31AC34001F1937 /* SymbolTable.swift */,
-				B548A9981D2A42F700EEF6A1 /* AttachableObject.swift */,
-				B548A9A31D2AFAEE00EEF6A1 /* AttachableProperty.swift */,
 				B594D9FE1D0FEA6E00137248 /* Object.swift */,
 				B594DA061D125EAA00137248 /* TextDeserializer.swift */,
-				B594DA181D152E8400137248 /* NSValueConvertible.swift */,
 				B50503281D1F84FE0010727F /* DefaultConstructor.swift */,
-				B50503321D2398320010727F /* ObjectTransformable.swift */,
 				B59FE1E11D2F0E960012B2FA /* TextDeserializerServiceProtocol.swift */,
 				B59FE1E51D2F23CE0012B2FA /* KeyValueResolverProtocol.swift */,
 				B59FE1E31D2F173C0012B2FA /* DefaultTextDeserializerService.swift */,
-				B59F7D561D49FA54001EE93F /* ValueProviderProtocol.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -425,14 +420,14 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
-		B54B0B161F3452FC00983D05 /* Build */ = {
+		B54B0B161F3452FC00983D05 /* Addin */ = {
 			isa = PBXGroup;
 			children = (
 				B5E38ABE1D0CF87C004D849F /* Constructor */,
 				B5C8C2D21DB9B3CD00031FB3 /* Properties */,
 				B5E38ACB1D0D4AD7004D849F /* Childs */,
 			);
-			path = Build;
+			path = Addin;
 			sourceTree = "<group>";
 		};
 		B54B0B2B1F345EA900983D05 /* Helpers */ = {
@@ -670,6 +665,8 @@
 		B5C8C2D21DB9B3CD00031FB3 /* Properties */ = {
 			isa = PBXGroup;
 			children = (
+				B594DA181D152E8400137248 /* NSValueConvertible.swift */,
+				B548A9A31D2AFAEE00EEF6A1 /* AttachableProperty.swift */,
 				B5C8C2D31DB9B47800031FB3 /* KeyValueAccesible.swift */,
 				B5C8C2D51DBAAB1800031FB3 /* PropertyHelper.swift */,
 				B50F9CD01F2D5A5F004E6993 /* NSObject+KeyValueAccesible.swift */,
@@ -728,6 +725,9 @@
 		B5E38ACB1D0D4AD7004D849F /* Childs */ = {
 			isa = PBXGroup;
 			children = (
+				B50503321D2398320010727F /* ObjectTransformable.swift */,
+				B59F7D561D49FA54001EE93F /* ValueProviderProtocol.swift */,
+				B548A9981D2A42F700EEF6A1 /* AttachableObject.swift */,
 				B59F7D4F1D45E4F7001EE93F /* DocumentChildsProcessor.swift */,
 				B505031D1D1D14B60010727F /* Resources+DocumentChildsProcessor.swift */,
 				B59FE1CB1D2CAF4D0012B2FA /* Item+DocumentChildsProcessor.swift */,
@@ -745,7 +745,7 @@
 				B522F9CB1D42FC6600BD2219 /* Core */,
 				B5E38A981D094587004D849F /* Deserializer */,
 				B59098DE1F32F95D006C60E4 /* Cache */,
-				B54B0B161F3452FC00983D05 /* Build */,
+				B54B0B161F3452FC00983D05 /* Addin */,
 				B5E38AD71D0E954A004D849F /* DataStructure */,
 				B54B0B2B1F345EA900983D05 /* Helpers */,
 			);
