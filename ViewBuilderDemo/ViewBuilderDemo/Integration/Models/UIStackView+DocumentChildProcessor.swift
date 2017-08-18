@@ -7,6 +7,7 @@
 //
 
 import ViewBuilder
+import UIKit
 
 extension UIStackView {
     open override func processDocument(childs: DocumentChildVisitor) {

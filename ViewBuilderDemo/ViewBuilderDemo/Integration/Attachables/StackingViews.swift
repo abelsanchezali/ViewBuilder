@@ -7,6 +7,7 @@
 //
 
 import ViewBuilder
+import UIKit
 
 public class StackingViews: UIViewAttachable {
     public var padding: NSValue? = nil

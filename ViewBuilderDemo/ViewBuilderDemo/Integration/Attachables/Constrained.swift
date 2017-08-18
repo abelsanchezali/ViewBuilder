@@ -7,6 +7,7 @@
 //
 
 import ViewBuilder
+import UIKit
 
 public class Constrained: AttachableProperty, TextDeserializer {
 

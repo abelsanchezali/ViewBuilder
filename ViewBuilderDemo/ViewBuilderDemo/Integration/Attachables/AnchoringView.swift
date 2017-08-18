@@ -7,6 +7,7 @@
 //
 
 import ViewBuilder
+import UIKit
 
 public class AnchoringView: UIViewAttachable {
     public var subview: UIView?
