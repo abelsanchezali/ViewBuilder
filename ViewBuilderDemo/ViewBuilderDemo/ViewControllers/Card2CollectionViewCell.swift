@@ -14,12 +14,12 @@ public protocol Card2CollectionViewCellDelegate: CollectionViewCellDelegate {
 }
 
 public class Card2CollectionViewCell: UICollectionViewCell, DataSourceReceiverProtocol, CollectionViewCellWithDelegate {
-
+    
     public weak var delegate: CollectionViewCellDelegate?
-
+    
     var titleLabel: UILabel!
     var dismissButton: UIButton!
-
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         if !self.contentView.loadFromDocument(Constants.bundle.path(forResource: "SampleCard2", ofType: "xml")!) {
@@ -27,23 +27,24 @@ public class Card2CollectionViewCell: UICollectionViewCell, DataSourceReceiverPr
         }
         dismissButton = self.contentView.documentReferences!["dismissButton"] as! UIButton
         titleLabel = self.contentView.documentReferences!["titleLabel"] as! UILabel
-
+        
         dismissButton.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
     }
-
+    
+    @objc
     func dismissAction() {
-        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
             self.alpha = 0
         }) { (finish) in
             (self.delegate as? Card2CollectionViewCellDelegate)?.removeCell(self)
         }
     }
-
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     public var dataSource: AnyObject? = nil {
         didSet {
             let dataSource = self.dataSource as? ViewModel

@@ -8,7 +8,8 @@
 
 import UIKit
 
-public protocol PanelLayoutProtocol: class, BoxProtocol, LayoutSkippableProcotol {
+@objc
+public protocol PanelLayoutProtocol: BoxProtocol, LayoutSkippableProcotol {
     // Last size measured using func measure(:)
     var measuredSize: CGSize { get set }
 

@@ -9,7 +9,7 @@
 import UIKit
 
 open class ShapeView: Panel {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -18,21 +18,23 @@ open class ShapeView: Panel {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func initialize() {
         shapeLayer = layer as! ShapeLayer
     }
-
+    
     override open class var layerClass : AnyClass {
         return ShapeLayer.self
     }
-
+    
     public private(set) var shapeLayer: ShapeLayer!
-
+    
+    @objc
     open var pathBounds: CGRect {
         return shapeLayer.pathBoundingBox
     }
-
+    
+    @objc
     open var data: String? {
         didSet {
             guard let value = data else {
@@ -42,7 +44,8 @@ open class ShapeView: Panel {
             path = Path(data: value)
         }
     }
-
+    
+    @objc
     open var path: Path? {
         didSet {
             shapeLayer.path = path?.path
@@ -52,7 +55,8 @@ open class ShapeView: Panel {
             }
         }
     }
-
+    
+    @objc
     open var fillColor: UIColor? {
         get {
             guard let color = shapeLayer.fillColor else {
@@ -64,7 +68,8 @@ open class ShapeView: Panel {
             shapeLayer.fillColor = newValue != nil ? newValue!.cgColor : nil
         }
     }
-
+    
+    @objc
     open var strokeColor: UIColor? {
         get {
             guard let color = shapeLayer.strokeColor else {
@@ -76,16 +81,18 @@ open class ShapeView: Panel {
             shapeLayer.strokeColor = newValue != nil ? newValue!.cgColor : nil
         }
     }
-
+    
+    @objc
     open var fillRule: String {
         get {
-            return shapeLayer.fillRule
+            return shapeLayer.fillRule.rawValue
         }
         set {
-            shapeLayer.fillRule = newValue
+            shapeLayer.fillRule = CAShapeLayerFillRule(rawValue:newValue)
         }
     }
-
+    
+    @objc
     open var fitToPath: Bool = true {
         didSet {
             if fitToPath {
@@ -94,7 +101,7 @@ open class ShapeView: Panel {
             invalidateLayout()
         }
     }
-
+    
     open override func measureOverride(_ size: CGSize) -> CGSize {
         let measuredSize = super.measureOverride(size)
         if fitToPath {

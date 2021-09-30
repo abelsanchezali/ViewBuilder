@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol KeyValueResolverProtocol: class {
+public protocol KeyValueResolverProtocol: AnyObject {
     func resolveValue(for key: String) -> Any?
 }

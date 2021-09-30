@@ -12,8 +12,8 @@ public protocol TextDeserializerServiceProtocolDelegate: KeyValueResolverProtoco
     func resolveDomain(for prefix: String) -> String?
 }
 
-public protocol TextDeserializerServiceProtocol: class {
-    weak var delegate: TextDeserializerServiceProtocolDelegate? { get set }
+public protocol TextDeserializerServiceProtocol: AnyObject {
+    var delegate: TextDeserializerServiceProtocolDelegate? { get set }
 
     func parseValidWordsArray(from text: String) -> [String]?
     func parseValidDoubleArray(from text: String) -> [Double]?

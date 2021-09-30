@@ -9,7 +9,7 @@
 import Foundation
 
 open class Log: NSObject {
-    open static let shared = Log()
+    public static let shared = Log()
 
     open func write(_ text: String, file: String = #file, function: String = #function, line: Int = #line) {
         print("ViewBuilder - [\((file as NSString).lastPathComponent) \(function) line:\(line)]: \(text)")

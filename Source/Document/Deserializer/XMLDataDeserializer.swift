@@ -47,12 +47,12 @@ class XMLDataDeserializerNSXMLParserDelegate: NSObject, XMLParserDelegate {
         }
 
         if namespace.hasPrefix("@") {
-            let key = namespace.substring(from: namespace.characters.index(namespace.startIndex, offsetBy: 1))
+            let key = namespace.substring(from: namespace.index(namespace.startIndex, offsetBy: 1))
             // Resolve namespaces with module name
             if let match = Constants.moduleWithNameExpresion?.firstMatch(in: key,
                                                                          options: NSRegularExpression.MatchingOptions(rawValue: 0),
-                                                                         range: NSMakeRange(0, key.characters.count)),
-                let nameParameter = key.substring(match.rangeAt(1)) {
+                                                                         range: NSMakeRange(0, key.count)),
+               let nameParameter = key.substring(match.range(at:1)) {
                 return options.resolveNamespaceWithName(nameParameter)
             }
             // Fallback to defined namespaces

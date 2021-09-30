@@ -24,19 +24,19 @@ private class SVGPathCommandParser {
     static let ExponentialSet = Set<Character>(["e","E"])
     static let Dot: Character = "."
     static let Comma: Character = ","
-
+    
     let inputString: String
     var currentIndex: String.Index
-
+    
     init(data: String) {
         inputString = data
         currentIndex = data.startIndex
     }
-
+    
     private var isEmpty: Bool {
         return currentIndex == inputString.endIndex
     }
-
+    
     private func readCommandName() -> Character? {
         if isEmpty {
             return nil
@@ -49,7 +49,7 @@ private class SVGPathCommandParser {
             return nil
         }
     }
-
+    
     private func readNullCharacters() {
         while !isEmpty {
             let char = inputString[currentIndex]
@@ -59,7 +59,7 @@ private class SVGPathCommandParser {
             currentIndex = inputString.index(after: currentIndex)
         }
     }
-
+    
     private func readSeparator() {
         if isEmpty {
             return
@@ -69,7 +69,7 @@ private class SVGPathCommandParser {
             currentIndex = inputString.index(after: currentIndex)
         }
     }
-
+    
     private func readNumber() -> String? {
         readNullCharacters()
         var allowSign = true
@@ -119,8 +119,8 @@ private class SVGPathCommandParser {
         }
         return inputString.substring(with: firstIndex..<currentIndex)
     }
-
-
+    
+    
     func readCommand() -> (Character, [CGFloat])? {
         if isEmpty {
             return nil
@@ -130,7 +130,7 @@ private class SVGPathCommandParser {
             return nil
         }
         var parameters = [CGFloat]()
-
+        
         while !isEmpty {
             guard let numberString = readNumber() else {
                 return nil
@@ -145,29 +145,29 @@ private class SVGPathCommandParser {
             readNullCharacters()
             readSeparator()
         }
-
+        
         return (commandName, parameters)
     }
-
+    
 }
 
 public class VectorHelper {
-
+    
     public class func getPathFromSVGPathData(data: String?) -> CGPath? {
         guard let data = data else {
             return nil
         }
         let parser = SVGPathCommandParser(data: data)
-
+        
         let path = UIBezierPath()
         var lastControlPoint: CGPoint? = nil
-
+        
         func executeClose(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             lastControlPoint = nil
             path.close()
             return true
         }
-
+        
         func executeMove(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             lastControlPoint = nil
             if parameters.count % 2 != 0 {
@@ -182,7 +182,7 @@ public class VectorHelper {
             path.move(to: point)
             return executeLine(Array(parameters[2..<parameters.count]), isRelative: isRelative)
         }
-
+        
         func executeLine(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             lastControlPoint = nil
             if parameters.count % 2 != 0 {
@@ -197,7 +197,7 @@ public class VectorHelper {
             }
             return true
         }
-
+        
         func executeVertical(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             lastControlPoint = nil
             let count = parameters.count
@@ -209,7 +209,7 @@ public class VectorHelper {
             }
             return true
         }
-
+        
         func executeHorizontal(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             lastControlPoint = nil
             let count = parameters.count
@@ -221,7 +221,7 @@ public class VectorHelper {
             }
             return true
         }
-
+        
         func executeArc(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             lastControlPoint = nil
             if parameters.count % 7 != 0 {
@@ -236,7 +236,7 @@ public class VectorHelper {
             }
             return true
         }
-
+        
         func executeQuadraticStart(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             lastControlPoint = nil
             if parameters.count % 4 != 0 {
@@ -252,7 +252,7 @@ public class VectorHelper {
             }
             return true
         }
-
+        
         func executeQuadraticContinue(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             if parameters.count % 2 != 0 {
                 return false
@@ -262,7 +262,7 @@ public class VectorHelper {
                 let currentPoint = path.currentPoint
                 let originPoint = isRelative ? currentPoint : CGPoint.zero
                 let endPoint = CGPoint(x: parameters[2 * i + 0], y: parameters[2 * i + 1]) + originPoint
-
+                
                 var controlPoint: CGPoint
                 if let lastControlPoint = lastControlPoint {
                     controlPoint = currentPoint + (currentPoint - lastControlPoint)
@@ -274,7 +274,7 @@ public class VectorHelper {
             }
             return true
         }
-
+        
         func executeCubicStart(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             lastControlPoint = nil
             if parameters.count % 6 != 0 {
@@ -291,7 +291,7 @@ public class VectorHelper {
             }
             return true
         }
-
+        
         func executeCubicContinue(_ parameters: [CGFloat], isRelative: Bool) -> Bool {
             if parameters.count % 4 != 0 {
                 return false
@@ -313,7 +313,7 @@ public class VectorHelper {
             }
             return true
         }
-
+        
         while let command = parser.readCommand() {
             //print("\(command.0) - \(command.1)")
             var result = false

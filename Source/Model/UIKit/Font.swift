@@ -12,22 +12,22 @@ import CoreText
 // UIFontDescriptorSymbolicTraits
 
 open class FontTraits: Object, TextDeserializer {
-    private static let TraitsByText: [String: UIFontDescriptorSymbolicTraits] = ["Italic": UIFontDescriptorSymbolicTraits.traitItalic,
-                                                                                 "Bold": UIFontDescriptorSymbolicTraits.traitBold,
-                                                                                 "Expanded": UIFontDescriptorSymbolicTraits.traitExpanded,
-                                                                                 "Condensed": UIFontDescriptorSymbolicTraits.traitCondensed,
-                                                                                 "Monospace": UIFontDescriptorSymbolicTraits.traitMonoSpace,
-                                                                                 "Vertical": UIFontDescriptorSymbolicTraits.traitVertical,
-                                                                                 "Optimized": UIFontDescriptorSymbolicTraits.traitUIOptimized,
-                                                                                 "Tight": UIFontDescriptorSymbolicTraits.traitTightLeading,
-                                                                                 "Loose": UIFontDescriptorSymbolicTraits.traitLooseLeading]
+  private static let TraitsByText: [String: UIFontDescriptor.SymbolicTraits] = ["Italic": UIFontDescriptor.SymbolicTraits.traitItalic,
+                                                                               "Bold": UIFontDescriptor.SymbolicTraits.traitBold,
+                                                                               "Expanded": UIFontDescriptor.SymbolicTraits.traitExpanded,
+                                                                               "Condensed": UIFontDescriptor.SymbolicTraits.traitCondensed,
+                                                                               "Monospace": UIFontDescriptor.SymbolicTraits.traitMonoSpace,
+                                                                               "Vertical": UIFontDescriptor.SymbolicTraits.traitVertical,
+                                                                               "Optimized": UIFontDescriptor.SymbolicTraits.traitUIOptimized,
+                                                                               "Tight": UIFontDescriptor.SymbolicTraits.traitTightLeading,
+                                                                               "Loose": UIFontDescriptor.SymbolicTraits.traitLooseLeading]
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text,
               let words = service.parseValidWordsArray(from: value) else {
             return nil
         }
-        var traits = UIFontDescriptorSymbolicTraits()
+      var traits = UIFontDescriptor.SymbolicTraits()
         for w in words {
             if let t = FontTraits.TraitsByText[w] {
                 traits.insert(t)
@@ -40,23 +40,23 @@ open class FontTraits: Object, TextDeserializer {
 // UIFontTextStyle
 
 open class TextStyle: Object, TextDeserializer {
-    private static let StyleByText: [String: UIFontTextStyle] = {
-        var values = ["Headline": UIFontTextStyle.headline,
-                      "Subheadline": UIFontTextStyle.subheadline,
-                      "Body": UIFontTextStyle.body,
-                      "Footnote": UIFontTextStyle.footnote,
-                      "Caption1": UIFontTextStyle.caption1,
-                      "Caption2": UIFontTextStyle.caption2]
+  private static let StyleByText: [String: UIFont.TextStyle] = {
+    var values = ["Headline": UIFont.TextStyle.headline,
+                  "Subheadline": UIFont.TextStyle.subheadline,
+                  "Body": UIFont.TextStyle.body,
+                  "Footnote": UIFont.TextStyle.footnote,
+                  "Caption1": UIFont.TextStyle.caption1,
+                  "Caption2": UIFont.TextStyle.caption2]
         if #available(iOS 9.0, *) {
-            values["Title1"] = UIFontTextStyle.title1
-            values["Title2"] = UIFontTextStyle.title2
-            values["Title3"] = UIFontTextStyle.title3
-            values["Callout"] = UIFontTextStyle.callout
+          values["Title1"] = UIFont.TextStyle.title1
+          values["Title2"] = UIFont.TextStyle.title2
+          values["Title3"] = UIFont.TextStyle.title3
+          values["Callout"] = UIFont.TextStyle.callout
         }
         return values
     }()
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text?.trimmingCharacters(in: CharacterSet.whitespaces) else {
             return nil
         }
@@ -67,7 +67,7 @@ open class TextStyle: Object, TextDeserializer {
 // UIFont
 
 open class Font: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }
@@ -75,7 +75,7 @@ open class Font: Object, TextDeserializer {
         if let params = service.parseKeyValueSequence(from: value, params: ["name", "size", "traits"]) {
             guard let name = params[0] as? String,
                   let size = Double(value: params[1]),
-                  let traits = params[2] as? UIFontDescriptorSymbolicTraits ?? FontTraits.deserialize(text: params[2] as? String, service: service) as? UIFontDescriptorSymbolicTraits else {
+                  let traits = params[2] as? UIFontDescriptor.SymbolicTraits ?? FontTraits.deserialize(text: params[2] as? String, service: service) as? UIFontDescriptor.SymbolicTraits else {
                 return nil
             }
             guard let base = UIFont(name: name, size: CGFloat(size)) else {
@@ -116,12 +116,12 @@ open class Font: Object, TextDeserializer {
                 guard let size = Double(value: params[0]), let weight = Double(value: params[1]) else {
                     return nil
                 }
-                return UIFont.monospacedDigitSystemFont(ofSize: CGFloat(size), weight: CGFloat(weight))
+                return UIFont.monospacedDigitSystemFont(ofSize: CGFloat(size), weight: UIFont.Weight(CGFloat(weight)))
             }
         }
         //UIFont.preferredFontForTextStyle(style: String)
         if let params = service.parseKeyValueSequence(from: value, params: ["style"]) {
-            guard let style = params[0] as? UIFontTextStyle ?? TextStyle.deserialize(text: params[0] as? String, service: service) as? UIFontTextStyle else {
+          guard let style = params[0] as? UIFont.TextStyle ?? TextStyle.deserialize(text: params[0] as? String, service: service) as? UIFont.TextStyle else {
                 return nil
             }
             return UIFont.preferredFont(forTextStyle: style)
@@ -132,7 +132,7 @@ open class Font: Object, TextDeserializer {
                 guard let size = Double(value: params[0]), let weight = Double(value: params[1]) else {
                         return nil
                 }
-                return UIFont.systemFont(ofSize: CGFloat(size), weight: CGFloat(weight))
+                return UIFont.systemFont(ofSize: CGFloat(size), weight: UIFont.Weight(CGFloat(weight)))
             }
         }
         //UIFont.systemFontOfSize(fontSize: CGFloat)

@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc
 open class PanelBase: UIView {
 
     // MARK: - Initialization
@@ -30,7 +31,7 @@ open class PanelBase: UIView {
 
     open func connectToView(_ view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = true
-        view.autoresizingMask = UIViewAutoresizing()
+      view.autoresizingMask = UIView.AutoresizingMask()
     }
 
     open func disconnectFromView(_ view: UIView) {
@@ -56,13 +57,13 @@ open class PanelBase: UIView {
         invalidateLayout()
     }
 
-    open override func bringSubview(toFront view: UIView) {
-        super.bringSubview(toFront: view)
+    open override func bringSubviewToFront(_ view: UIView) {
+        super.bringSubviewToFront(view)
         invalidateLayout()
     }
 
-    open override func sendSubview(toBack view: UIView) {
-        super.sendSubview(toBack: view)
+    open override func sendSubviewToBack(_ view: UIView) {
+        super.sendSubviewToBack(view)
         invalidateLayout()
     }
 

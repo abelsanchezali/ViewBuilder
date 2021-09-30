@@ -11,7 +11,7 @@ import UIKit
 extension UIView: LayoutSkippableProcotol {
     private static let LayoutSkippableProcotolCollapsedParameterName = "LayoutSkippableProcotolCollapsedParameterName"
 
-    public var collapsable: Bool {
+    @objc public var collapsable: Bool {
         get {
             guard let value = getAttachedParameter(UIView.LayoutSkippableProcotolCollapsedParameterName) as? Bool else {
                 return true
@@ -25,7 +25,7 @@ extension UIView: LayoutSkippableProcotol {
 
     private static let LayoutSkippableProcotolDetachedParameterName = "LayoutSkippableProcotolDetachedParameterName"
 
-    public var detached: Bool {
+    @objc public var detached: Bool {
         get {
             guard let value = getAttachedParameter(UIView.LayoutSkippableProcotolDetachedParameterName) as? Bool else {
                 return false

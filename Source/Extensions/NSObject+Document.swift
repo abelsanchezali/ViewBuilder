@@ -12,8 +12,8 @@ public extension NSObject {
     private struct AssociatedKeys {
         static var NSObjectDocumentReferencesName = "NSObjectDocumentReferencesParameterName"
     }
-
-    public var documentReferences: [String: Any]? {
+    
+    var documentReferences: [String: Any]? {
         get {
             let dict = objc_getAssociatedObject(self, &AssociatedKeys.NSObjectDocumentReferencesName) as? [String: Any]
             return dict

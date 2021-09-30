@@ -27,8 +27,8 @@ extension UIEdgeInsets: NSValueConvertible {
 }
 
 open class EdgeInsets: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
-        guard let value = text, value.characters.count > 0 else {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+        guard let value = text, value.count > 0 else {
             return UIEdgeInsets.zero
         }
         guard let array = service.parseValidDoubleArray(from: value)else {
@@ -36,11 +36,11 @@ open class EdgeInsets: Object, TextDeserializer {
         }
         switch array.count {
         case 1:
-            return UIEdgeInsetsMake(CGFloat(array[0]), CGFloat(array[0]), CGFloat(array[0]), CGFloat(array[0]))
+          return UIEdgeInsets(top:CGFloat(array[0]), left:CGFloat(array[0]), bottom:CGFloat(array[0]), right:CGFloat(array[0]))
         case 2:
-            return UIEdgeInsetsMake(CGFloat(array[0]), CGFloat(array[1]), CGFloat(array[0]), CGFloat(array[1]))
+          return UIEdgeInsets(top:CGFloat(array[0]), left:CGFloat(array[1]), bottom:CGFloat(array[0]), right:CGFloat(array[1]))
         case 4:
-            return UIEdgeInsetsMake(CGFloat(array[0]), CGFloat(array[1]), CGFloat(array[2]), CGFloat(array[3]))
+          return UIEdgeInsets(top:CGFloat(array[0]), left:CGFloat(array[1]), bottom:CGFloat(array[2]), right:CGFloat(array[3]))
         default:
             return nil
         }

@@ -10,28 +10,28 @@ import UIKit
 
 // MARK: UIViewContentMode
 
-extension UIViewContentMode: NSValueConvertible {
+extension UIView.ContentMode: NSValueConvertible {
     public func convertToNSValue() -> NSValue? {
         return NSNumber(value: self.rawValue as Int)
     }
 }
 
 open class ContentMode: Object, TextDeserializer {
-    private static let ViewContentModeByText: [String: UIViewContentMode] = ["ScaleToFill" : UIViewContentMode.scaleToFill,
-                                                                             "ScaleAspectFit" : UIViewContentMode.scaleAspectFit,
-                                                                             "ScaleAspectFill" : UIViewContentMode.scaleAspectFill,
-                                                                             "Redraw" : UIViewContentMode.redraw,
-                                                                             "Center" : UIViewContentMode.center,
-                                                                             "Top" : UIViewContentMode.top,
-                                                                             "Bottom" : UIViewContentMode.bottom,
-                                                                             "Left" : UIViewContentMode.left,
-                                                                             "Right" : UIViewContentMode.right,
-                                                                             "TopLeft" : UIViewContentMode.topLeft,
-                                                                             "TopRight" : UIViewContentMode.topRight,
-                                                                             "BottomLeft" : UIViewContentMode.bottomLeft,
-                                                                             "BottomRight" : UIViewContentMode.bottomRight]
+  private static let ViewContentModeByText: [String: UIView.ContentMode] = ["ScaleToFill" : UIView.ContentMode.scaleToFill,
+                                                                           "ScaleAspectFit" : UIView.ContentMode.scaleAspectFit,
+                                                                           "ScaleAspectFill" : UIView.ContentMode.scaleAspectFill,
+                                                                           "Redraw" : UIView.ContentMode.redraw,
+                                                                           "Center" : UIView.ContentMode.center,
+                                                                           "Top" : UIView.ContentMode.top,
+                                                                           "Bottom" : UIView.ContentMode.bottom,
+                                                                           "Left" : UIView.ContentMode.left,
+                                                                           "Right" : UIView.ContentMode.right,
+                                                                           "TopLeft" : UIView.ContentMode.topLeft,
+                                                                           "TopRight" : UIView.ContentMode.topRight,
+                                                                           "BottomLeft" : UIView.ContentMode.bottomLeft,
+                                                                           "BottomRight" : UIView.ContentMode.bottomRight]
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }

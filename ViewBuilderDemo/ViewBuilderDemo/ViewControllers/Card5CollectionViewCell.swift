@@ -11,31 +11,31 @@ import ViewBuilder
 
 public class Card5CollectionViewCell: UICollectionViewCell, DataSourceReceiverProtocol {
     static let shared = Card5CollectionViewCell(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-
+    
     var summaryLabel: UILabel!
     var insightLabel: UILabel!
     var imageView: UIView!
     var button: UIButton!
     var container: PanelBase!
-
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.margin = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-
+        
         container = DocumentBuilder.shared.load(Constants.bundle.path(forResource: "SampleCard5", ofType: "xml")!)
         contentView.addSubview(container)
         ManualLayoutHelper.fitViewInContainer(container, container: contentView)
-
+        
         summaryLabel = container.documentReferences!["summaryLabel"] as! UILabel
         insightLabel = container.documentReferences!["insightLabel"] as! UILabel
         imageView = container.documentReferences!["imageView"] as! UIView
         button = container.documentReferences!["button"] as! UIButton
     }
-
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     public var dataSource: AnyObject? = nil {
         didSet {
             let dataSource = self.dataSource as? ViewModel
@@ -46,7 +46,7 @@ public class Card5CollectionViewCell: UICollectionViewCell, DataSourceReceiverPr
             summaryLabel.text = summary
             insightLabel.text = insight
             imageView.backgroundColor = Converter.intToColor(mode)
-            button.setTitle(action, for: UIControlState())
+            button.setTitle(action, for: UIControl.State())
         }
     }
 }

@@ -9,15 +9,15 @@
 import Foundation
 
 open class Nib: NSObject, TextDeserializer {
-    open let name: String
-    open let bundle: Foundation.Bundle
+    public let name: String
+    public let bundle: Foundation.Bundle
 
     public required init(name: String, bundle: Foundation.Bundle = Foundation.Bundle.main) {
         self.name = name
         self.bundle = bundle
     }
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }

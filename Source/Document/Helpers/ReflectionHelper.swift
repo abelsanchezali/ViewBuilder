@@ -25,7 +25,7 @@ open class ReflectionHelper {
             }
             let bundlePath = b.bundlePath
             if path.hasPrefix(bundlePath) {
-                let bundlePathLength = bundlePath.characters.count
+                let bundlePathLength = bundlePath.count
                 if  bundlePathLength > best {
                     best = bundlePathLength
                     bundle = b
@@ -137,8 +137,10 @@ open class ReflectionHelper {
     }
 
     public class func swizzleMethod(_ originalType: AnyClass, originalSelector: Selector, _ swizzledType: AnyClass, swizzledSelector: Selector) {
-        let originalMethod = class_getInstanceMethod(originalType, originalSelector)
-        let swizzledMethod = class_getInstanceMethod(swizzledType, swizzledSelector)
+        guard let originalMethod = class_getInstanceMethod(originalType, originalSelector),
+              let swizzledMethod = class_getInstanceMethod(swizzledType, swizzledSelector) else {
+          return;
+        }
 
         let didAddMethod = class_addMethod(originalType, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
 

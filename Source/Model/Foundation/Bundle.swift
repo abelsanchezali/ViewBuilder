@@ -9,7 +9,7 @@
 import Foundation
 
 open class Bundle: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }
@@ -33,7 +33,7 @@ open class Bundle: Object, TextDeserializer {
 }
 
 extension Foundation.Bundle: TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         return Bundle.deserialize(text: text, service: service)
     }
 }

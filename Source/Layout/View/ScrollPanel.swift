@@ -12,13 +12,13 @@ open class ScrollPanel: UIScrollView {
 
     // MARK: - Properties
 
-    open var orientation: NSNumber? = nil {
+    @objc open var orientation: NSNumber? = nil {
         didSet {
             invalidateLayout()
         }
     }
 
-    open weak var contentView: UIView? {
+    @objc open weak var contentView: UIView? {
         willSet {
             if let view = contentView {
                 disconnectFromView(view)
@@ -31,8 +31,8 @@ open class ScrollPanel: UIScrollView {
             invalidateLayout()
         }
     }
-
-    open override var padding: UIEdgeInsets {
+    
+    @objc open override var padding: UIEdgeInsets {
         didSet {
             invalidateLayout()
         }
@@ -42,7 +42,7 @@ open class ScrollPanel: UIScrollView {
 
     open func connectToView(_ view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = true
-        view.autoresizingMask = UIViewAutoresizing()
+      view.autoresizingMask = UIView.AutoresizingMask()
         view.addObserver(self, forKeyPath: "margin", options: .new, context: nil)
         view.addObserver(self, forKeyPath: "collapsable", options: .new, context: nil)
         view.addObserver(self, forKeyPath: "hidden", options: .new, context: nil)

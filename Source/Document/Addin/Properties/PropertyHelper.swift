@@ -9,7 +9,7 @@
 import Foundation
 
 class PropertyHelper {
-
+    
     @discardableResult public static func setProperty(_ instance: Any, name: String, value: Any?, hasPath: Bool = false) -> Bool {
         if let accesible = instance as? KeyValueAccesible {
             return hasPath ?

@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!-- DO NOT MODIFY, USED IN TESTS -->
-<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit">
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKitCore">
     <d:Resources>
         <d:Item name="labelStyle">
             <d:ObjectStyle>
@@ -20,7 +20,7 @@
             <UILabel frame="d:Rect(0,300,300,45)" text="Tight Tight Tight" style="@labelStyle" font="d:Font(name: Helvetica Neue, size:20, traits: d:FontTraits(Tight))"/>
             <UILabel frame="d:Rect(0,350,300,45)" text="Loose Loose Loose" style="@labelStyle" font="d:Font(name: Helvetica Neue, size:20, traits: d:FontTraits(Loose))"/>
             <UILabel frame="d:Rect(0,400,300,45)" text="HelveticaNeue-UltraLight" style="@labelStyle" font="d:Font(name: HelveticaNeue-UltraLight, size:20)"/>
-            <UILabel frame="d:Rect(0,450,300,45)" text="GurmukhiMN-Bold" style="@labelStyle" font="d:Font(name: GurmukhiMN-Bold, size:20)"/>
+            <UILabel frame="d:Rect(0,450,300,45)" text="Didot-Italic" style="@labelStyle" font="d:Font(name: Didot-Italic, size:20)"/>
             <UILabel frame="d:Rect(0,500,300,45)" text="CourierNewPSMT" style="@labelStyle" font="d:Font(name: CourierNewPSMT, size:20)"/>
             <UILabel frame="d:Rect(0,550,300,45)" text="Futura-CondensedExtraBold" style="@labelStyle" font="d:Font(name: Futura-CondensedExtraBold, size:20)"/>
         </UIView>

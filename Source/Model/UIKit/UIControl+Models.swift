@@ -10,28 +10,28 @@ import UIKit
 
 // MARK: - UIEdgeInsets
 
-extension UIControlState: NSValueConvertible {
+extension UIControl.State: NSValueConvertible {
     public func convertToNSValue() -> NSValue? {
         return NSNumber(value: self.rawValue as UInt)
     }
 }
 
 open class ControlState: Object, TextDeserializer {
-    private static let ControlStateByText: [String: UIControlState] = {
-        var values = ["Normal": UIControlState.normal,
-                      "Highlighted": UIControlState.highlighted,
-                      "Disabled": UIControlState.disabled,
-                      "Selected": UIControlState.selected,
-                      "Application": UIControlState.application,
-                      "Reserved": UIControlState.reserved]
+  private static let ControlStateByText: [String: UIControl.State] = {
+    var values = ["Normal": UIControl.State.normal,
+                  "Highlighted": UIControl.State.highlighted,
+                  "Disabled": UIControl.State.disabled,
+                  "Selected": UIControl.State.selected,
+                  "Application": UIControl.State.application,
+                  "Reserved": UIControl.State.reserved]
         if #available(iOS 9.0, *) {
-            values["Focused"] = UIControlState.focused
+          values["Focused"] = UIControl.State.focused
         }
         return values
     }()
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
-        guard let value = text, value.characters.count > 0 else {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+        guard let value = text, value.count > 0 else {
             return nil
         }
         guard let controlState = ControlState.ControlStateByText[value] else {

@@ -26,7 +26,7 @@ class DictionaryTextDeserializerServiceProtocolDelegate: TextDeserializerService
 
     func resolveValue(for key: String) -> Any? {
         if key.hasPrefix(DocumentFactory.DomainsValuesPrefix) {
-            return resolveDomain(for: key.substring(from: key.characters.index(key.startIndex, offsetBy: DocumentFactory.DomainsValuesPrefixLength)))
+            return resolveDomain(for: key.substring(from: key.index(key.startIndex, offsetBy: DocumentFactory.DomainsValuesPrefixLength)))
         }
         return values[key]
     }

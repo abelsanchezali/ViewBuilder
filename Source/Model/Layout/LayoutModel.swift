@@ -21,7 +21,7 @@ open class Orientation: Object, TextDeserializer {
     private static let OrientationByText: [String: LayoutOrientation] = ["Horizontal": LayoutOrientation.horizontal,
                                                                           "Vertical": LayoutOrientation.vertical]
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }
@@ -43,7 +43,7 @@ open class Alignment: Object, TextDeserializer {
                                                                      "Minimum": LayoutAlignment.minimum,
                                                                      "Stretch": LayoutAlignment.stretch]
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }

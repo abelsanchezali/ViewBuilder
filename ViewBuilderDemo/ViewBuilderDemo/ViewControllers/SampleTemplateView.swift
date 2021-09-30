@@ -10,8 +10,8 @@ import UIKit
 import ViewBuilder
 
 public class SampleTemplateView: Panel {
-    public weak var topSection: Panel!
-    public weak var bottomSection: Panel!
+    @objc public weak var topSection: Panel!
+    @objc public weak var bottomSection: Panel!
 
     init() {
         super.init(frame: CGRect.zero)

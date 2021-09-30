@@ -12,12 +12,12 @@ import UIKit
 
 public extension DocumentFactory {
 
-    public func buildObject(_ options: InstantiationOptions? = nil) -> Any? {
+    func buildObject(_ options: InstantiationOptions? = nil) -> Any? {
         let options = options ?? InstantiationOptions()
         return buildNode(document.baseNode, instance: options.baseInstance)
     }
 
-    public func build<T>(_ options: InstantiationOptions? = nil) -> T? {
+    func build<T>(_ options: InstantiationOptions? = nil) -> T? {
         let options = options ?? InstantiationOptions()
         guard let _ = document.baseNode.referenceType as? T.Type else {
             if options.verbose {
@@ -28,7 +28,7 @@ public extension DocumentFactory {
         return buildNode(document.baseNode, instance: options.baseInstance) as? T
     }
 
-    public func buildResources(_ options: InstantiationOptions? = nil) -> Resources? {
+    func buildResources(_ options: InstantiationOptions? = nil) -> Resources? {
         return build(options)
     }
 }
@@ -36,7 +36,7 @@ public extension DocumentFactory {
 // MARK: UIKit
 
 public extension DocumentFactory {
-    public func buildView(_ options: InstantiationOptions? = nil) -> UIView? {
+    func buildView(_ options: InstantiationOptions? = nil) -> UIView? {
         return build(options)
     }
 }

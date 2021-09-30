@@ -12,9 +12,9 @@ import UIKit
 // MARK: - UIView extensions
 
 internal extension UIView {
-
+    
     private static let StackViewLeadingConstraintParameterName = "StackViewLeadingConstraintParameterName"
-
+    
     var leadingConstraint: NSLayoutConstraint? {
         get {
             guard let value = getAttachedParameter(UIView.StackViewLeadingConstraintParameterName) as? NSLayoutConstraint else {
@@ -26,9 +26,9 @@ internal extension UIView {
             setAttachedParameter(UIView.StackViewLeadingConstraintParameterName, value: newValue)
         }
     }
-
+    
     private static let StackViewTrainlingConstraintParameterName = "StackViewTrainlingConstraintParameterName"
-
+    
     var trailingConstraint: NSLayoutConstraint? {
         get {
             guard let value = getAttachedParameter(UIView.StackViewTrainlingConstraintParameterName) as? NSLayoutConstraint else {
@@ -40,9 +40,9 @@ internal extension UIView {
             setAttachedParameter(UIView.StackViewTrainlingConstraintParameterName, value: newValue)
         }
     }
-
+    
     private static let StackViewTopConstraintParameterName = "StackViewTopConstraintParameterName"
-
+    
     var topConstraint: NSLayoutConstraint? {
         get {
             guard let value = getAttachedParameter(UIView.StackViewTopConstraintParameterName) as? NSLayoutConstraint else {
@@ -54,9 +54,9 @@ internal extension UIView {
             setAttachedParameter(UIView.StackViewTopConstraintParameterName, value: newValue)
         }
     }
-
+    
     private static let StackViewBottomConstraintParameterName = "StackViewBottomConstraintParameterName"
-
+    
     var bottomConstraint: NSLayoutConstraint? {
         get {
             guard let value = getAttachedParameter(UIView.StackViewBottomConstraintParameterName) as? NSLayoutConstraint else {
@@ -68,9 +68,9 @@ internal extension UIView {
             setAttachedParameter(UIView.StackViewBottomConstraintParameterName, value: newValue)
         }
     }
-
+    
     private static let StackViewWidthConstraintParameterName = "StackViewWidthConstraintParameterName"
-
+    
     var widthConstraint: NSLayoutConstraint? {
         get {
             guard let value = getAttachedParameter(UIView.StackViewWidthConstraintParameterName) as? NSLayoutConstraint else {
@@ -82,9 +82,9 @@ internal extension UIView {
             setAttachedParameter(UIView.StackViewWidthConstraintParameterName, value: newValue)
         }
     }
-
+    
     private static let StackViewHeightConstraintParameterName = "StackViewHeightConstraintParameterName"
-
+    
     var heightConstraint: NSLayoutConstraint? {
         get {
             guard let value = getAttachedParameter(UIView.StackViewHeightConstraintParameterName) as? NSLayoutConstraint else {
@@ -96,9 +96,9 @@ internal extension UIView {
             setAttachedParameter(UIView.StackViewHeightConstraintParameterName, value: newValue)
         }
     }
-
+    
     private static let StackViewCenterXConstraintParameterName = "StackViewCenterXConstraintParameterName"
-
+    
     var centerXConstraint: NSLayoutConstraint? {
         get {
             guard let value = getAttachedParameter(UIView.StackViewCenterXConstraintParameterName) as? NSLayoutConstraint else {
@@ -110,9 +110,9 @@ internal extension UIView {
             setAttachedParameter(UIView.StackViewCenterXConstraintParameterName, value: newValue)
         }
     }
-
+    
     private static let StackViewCenterYConstraintParameterName = "StackViewCenterYConstraintParameterName"
-
+    
     var centerYConstraint: NSLayoutConstraint? {
         get {
             guard let value = getAttachedParameter(UIView.StackViewCenterYConstraintParameterName) as? NSLayoutConstraint else {
@@ -128,48 +128,48 @@ internal extension UIView {
 
 public class StackView: UIView {
     // MARK: - Constructor 
-
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.initialize()
     }
-
+    
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initialize()
     }
-
+    
     func initialize() {
         addObserver(self, forKeyPath: "padding", options: .new, context: nil)
     }
-
+    
     deinit {
         removeObserver(self, forKeyPath: "padding")
     }
-
+    
     // MARK: - Properties
-
-    public var orientation: LayoutOrientation = .vertical {
+    
+    @objc public var orientation: LayoutOrientation = .vertical {
         didSet {
             setNeedsUpdateConstraints()
         }
     }
-
+    
     private var isDirtyConstraints = true
-
+    
     // MARK: -
-
+    
     public override class var requiresConstraintBasedLayout : Bool {
         return true
     }
-
-
+    
+    
     override public class var layerClass : AnyClass {
         return CATransformLayer.self
     }
-
+    
     // MARK: - 
-
+    
     @discardableResult private func removeConstraintForView(_ constraint: NSLayoutConstraint?) -> NSLayoutConstraint? {
         guard let constraint = constraint else {
             return nil
@@ -177,7 +177,7 @@ public class StackView: UIView {
         removeConstraint(constraint)
         return nil
     }
-
+    
     private func clearConstraintsForView(_ view: UIView) {
         view.leadingConstraint = removeConstraintForView(view.leadingConstraint)
         view.trailingConstraint = removeConstraintForView(view.trailingConstraint)
@@ -188,7 +188,7 @@ public class StackView: UIView {
         view.centerXConstraint = removeConstraintForView(view.centerXConstraint)
         view.centerYConstraint = removeConstraintForView(view.centerYConstraint)
     }
-
+    
     private func connectToView(_ view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.addObserver(self, forKeyPath: "margin", options: .new, context: nil)
@@ -197,7 +197,7 @@ public class StackView: UIView {
         view.addObserver(self, forKeyPath: "verticalAlignment", options: .new, context: nil)
         view.addObserver(self, forKeyPath: "horizontalAlignment", options: .new, context: nil)
     }
-
+    
     private func disconnectFromView(_ view: UIView) {
         view.removeObserver(self, forKeyPath: "margin")
         view.removeObserver(self, forKeyPath: "collapsable")
@@ -206,48 +206,48 @@ public class StackView: UIView {
         view.removeObserver(self, forKeyPath: "horizontalAlignment")
         clearConstraintsForView(view)
     }
-
+    
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         setNeedsUpdateConstraints()
     }
-
+    
     // MARK: - Addition/Removal
-
+    
     public override func willRemoveSubview(_ view: UIView) {
         disconnectFromView(view)
         super.willRemoveSubview(view)
         setNeedsUpdateConstraints()
     }
-
+    
     public override func didAddSubview(_ subview: UIView) {
         connectToView(subview)
         super.didAddSubview(subview)
         setNeedsUpdateConstraints()
     }
-
+    
     public override func exchangeSubview(at index1: Int, withSubviewAt index2: Int) {
         super.exchangeSubview(at: index1, withSubviewAt: index2)
         setNeedsUpdateConstraints()
     }
-
-    public override func bringSubview(toFront view: UIView) {
-        super.bringSubview(toFront: view)
+    
+    public override func bringSubviewToFront(_ view: UIView) {
+        super.bringSubviewToFront(view)
         setNeedsUpdateConstraints()
     }
-
-    public override func sendSubview(toBack view: UIView) {
-        super.sendSubview(toBack: view)
+    
+    public override func sendSubviewToBack(_ view: UIView) {
+        super.sendSubviewToBack(view)
         setNeedsUpdateConstraints()
     }
-
+    
     // MARK: - Constraints
-
+    
     // 
-
+    
     private func setupTopConstraintToViewBottom(_ view0: UIView, view1: UIView, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: view0, attribute: .top, relatedBy: .equal, toItem: view1, attribute: .bottom, multiplier: 1, constant: 0)
-            constraint.priority = UILayoutPriorityRequired
+            constraint.priority = UILayoutPriority.required
             view0.topConstraint = constraint
             removeConstraintForView(view1.bottomConstraint)
             view1.bottomConstraint = constraint
@@ -264,11 +264,11 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
+    
     private func setupLeadingConstraintToViewTrailing(_ view0: UIView, view1: UIView, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: view0, attribute: .leading, relatedBy: .equal, toItem: view1, attribute: .trailing, multiplier: 1, constant: 0)
-            constraint.priority = UILayoutPriorityRequired
+            constraint.priority = UILayoutPriority.required
             view0.leadingConstraint = constraint
             removeConstraintForView(view1.trailingConstraint)
             view1.trailingConstraint = constraint
@@ -285,13 +285,13 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
+    
     //
-
-    private func setupTopConstraintToContainer(_ view: UIView, relation: NSLayoutRelation, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
+    
+    private func setupTopConstraintToContainer(_ view: UIView, relation: NSLayoutConstraint.Relation, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: view, attribute: .top, relatedBy: relation, toItem: self, attribute: .top, multiplier: 1, constant: 0)
-            constraint.priority = relation == .equal ? UILayoutPriorityRequired : UILayoutPriorityDefaultHigh
+            constraint.priority = relation == .equal ? UILayoutPriority.required : UILayoutPriority.defaultHigh
             view.topConstraint = constraint
             collection.append(constraint)
             return constraint
@@ -306,11 +306,11 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
-    private func setupBottomConstraintToContainer(_ view: UIView, relation: NSLayoutRelation, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
+    
+    private func setupBottomConstraintToContainer(_ view: UIView, relation: NSLayoutConstraint.Relation, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: relation, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
-            constraint.priority = relation == .equal ? UILayoutPriorityRequired : UILayoutPriorityDefaultHigh
+            constraint.priority = relation == .equal ? UILayoutPriority.required : UILayoutPriority.defaultHigh
             view.bottomConstraint = constraint
             collection.append(constraint)
             return constraint
@@ -325,11 +325,11 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
-    private func setupLeadingConstraintToContainer(_ view: UIView, relation: NSLayoutRelation, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
+    
+    private func setupLeadingConstraintToContainer(_ view: UIView, relation: NSLayoutConstraint.Relation, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: view, attribute: .leading, relatedBy: relation, toItem: self, attribute: .leading, multiplier: 1, constant: 0)
-            constraint.priority = relation == .equal ? UILayoutPriorityRequired : UILayoutPriorityDefaultHigh
+            constraint.priority = relation == .equal ? UILayoutPriority.required : UILayoutPriority.defaultHigh
             view.leadingConstraint = constraint
             collection.append(constraint)
             return constraint
@@ -344,11 +344,11 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
-    private func setupTrailingConstraintToContainer(_ view: UIView, relation: NSLayoutRelation, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
+    
+    private func setupTrailingConstraintToContainer(_ view: UIView, relation: NSLayoutConstraint.Relation, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: relation, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
-            constraint.priority = relation == .equal ? UILayoutPriorityRequired : UILayoutPriorityDefaultHigh
+            constraint.priority = relation == .equal ? UILayoutPriority.required : UILayoutPriority.defaultHigh
             view.trailingConstraint = constraint
             collection.append(constraint)
             return constraint
@@ -363,13 +363,13 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
+    
     //
-
+    
     @discardableResult private func setupCenterXConstraintToContainer(_ view: UIView, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: self, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
-            constraint.priority = UILayoutPriorityRequired
+            constraint.priority = UILayoutPriority.required
             view.centerXConstraint = constraint
             collection.append(constraint)
             return constraint
@@ -384,11 +384,11 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
+    
     @discardableResult private func setupCenterYConstraintToContainer(_ view: UIView, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
-            constraint.priority = UILayoutPriorityRequired
+            constraint.priority = UILayoutPriority.required
             view.centerYConstraint = constraint
             collection.append(constraint)
             return constraint
@@ -403,13 +403,13 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
+    
     //
-
+    
     @discardableResult private func setupWidthConstraintToMinimum(_ view: UIView, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 0)
-            constraint.priority = UILayoutPriorityFittingSizeLevel
+            constraint.priority = UILayoutPriority.fittingSizeLevel
             view.widthConstraint = constraint
             collection.append(constraint)
             return constraint
@@ -424,11 +424,11 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
+    
     @discardableResult private func setupHeightConstraintToMinimum(_ view: UIView, collection: inout [NSLayoutConstraint]) -> NSLayoutConstraint {
         func createConstraint() -> NSLayoutConstraint {
             let constraint = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 0)
-            constraint.priority = UILayoutPriorityFittingSizeLevel
+            constraint.priority = UILayoutPriority.fittingSizeLevel
             view.heightConstraint = constraint
             collection.append(constraint)
             return constraint
@@ -443,7 +443,7 @@ public class StackView: UIView {
             return createConstraint()
         }
     }
-
+    
     private func setupHorizontalAlignmentConstraintForView(_ view: UIView, alignment: LayoutAlignment, collection: inout [NSLayoutConstraint]) {
         let padding = self.padding
         switch alignment {
@@ -488,7 +488,7 @@ public class StackView: UIView {
             break
         }
     }
-
+    
     // ***
     private func setupVerticalAlignmentConstraintForView(_ view: UIView, alignment: LayoutAlignment, collection: inout [NSLayoutConstraint]) {
         let padding = self.padding
@@ -534,12 +534,12 @@ public class StackView: UIView {
             break
         }
     }
-
+    
     public override func setNeedsUpdateConstraints() {
         isDirtyConstraints = true
         super.setNeedsUpdateConstraints()
     }
-
+    
     public override func updateConstraints() {
         if isDirtyConstraints {
             let padding = self.padding
@@ -594,7 +594,7 @@ public class StackView: UIView {
                     setupVerticalAlignmentConstraintForView(view, alignment: view.verticalAlignment, collection: &collection)
                     break
                 }
-
+                
                 before = view
                 isFirst = false
             }
@@ -603,5 +603,5 @@ public class StackView: UIView {
         }
         super.updateConstraints()
     }
-
+    
 }

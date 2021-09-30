@@ -10,7 +10,7 @@ import UIKit
 
 public extension UIView {
 
-    public var borderColor: UIColor? {
+    @objc var borderColor: UIColor? {
         get {
             guard let cgColor = layer.borderColor else {
                 return nil
@@ -22,7 +22,7 @@ public extension UIView {
         }
     }
 
-    public var borderWidth: Double {
+    @objc var borderWidth: Double {
         get {
             return Double(layer.borderWidth)
         }
@@ -32,7 +32,7 @@ public extension UIView {
     }
 
 
-    public var cornerRadius: Double {
+    @objc var cornerRadius: Double {
         get {
             return Double(layer.cornerRadius)
         }
@@ -41,7 +41,7 @@ public extension UIView {
         }
     }
 
-    public var masksToBounds: Bool {
+    @objc var masksToBounds: Bool {
         get {
             return layer.masksToBounds
         }
@@ -51,7 +51,7 @@ public extension UIView {
     }
 
 
-    public var shadowRadius: Double {
+    @objc var shadowRadius: Double {
         get {
             return Double(layer.shadowRadius)
         }
@@ -60,7 +60,7 @@ public extension UIView {
         }
     }
 
-    public var shadowColor: UIColor? {
+    @objc var shadowColor: UIColor? {
         get {
             guard let cgColor = layer.shadowColor else {
                 return nil
@@ -72,7 +72,7 @@ public extension UIView {
         }
     }
 
-    public var shadowOpacity: Double {
+    @objc var shadowOpacity: Double {
         get {
             return Double(layer.shadowOpacity)
         }
@@ -81,7 +81,7 @@ public extension UIView {
         }
     }
 
-    public var shadowOffset: CGSize {
+    @objc var shadowOffset: CGSize {
         get {
             return layer.shadowOffset
         }
@@ -90,8 +90,7 @@ public extension UIView {
         }
     }
 
-
-    public var shouldRasterize: Bool {
+    @objc var shouldRasterize: Bool {
         get {
             return layer.shouldRasterize
         }
@@ -99,8 +98,8 @@ public extension UIView {
             layer.shouldRasterize = newValue
         }
     }
-
-    public var rasterizationScale: Double {
+    
+    @objc var rasterizationScale: Double {
         get {
             let scale = (self.window?.screen ?? UIScreen.main).scale
             return Double(layer.rasterizationScale / scale)

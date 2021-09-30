@@ -8,6 +8,7 @@
 
 import Foundation
 
+@objc
 public protocol DocumentChildsProcessor {
     func processDocument(childs: DocumentChildVisitor)
 }

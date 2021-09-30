@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol DataDeserializerProtocol: class, DefaultConstructor {
+public protocol DataDeserializerProtocol: DefaultConstructor {
     static var identifier: String { get }
     func loadData(from path: String, options: DocumentOptions) -> DataNode?
 }

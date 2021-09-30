@@ -10,7 +10,7 @@ import UIKit
 
 public extension UIView {
     @discardableResult
-    public func loadFromDocument(_ documentPath: String, builder: DocumentBuilder? = nil) -> Bool {
+    func loadFromDocument(_ documentPath: String, builder: DocumentBuilder? = nil) -> Bool {
         let options = BuildOptions()
         options.instantiation = InstantiationOptions(instance: self)
         let builder = builder ?? DocumentBuilder.shared

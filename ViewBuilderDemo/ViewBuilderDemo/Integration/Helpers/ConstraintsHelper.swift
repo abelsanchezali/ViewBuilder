@@ -18,35 +18,35 @@ public class ConstraintsHelper: NSObject {
             second: view,
             attribute: .leading,
             relation: .equal,
-            priority: UILayoutPriorityRequired,
+            priority: UILayoutPriority.required,
             constant: margin.left))
         constraints.append(ConstraintsHelper.constraintViewAttribute(view,
             second: container,
             attribute: .trailing,
             relation: .equal,
-            priority: UILayoutPriorityRequired,
+            priority: UILayoutPriority.required,
             constant: margin.right))
         constraints.append(ConstraintsHelper.constraintViewAttribute(container,
             second: view,
             attribute: .top,
             relation: .equal,
-            priority: UILayoutPriorityRequired,
+            priority: UILayoutPriority.required,
             constant: margin.top))
         constraints.append(ConstraintsHelper.constraintViewAttribute(view,
             second: container,
             attribute: .bottom,
             relation: .equal,
-            priority: UILayoutPriorityRequired,
+            priority: UILayoutPriority.required,
             constant: margin.bottom))
         container.addConstraints(constraints)
     }
 
-    public class func constraintViewAttributes(_ first: UIView, firstAttribute: NSLayoutAttribute, second: UIView, secondAttribute: NSLayoutAttribute, constant: CGFloat) -> NSLayoutConstraint {
+  public class func constraintViewAttributes(_ first: UIView, firstAttribute: NSLayoutConstraint.Attribute, second: UIView, secondAttribute: NSLayoutConstraint.Attribute, constant: CGFloat) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item: second, attribute: secondAttribute, relatedBy: .equal, toItem: first, attribute: firstAttribute, multiplier: 1, constant: constant)
         return constraint
     }
 
-    public class func constraintViewAttribute(_ first: UIView, second: UIView, attribute: NSLayoutAttribute, relation: NSLayoutRelation, priority: UILayoutPriority, constant: CGFloat) -> NSLayoutConstraint {
+    public class func constraintViewAttribute(_ first: UIView, second: UIView, attribute: NSLayoutConstraint.Attribute, relation: NSLayoutConstraint.Relation, priority: UILayoutPriority, constant: CGFloat) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item: second, attribute: attribute, relatedBy: relation, toItem: first, attribute: attribute, multiplier: 1, constant: constant)
         constraint.priority = priority
         return constraint
@@ -54,13 +54,13 @@ public class ConstraintsHelper: NSObject {
 
     public class func constraintViewHeightToFit(_ view: UIView) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 0)
-        constraint.priority = UILayoutPriorityFittingSizeLevel
+        constraint.priority = UILayoutPriority.fittingSizeLevel
         return constraint
     }
 
     public class func constraintViewWidthToFit(_ view: UIView) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 0)
-        constraint.priority = UILayoutPriorityFittingSizeLevel
+        constraint.priority = UILayoutPriority.fittingSizeLevel
         return constraint
     }
 
@@ -83,13 +83,13 @@ public class ConstraintsHelper: NSObject {
                 second: view,
                 attribute: .leading,
                 relation: .greaterThanOrEqual,
-                priority: UILayoutPriorityDefaultHigh,
+                priority: UILayoutPriority.defaultHigh,
                 constant: padding.left + view.margin.left))
             constraints.append(constraintViewAttribute(view,
                 second: container,
                 attribute: .trailing,
                 relation: .greaterThanOrEqual,
-                priority: UILayoutPriorityDefaultHigh,
+                priority: UILayoutPriority.defaultHigh,
                 constant: padding.right + view.margin.right))
             break
         case .minimum:
@@ -97,14 +97,14 @@ public class ConstraintsHelper: NSObject {
                 second: view,
                 attribute: .leading,
                 relation: .equal,
-                priority: UILayoutPriorityRequired,
+                priority: UILayoutPriority.required,
                 constant: padding.left + view.margin.left))
             constraints.append(constraintViewWidthToFit(view))
             constraints.append(constraintViewAttribute(view,
                 second: container,
                 attribute: .trailing,
                 relation: .greaterThanOrEqual,
-                priority: UILayoutPriorityDefaultHigh,
+                priority: UILayoutPriority.defaultHigh,
                 constant: padding.right + view.margin.right))
             break
         case .maximum:
@@ -112,14 +112,14 @@ public class ConstraintsHelper: NSObject {
                 second: container,
                 attribute: .trailing,
                 relation: .equal,
-                priority: UILayoutPriorityRequired,
+                priority: UILayoutPriority.required,
                 constant: padding.right + view.margin.right))
             constraints.append(constraintViewWidthToFit(view))
             constraints.append(constraintViewAttribute(container,
                 second: view,
                 attribute: .leading,
                 relation: .greaterThanOrEqual,
-                priority: UILayoutPriorityDefaultHigh,
+                priority: UILayoutPriority.defaultHigh,
                 constant: padding.left + view.margin.left))
             break
         case .stretch:
@@ -127,13 +127,13 @@ public class ConstraintsHelper: NSObject {
                 second: view,
                 attribute: .leading,
                 relation: .equal,
-                priority: UILayoutPriorityRequired,
+                priority: UILayoutPriority.required,
                 constant: padding.left + view.margin.left))
             constraints.append(constraintViewAttribute(view,
                 second: container,
                 attribute: .trailing,
                 relation: .equal,
-                priority: UILayoutPriorityRequired,
+                priority: UILayoutPriority.required,
                 constant: padding.right + view.margin.right))
             break
         }
@@ -151,13 +151,13 @@ public class ConstraintsHelper: NSObject {
                 second: view,
                 attribute: .top,
                 relation: .greaterThanOrEqual,
-                priority: UILayoutPriorityDefaultHigh,
+                priority: UILayoutPriority.defaultHigh,
                 constant: padding.top + view.margin.top))
             constraints.append(constraintViewAttribute(view,
                 second: container,
                 attribute: .bottom,
                 relation: .greaterThanOrEqual,
-                priority: UILayoutPriorityDefaultHigh,
+                priority: UILayoutPriority.defaultHigh,
                 constant: padding.bottom + view.margin.bottom))
             break
         case .minimum:
@@ -165,14 +165,14 @@ public class ConstraintsHelper: NSObject {
                 second: view,
                 attribute: .top,
                 relation: .equal,
-                priority: UILayoutPriorityRequired,
+                priority: UILayoutPriority.required,
                 constant: padding.top + view.margin.top))
             constraints.append(constraintViewHeightToFit(view))
             constraints.append(constraintViewAttribute(view,
                 second: container,
                 attribute: .bottom,
                 relation: .greaterThanOrEqual,
-                priority: UILayoutPriorityDefaultHigh,
+                priority: UILayoutPriority.defaultHigh,
                 constant: padding.bottom + view.margin.bottom))
             break
         case .maximum:
@@ -180,14 +180,14 @@ public class ConstraintsHelper: NSObject {
                 second: container,
                 attribute: .bottom,
                 relation: .equal,
-                priority: UILayoutPriorityRequired,
+                priority: UILayoutPriority.required,
                 constant: padding.bottom + view.margin.bottom))
             constraints.append(constraintViewHeightToFit(view))
             constraints.append(constraintViewAttribute(container,
                 second: view,
                 attribute: .top,
                 relation: .greaterThanOrEqual,
-                priority: UILayoutPriorityDefaultHigh,
+                priority: UILayoutPriority.defaultHigh,
                 constant: padding.top + view.margin.top))
             break
         case .stretch:
@@ -195,13 +195,13 @@ public class ConstraintsHelper: NSObject {
                 second: view,
                 attribute: .top,
                 relation: .equal,
-                priority: UILayoutPriorityRequired,
+                priority: UILayoutPriority.required,
                 constant: padding.top + view.margin.top))
             constraints.append(constraintViewAttribute(view,
                 second: container,
                 attribute: .bottom,
                 relation: .equal,
-                priority: UILayoutPriorityRequired,
+                priority: UILayoutPriority.required,
                 constant: padding.bottom + view.margin.bottom))
             break
         }

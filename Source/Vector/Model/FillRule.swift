@@ -14,7 +14,7 @@ open class FillRule: Object, TextDeserializer {
                                                              "NonZero": "non-zero",
                                                              "EvenOdd": "even-odd"]
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let text = text, let stringValue = service.parseValue(from: text) as? String else {
             Log.shared.write("Warning: Expected String value in FillRule.")
             return nil

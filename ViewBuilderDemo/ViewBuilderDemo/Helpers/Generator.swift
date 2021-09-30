@@ -13,7 +13,7 @@ public class Generator {
     public static func generateViewModelCollection(_ identifiers: [(String, Int)], count: Int) -> [ViewModel] {
         let total = identifiers.reduce(0) { $0 + $1.1 }
         let range = 0..<count
-        let collection: [ViewModel] = range.flatMap { index in
+        let collection: [ViewModel] = range.compactMap { index in
             var k = MathHelper.random() % total
             var id = ""
             for pair in identifiers {

@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol ObjectTransformable: class {
+public protocol ObjectTransformable: AnyObject {
     func transformToObjects() -> [Any]?
 }

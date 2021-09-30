@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!-- DO NOT MODIFY, USED IN TESTS -->
-<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKitCore" xmlns:m="@document">
     <d:Resources path="d:PathFromBundle(path:SampleResources.xml, identifier:@domains.m)"/>
     <d:StackPanel style="@cellStyle" backgroundColor="@color1" orientation="d:Orientation(Vertical)" padding="d:EdgeInsets(12)">
         <d:StackPanel horizontalAlignment="d:Alignment(Stretch)" orientation="d:Orientation(Horizontal)" >
@@ -9,6 +9,6 @@
         </d:StackPanel>
         <UIView margin="d:EdgeInsets(4,0)" backgroundColor="d:Color(#BBBBBB)" preferredSize="d:Size(90,1)"/>
         <UILabel d:name="insightLabel" horizontalAlignment="d:Alignment(Stretch)" numberOfLines="0" font="@font2" text="@insight"/>
-        <UIButton d:name="button" type="d:ButtonType(Custom)" style="@buttonStyle" margin="d:EdgeInsets(4,60,0,0)" font="@font3" title="d:StringForState(Say thanks)"/>
+        <UIButton d:name="button" type="d:ButtonType(Custom)" style="@buttonStyle" margin="d:EdgeInsets(4,60,0,0)" font="@font3" titleString="d:StringForState(Say thanks)"/>
     </d:StackPanel>
 </d:Content>

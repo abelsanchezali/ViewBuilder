@@ -9,9 +9,9 @@
         </d:Item>
         <d:Item name="style">
             <d:ObjectStyle>
-                <d:Setter property="title" value="d:StringForState(value: Highlighted, state: d:ControlState(Highlighted))"/>
-                <d:Setter property="title" value="d:StringForState(value: Normal, state: d:ControlState(Normal))"/>
-                <d:Setter property="title" value="d:StringForState(value: Selected, state: d:ControlState(Selected))"/>
+                <d:Setter property="titleString" value="d:StringForState(value: Highlighted, state: d:ControlState(Highlighted))"/>
+                <d:Setter property="titleString" value="d:StringForState(value: Normal, state: d:ControlState(Normal))"/>
+                <d:Setter property="titleString" value="d:StringForState(value: Selected, state: d:ControlState(Selected))"/>
             </d:ObjectStyle>
         </d:Item>
     </d:Resources>

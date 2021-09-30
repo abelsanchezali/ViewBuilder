@@ -17,7 +17,7 @@ extension DocumentBuilder {
 
      - Parameter path:     Path to Document.
      - Parameter options:  Options to be used during build process.
-
+     
      - Returns: An instance of type T described in document.
     */
     public func load<T>(_ path: String, options: BuildOptions? = nil) -> T? {

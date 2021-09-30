@@ -9,8 +9,8 @@
 import UIKit
 
 open class GradientStop: NSObject, DefaultConstructor {
-    open var color: UIColor
-    open var offset: Double
+    @objc open var color: UIColor
+  @objc open var offset: Double
 
     public override required init() {
         color = UIColor.clear
@@ -38,7 +38,7 @@ open class LinearGradientView: UIView {
         super.init(coder: aDecoder)
     }
 
-    open var stops: [GradientStop]? {
+  @objc open var stops: [GradientStop]? {
         didSet {
             guard let gradientLayer = layer as? CAGradientLayer else {
                 return
@@ -47,7 +47,7 @@ open class LinearGradientView: UIView {
             var locations: [NSNumber]? = nil
             if var stops = self.stops {
                 // Sort gradients stop monotonically increasing as required in CAGradientLayer
-                stops.sort() { $0.0.offset < $0.1.offset }
+                stops.sort() { $0.offset < $1.offset }
                 colors = stops.map { $0.color.cgColor }
                 locations = stops.map { NSNumber(value: $0.offset as Double) }
             }
@@ -56,7 +56,7 @@ open class LinearGradientView: UIView {
         }
     }
 
-    open var startPoint: CGPoint {
+  @objc open var startPoint: CGPoint {
         didSet {
             guard let gradientLayer = layer as? CAGradientLayer else {
                 return
@@ -65,7 +65,7 @@ open class LinearGradientView: UIView {
         }
     }
 
-    open var endPoint: CGPoint {
+  @objc open var endPoint: CGPoint {
         didSet {
             guard let gradientLayer = layer as? CAGradientLayer else {
                 return

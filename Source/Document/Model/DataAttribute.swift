@@ -33,7 +33,7 @@ public class DataAttribute: NSObject {
 
     public var debugInfo: DocumentSourceInfo?
     
-
+    
     public required init(domain: String?, name: String, text: String) {
         self.domain = domain
         self.name = name

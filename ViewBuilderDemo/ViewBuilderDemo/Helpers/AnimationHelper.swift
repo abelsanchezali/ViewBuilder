@@ -17,31 +17,31 @@ public enum TimingFunctionType {
 }
 
 extension TimingFunctionType {
-    var mediaTimingFunctionValue: String {
+    var mediaTimingFunctionValue: CAMediaTimingFunctionName {
         switch self {
         case .default:
-            return kCAMediaTimingFunctionDefault
+            return CAMediaTimingFunctionName.default;
         case .easeIn:
-            return kCAMediaTimingFunctionEaseIn
+            return CAMediaTimingFunctionName.easeIn;
         case .easeOut:
-            return kCAMediaTimingFunctionEaseOut
+            return CAMediaTimingFunctionName.easeOut;
         case .easeInOut:
-            return kCAMediaTimingFunctionEaseInEaseOut
+            return CAMediaTimingFunctionName.easeInEaseOut;
         case .linear:
-            return kCAMediaTimingFunctionLinear
+            return CAMediaTimingFunctionName.linear;
         }
     }
 }
 
 class AnimationHelper {
-
+    
     static func delayedBlock(_ delay: TimeInterval, block: @escaping (()->Void)) {
         let delayTime = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: delayTime) {
             block()
         }
     }
-
+    
     static func animateProperty(_ propertyName: String, from: Float, to: Float, duration: Double, timing: TimingFunctionType) -> CAAnimation {
         let animation = CABasicAnimation(keyPath: propertyName)
         animation.timingFunction = CAMediaTimingFunction(name: timing.mediaTimingFunctionValue)
@@ -50,7 +50,7 @@ class AnimationHelper {
         animation.duration = duration
         return animation
     }
-
+    
     static func animateProperty(_ propertyName: String, from: CGColor, to: CGColor, duration: Double, timing: TimingFunctionType) -> CAAnimation {
         let animation = CABasicAnimation(keyPath: propertyName)
         animation.timingFunction = CAMediaTimingFunction(name: timing.mediaTimingFunctionValue)
@@ -59,19 +59,19 @@ class AnimationHelper {
         animation.duration = duration
         return animation
     }
-
+    
     static func animatedPropertyWithKeyframes(_ propertyName: String, keyframes: [Double], values: [NSObject]) -> CAAnimation {
         let animation = CAKeyframeAnimation(keyPath: propertyName)
         //animation.keyTimes = keyframes.map { NSNumber(double: $0) }
         //animation.values = values
         return animation
     }
-
+    
     static func animatedSequenced(_ animations: [CAAnimation]) -> CAAnimation {
         // TODO:
         return CAAnimation()
     }
-
+    
     static func animatedSpawned(_ animations: [CAAnimation]) -> CAAnimation {
         let group = CAAnimationGroup()
         group.animations = animations

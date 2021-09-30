@@ -6,6 +6,6 @@
         <UILabel d:name="summaryLabel" numberOfLines="0" font="@font" text="@summary" frame="d:Rect(70,12,218,100)"/>
         <UIView d:name="separator" backgroundColor="d:Color(#BBBBBB)" frame="d:Rect(12,120,90,1)"/>
         <UILabel d:name="insightLabel" numberOfLines="0" font="@font2" text="@insight" frame="d:Rect(12,128,276,60)"/>
-        <UIButton d:name="button" type="d:ButtonType(Custom)" style="@buttonStyle" font="@font3" title="d:StringForState(Say thanks)" frame="d:Rect(70,192,90,25)"/>
+        <UIButton d:name="button" type="d:ButtonType(Custom)" style="@buttonStyle" font="@font3" titleString="d:StringForState(Say thanks)" frame="d:Rect(70,192,90,25)"/>
     </UIView>
 </d:Content>

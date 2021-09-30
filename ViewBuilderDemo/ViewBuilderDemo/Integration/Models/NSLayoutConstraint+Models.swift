@@ -11,16 +11,16 @@ import UIKit
 
 // MARK: - UILayoutConstraintAxis
 
-extension UILayoutConstraintAxis: NSValueConvertible {
+extension NSLayoutConstraint.Axis: NSValueConvertible {
     public func convertToNSValue() -> NSValue? {
         return NSNumber(value: self.rawValue as Int)
     }
 }
 
 public class Axis: Object, TextDeserializer {
-    private static let AxisByText: [String: UILayoutConstraintAxis] = ["Horizontal": UILayoutConstraintAxis.horizontal,
-                                                                       "Vertical": UILayoutConstraintAxis.vertical]
-
+    private static let AxisByText: [String: NSLayoutConstraint.Axis] = ["Horizontal": NSLayoutConstraint.Axis.horizontal,
+                                                                        "Vertical": NSLayoutConstraint.Axis.vertical]
+    
     public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
@@ -33,7 +33,7 @@ public class Axis: Object, TextDeserializer {
 // MARK: - UIStackViewAlignment
 
 @available(iOS 9.0, *)
-extension UIStackViewAlignment: NSValueConvertible {
+extension UIStackView.Alignment: NSValueConvertible {
     public func convertToNSValue() -> NSValue? {
         return NSNumber(value: self.rawValue as Int)
     }
@@ -41,15 +41,15 @@ extension UIStackViewAlignment: NSValueConvertible {
 
 @available(iOS 9.0, *)
 class StackViewAlignment: TextDeserializer {
-    private static let StackViewAlignmentByText: [String: UIStackViewAlignment] = ["Fill": UIStackViewAlignment.fill,
-                                                                                   "Leading": UIStackViewAlignment.leading,
-                                                                                   "FirstBaseline": UIStackViewAlignment.firstBaseline,
-                                                                                   "Center": UIStackViewAlignment.center,
-                                                                                   "Trailing": UIStackViewAlignment.trailing,
-                                                                                   "LastBaseline": UIStackViewAlignment.lastBaseline,
-                                                                                   "Top": UIStackViewAlignment.top,
-                                                                                   "Bottom": UIStackViewAlignment.bottom]
-
+    private static let StackViewAlignmentByText: [String: UIStackView.Alignment] = ["Fill": UIStackView.Alignment.fill,
+                                                                                    "Leading": UIStackView.Alignment.leading,
+                                                                                    "FirstBaseline": UIStackView.Alignment.firstBaseline,
+                                                                                    "Center": UIStackView.Alignment.center,
+                                                                                    "Trailing": UIStackView.Alignment.trailing,
+                                                                                    "LastBaseline": UIStackView.Alignment.lastBaseline,
+                                                                                    "Top": UIStackView.Alignment.top,
+                                                                                    "Bottom": UIStackView.Alignment.bottom]
+    
     public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
@@ -61,7 +61,7 @@ class StackViewAlignment: TextDeserializer {
 // MARK: - UIStackViewDistribution
 
 @available(iOS 9.0, *)
-extension UIStackViewDistribution: NSValueConvertible {
+extension UIStackView.Distribution: NSValueConvertible {
     public func convertToNSValue() -> NSValue? {
         return NSNumber(value: self.rawValue as Int)
     }
@@ -69,12 +69,12 @@ extension UIStackViewDistribution: NSValueConvertible {
 
 @available(iOS 9.0, *)
 class StackViewDistribution: TextDeserializer {
-    private static let StackViewDistributionByText: [String: UIStackViewDistribution] = ["EqualCentering": UIStackViewDistribution.equalCentering,
-                                                                                         "EqualSpacing": UIStackViewDistribution.equalSpacing,
-                                                                                         "Fill": UIStackViewDistribution.fill,
-                                                                                         "FillEqually": UIStackViewDistribution.fillEqually,
-                                                                                         "FillProportionally": UIStackViewDistribution.fillProportionally]
-
+    private static let StackViewDistributionByText: [String: UIStackView.Distribution] = ["EqualCentering": UIStackView.Distribution.equalCentering,
+                                                                                          "EqualSpacing": UIStackView.Distribution.equalSpacing,
+                                                                                          "Fill": UIStackView.Distribution.fill,
+                                                                                          "FillEqually": UIStackView.Distribution.fillEqually,
+                                                                                          "FillProportionally": UIStackView.Distribution.fillProportionally]
+    
     public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil

@@ -24,7 +24,7 @@ open class TextAlignment: Object, TextDeserializer {
                                                                          "Natural": NSTextAlignment.natural,
                                                                          "Right": NSTextAlignment.right]
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }

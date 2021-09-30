@@ -12,11 +12,11 @@ open class UIViewAttachable: AttachableObject {
     open override func add(item: Any) -> Bool {
         return false
     }
-
+    
     open override func canBeAttached(to instance: Any) -> Bool {
         return type(of: instance) is UIView.Type
     }
-
+    
     open override func performAttachment(to instance: Any) {
         guard let view = instance as? UIView else {
             Log.shared.write("Warning: UIViewAttachable expected UIView but received type = {\(type(of: instance))}.")
@@ -24,8 +24,8 @@ open class UIViewAttachable: AttachableObject {
         }
         performAttachmentToView(view)
     }
-
+    
     open func performAttachmentToView(_ view: UIView) {
-
+        
     }
 }

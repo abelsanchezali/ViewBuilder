@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol LayoutSkippableProcotol {
+@objc public protocol LayoutSkippableProcotol {
     // True element is hidden and will not be displayed, otherwise false
-    var hidden: Bool { get set }
+    var isHidden: Bool { @objc(isHidden) get @objc(setHidden:) set }
     // True if element will not count for layout when hidden, otherwise false
     var collapsable: Bool { get set }
     // True if element will not count for layout and his position and size will be handled manually regarding any other property, otherwise false
@@ -19,6 +19,6 @@ public protocol LayoutSkippableProcotol {
 
 extension LayoutSkippableProcotol {
     public var isSkipingLayout: Bool {
-        return (hidden && collapsable) || detached
+        return (isHidden && collapsable) || detached
     }
 }

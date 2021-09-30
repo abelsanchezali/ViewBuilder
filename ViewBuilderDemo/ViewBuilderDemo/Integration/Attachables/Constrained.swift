@@ -10,21 +10,21 @@ import ViewBuilder
 import UIKit
 
 public class Constrained: AttachableProperty, TextDeserializer {
-
+    
     class Condition {
         let value: Double
-        let relation: NSLayoutRelation
-
-        init(value: Double, relation: NSLayoutRelation = .equal) {
+        let relation: NSLayoutConstraint.Relation
+        
+        init(value: Double, relation: NSLayoutConstraint.Relation = .equal) {
             self.value = value
             self.relation = relation
         }
     }
-
+    
     var conditions = [Condition]()
-
+    
     // MARK: - AttachableProperty
-
+    
     public func performAttachment(to instance: Any, name: String) -> Bool {
         guard let view = instance as? UIView else {
             return false
@@ -83,9 +83,9 @@ public class Constrained: AttachableProperty, TextDeserializer {
         }
         return true
     }
-
+    
     // MARK: - TextDeserializer
-
+    
     public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let text = text else {
             return nil
@@ -103,16 +103,16 @@ public class Constrained: AttachableProperty, TextDeserializer {
         }
         return instance
     }
-
+    
     private static func parseCondition(_ word: String, service: TextDeserializerServiceProtocol) -> Condition? {
         var text = word
-        var relation: NSLayoutRelation = .equal
+        var relation: NSLayoutConstraint.Relation = .equal
         if text.hasSuffix("+") {
             relation = .greaterThanOrEqual
-            text = text.substring(to: text.characters.index(before: text.endIndex))
+            text = text.substring(to: text.index(before: text.endIndex))
         } else if text.hasSuffix("-") {
             relation = .lessThanOrEqual
-            text = text.substring(to: text.characters.index(before: text.endIndex))
+            text = text.substring(to: text.index(before: text.endIndex))
         }
         guard let value = Double(text), !value.isNaN else {
             return nil

@@ -9,7 +9,7 @@
 import Foundation
 
 open class Item: NSObject {
-    open let name: String
+    public let name: String
     open var value: Any?
 
     public required init(name: String, value: Any?) {

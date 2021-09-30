@@ -10,15 +10,15 @@ import UIKit
 import ViewBuilder
 
 public class ScreenDescriptionModel: NSObject {
-    public var title: String?
-    public var summary: String?
-    public var bundleIdentifier: String?
-    public var nibName: String?
-    public var viewControllerName: String?
-    public var storyBoardName: String?
-    public var storyBoardIdentifier: String?
-    public var parameter: AnyObject?
-    public var enabled: Bool = true
+    @objc public var title: String?
+    @objc public var summary: String?
+    @objc public var bundleIdentifier: String?
+    @objc public var nibName: String?
+    @objc public var viewControllerName: String?
+    @objc public var storyBoardName: String?
+    @objc public var storyBoardIdentifier: String?
+    @objc public var parameter: AnyObject?
+    @objc public var enabled: Bool = true
 }
 
 extension ScreenDescriptionModel {

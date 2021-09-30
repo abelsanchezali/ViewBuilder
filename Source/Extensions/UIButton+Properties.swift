@@ -9,7 +9,8 @@
 import UIKit
 
 public extension UIButton {
-    public var title: StringForState? {
+
+    @objc var titleString: StringForState? {
         set {
             guard let title = newValue else {
                 return
@@ -17,11 +18,11 @@ public extension UIButton {
             setTitle(title.value, for: title.state)
         }
         get {
-            return nil
+            return StringForState(value: self.title(for: self.state), state: self.state);
         }
     }
 
-    public var attributedTittle: AttributedForState? {
+    @objc var titleAttributed: AttributedForState? {
         set {
             guard let attributed = newValue else {
                 return
@@ -29,11 +30,11 @@ public extension UIButton {
             setAttributedTitle(attributed.value, for: attributed.state)
         }
         get {
-            return nil
+            return AttributedForState(value: self.attributedTitle(for: self.state), state: self.state);
         }
     }
 
-    public var titleColor: ColorForState? {
+    @objc var titleColor: ColorForState? {
         set {
             guard let color = newValue else {
                 return
@@ -45,7 +46,7 @@ public extension UIButton {
         }
     }
 
-    public var image: ImageForState? {
+    @objc var image: ImageForState? {
         set {
             guard let image = newValue else {
                 return
@@ -57,7 +58,7 @@ public extension UIButton {
         }
     }
 
-    public var backgroundImage: ImageForState? {
+    @objc var backgroundImage: ImageForState? {
         set {
             guard let image = newValue else {
                 return
@@ -69,7 +70,7 @@ public extension UIButton {
         }
     }
 
-    public var titleShadowColor: ColorForState? {
+    @objc var titleShadowColor: ColorForState? {
         set {
             guard let color = newValue else {
                 return
@@ -80,6 +81,4 @@ public extension UIButton {
             return nil
         }
     }
-
-
 }

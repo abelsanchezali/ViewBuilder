@@ -12,11 +12,11 @@ open class UIViewConstructor: ObjectConstructor {
     private static let NibParameter = "nib"
     private static let DocumentParameter = "document"
     private static let Parameters = [UIViewConstructor.NibParameter, UIViewConstructor.DocumentParameter]
-
+    
     open func parametersKeys() -> [String] {
         return UIViewConstructor.Parameters
     }
-
+    
     open func createObject(with parameters: [String: Any], objectType: AnyClass, builder: DocumentBuilder) -> Any? {
         guard let type = objectType as? UIView.Type else {
             return nil
@@ -33,7 +33,7 @@ open class UIViewConstructor: ObjectConstructor {
 
 extension UIView: ObjectConstructorProvider {
     private static let objectConstructor = UIViewConstructor()
-
+    
     public dynamic class func resolveObjectConstructor() -> ObjectConstructor {
         return UIView.objectConstructor
     }

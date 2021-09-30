@@ -10,37 +10,37 @@ import UIKit
 import ViewBuilder
 
 public class StackLayoutDemoViewController: UIViewController {
-
+    
     @IBOutlet weak var stackView: StackView!
     @IBOutlet weak var controlTypeSegmentedControl: UISegmentedControl!
-
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         stackView.orientation = .vertical
-        stackView.padding = UIEdgeInsetsMake(0, 0, 0, 0)
+        stackView.padding = UIEdgeInsets(top:0, left:0, bottom:0, right:0)
     }
-
+    
     var index = 0
-
+    
     func animateStackLayout() {
         UIView.animate(withDuration: 1,
-                                   delay: 0,
-                                   usingSpringWithDamping: 0.5,
-                                   initialSpringVelocity: 0.5,
-                                   options: [.beginFromCurrentState],
-                                   animations: {
-            self.stackView.setNeedsLayout()
-            self.stackView.layoutIfNeeded()
-        }, completion: nil)
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0.5,
+                       options: [.beginFromCurrentState],
+                       animations: {
+                        self.stackView.setNeedsLayout()
+                        self.stackView.layoutIfNeeded()
+                       }, completion: nil)
     }
-
+    
     @IBAction func buttonAction(_ sender: AnyObject) {
         //let margin = UIEdgeInsetsMake(CGFloat(random() % 9 * 5), CGFloat(random() % 9 * 5), CGFloat(random() % 9 * 5), CGFloat(random() % 9 * 5))
-        let margin = UIEdgeInsetsMake(0, 0, 0, 0)
+        let margin = UIEdgeInsets(top:0, left:0, bottom:0, right:0)
         switch controlTypeSegmentedControl.selectedSegmentIndex {
         case 0:
             let button = UIButton(type: .system)
-            button.setTitle("Button \(index)", for: UIControlState())
+            button.setTitle("Button \(index)", for: UIControl.State())
             button.margin = margin
             button.backgroundColor = UIColor.green.withAlphaComponent(0.5)
             stackView.addSubview(button)
@@ -58,11 +58,11 @@ public class StackLayoutDemoViewController: UIViewController {
         default:
             break
         }
-
+        
         index += 1
         animateStackLayout()
     }
-
+    
     var alignment: LayoutAlignment = .center
     @IBAction func alignmentAction(_ sender: AnyObject) {
         switch alignment {
@@ -83,17 +83,17 @@ public class StackLayoutDemoViewController: UIViewController {
         }
         animateStackLayout()
     }
-
+    
     @IBAction func reloadAction(_ sender: AnyObject) {
         //let p = stackView.padding
         //stackView.padding = UIEdgeInsets(top: p.top + 10, left: p.left + 10, bottom: p.bottom + 10, right: p.right + 10)
-
+        
         for view in stackView.subviews {
             view.isHidden = MathHelper.random() % 2 == 0
             //let p = view.margin
             //view.margin = UIEdgeInsetsMake(CGFloat(random() % 9 * 2) - 8, CGFloat(random() % 9 * 2) - 8, CGFloat(random() % 9 * 2) - 8, CGFloat(random() % 9 * 2) - 8)
         }
-
+        
         animateStackLayout()
         //stackView.setNeedsUpdateConstraints()
         //stackView.updateFocusIfNeeded()

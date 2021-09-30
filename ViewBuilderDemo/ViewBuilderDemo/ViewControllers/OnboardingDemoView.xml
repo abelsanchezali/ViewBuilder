@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKitCore" xmlns:m="@document">
     <d:Resources>
         <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
         <d:Item name="phoneShape" value="M0.563106796,2.84217094e-14 L0.563106796,239.427807 C0.563106796,261.822895 18.6796025,280 41.0000163,280 L239.195965,280 C261.516378,280 279.632874,261.822895 279.632874,239.427807 L279.632874,5.68434189e-14 L265.331237,5.68434189e-14 L265.331237,211.359078 C265.331237,212.13086 264.70607,212.759609 263.936861,212.759609 L17.3164105,212.759609 C16.5472019,212.759609 15.9220343,212.13086 15.9220343,211.359078 L15.9220343,2.84217094e-14 L0.563106796,5.68434189e-14 Z M122.301503,232.332776 C128.937784,222.178926 142.520701,219.345085 152.642179,226.003568 C162.762172,232.66354 165.586564,246.291899 158.950283,256.445749 C152.312518,266.601089 138.729601,269.43493 128.609608,262.774958 C118.48813,256.116475 115.663738,242.488116 122.301503,232.332776 Z"/>
@@ -40,7 +40,7 @@
             </d:LinearGradientView>
             <UIView backgroundColor="@themeColorDark" preferredSize="d:Size(-1,1)" horizontalAlignment="d:Alignment(Stretch)"/>
             <d:Panel backgroundColor="@themeColor" preferredSize="d:Size(-1,100)" horizontalAlignment="d:Alignment(Stretch)">
-                <UIButton d:name="continueButton" type="d:ButtonType(Custom)" style="@buttonStyleWhite" margin="d:EdgeInsets(8,0)" verticalAlignment="d:Alignment(Center)" horizontalAlignment="d:Alignment(Center)" title="d:StringForState(Continue)"/>
+                <UIButton d:name="continueButton" type="d:ButtonType(Custom)" style="@buttonStyleWhite" margin="d:EdgeInsets(8,0)" verticalAlignment="d:Alignment(Center)" horizontalAlignment="d:Alignment(Center)" titleString="d:StringForState(Continue)"/>
             </d:Panel>
         </d:StackPanel>
         <!-- Info Button -->

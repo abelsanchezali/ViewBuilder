@@ -9,7 +9,7 @@
 import Foundation
 
 open class PathFromBundle: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }
@@ -43,7 +43,7 @@ open class PathFromBundle: Object, TextDeserializer {
             return nil
         }
         
-        let directory = normalizedPath.substring(to: normalizedPath.characters.index(normalizedPath.endIndex, offsetBy: -fileName.characters.count)).trimmingCharacters(in: CharacterSet(charactersIn: "/\\"))
+        let directory = normalizedPath.substring(to: normalizedPath.index(normalizedPath.endIndex, offsetBy: -fileName.count)).trimmingCharacters(in: CharacterSet(charactersIn: "/\\"))
         
         let result = targetBundle.path(forResource: fileName, ofType: nil, inDirectory: directory)
         return result

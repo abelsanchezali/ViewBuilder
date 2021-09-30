@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKitCore" xmlns:m="@document">
     <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
     <d:Panel backgroundColor="@backgroundColor">
         <!-- Top Gradient -->
@@ -18,6 +18,6 @@
             <d:GradientStop color="d:Color(#EBEBF200)" offset="0.0"/>
             <d:GradientStop color="@backgroundColor" offset="0.8"/>
         </d:LinearGradientView>
-        <UIButton d:name="actionButton" verticalAlignment="d:Alignment(Maximum)" horizontalAlignment="d:Alignment(Center)" type="d:ButtonType(Custom)" title="d:StringForState(Randomize)" margin="d:EdgeInsets(16)" style="@buttonStyle"/>
+        <UIButton d:name="actionButton" verticalAlignment="d:Alignment(Maximum)" horizontalAlignment="d:Alignment(Center)" type="d:ButtonType(Custom)" titleString="d:StringForState(Randomize)" margin="d:EdgeInsets(16)" style="@buttonStyle"/>
     </d:Panel>
 </d:Content>

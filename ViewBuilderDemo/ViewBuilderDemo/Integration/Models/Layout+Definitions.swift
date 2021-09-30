@@ -16,17 +16,17 @@ public struct LayoutAnchor : OptionSet {
         self.rawValue = rawValue
     }
 
-    public static let none         = LayoutAnchor(rawValue: 0)
+    public static let none         = LayoutAnchor([])
 
     public static let top          = LayoutAnchor(rawValue: 1 << 0)
     public static let left         = LayoutAnchor(rawValue: 1 << 1)
     public static let bottom       = LayoutAnchor(rawValue: 1 << 2)
     public static let right        = LayoutAnchor(rawValue: 1 << 3)
-    public static let fill         = LayoutAnchor(rawValue: 1 << 4 - 1)
+    public static let fill         = LayoutAnchor([.top, .left, .bottom, .right])
 
     public static let centerX      = LayoutAnchor(rawValue: 1 << 4)
     public static let centerY      = LayoutAnchor(rawValue: 1 << 5)
-    public static let center       = LayoutAnchor(rawValue: (1 << 4) + (1 << 5))
+    public static let center       = LayoutAnchor([.centerX, .centerY])
 }
 
 extension LayoutAnchor: NSValueConvertible {

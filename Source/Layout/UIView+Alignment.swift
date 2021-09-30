@@ -11,7 +11,7 @@ import UIKit
 public extension UIView {
     private static let UIViewLayoutVerticalAlignmentLayoutParameterName = "UIViewLayoutVerticalAlignmentLayoutParameterName"
 
-    public var verticalAlignment: LayoutAlignment {
+    @objc var verticalAlignment: LayoutAlignment {
         get {
             guard let value = getAttachedParameter(UIView.UIViewLayoutVerticalAlignmentLayoutParameterName) as? NSNumber else {
                 return .minimum
@@ -24,8 +24,8 @@ public extension UIView {
     }
 
     private static let UIViewLayoutHorizontalAlignmentLayoutParameterName = "UIViewLayoutHorizontalAlignmentLayoutParameterName"
-
-    public var horizontalAlignment: LayoutAlignment {
+    
+    @objc var horizontalAlignment: LayoutAlignment {
         get {
             guard let value = getAttachedParameter(UIView.UIViewLayoutHorizontalAlignmentLayoutParameterName) as? NSNumber else {
                 return .minimum

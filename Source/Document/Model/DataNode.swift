@@ -63,8 +63,7 @@ extension DataNode {
 // MARK: -
 
 public extension DataNode {
-
-    public func findFirstNodeMatching(_ predicate: (_ n: DataNode) -> Bool) -> DataNode? {
+    func findFirstNodeMatching(_ predicate: (_ n: DataNode) -> Bool) -> DataNode? {
         if predicate(self) {
             return self
         }
@@ -76,15 +75,15 @@ public extension DataNode {
         return nil
     }
 
-    public func findFirstNodeWithName(_ name: String) -> DataNode? {
+    func findFirstNodeWithName(_ name: String) -> DataNode? {
         return findFirstNodeMatching() { $0.name == name }
     }
 
-    public func findFirstNodeWithNameAndDomain(_ name: String, domain: String) -> DataNode? {
+    func findFirstNodeWithNameAndDomain(_ name: String, domain: String) -> DataNode? {
         return findFirstNodeMatching() { $0.name == name && $0.domain == domain }
     }
 
-    public func findChildNodeMatching(_ predicate: (_ n: DataNode) -> Bool) -> DataNode? {
+    func findChildNodeMatching(_ predicate: (_ n: DataNode) -> Bool) -> DataNode? {
         for child in self.childs {
             if predicate(child) {
                 return child
@@ -93,11 +92,11 @@ public extension DataNode {
         return nil
     }
 
-    public func findChildNodeWithName(_ name: String) -> DataNode? {
+    func findChildNodeWithName(_ name: String) -> DataNode? {
         return findChildNodeMatching() { $0.name == name }
     }
 
-    public func findChildNodeWithNameAndDomain(_ name: String, domain: String) -> DataNode? {
+    func findChildNodeWithNameAndDomain(_ name: String, domain: String) -> DataNode? {
         return findChildNodeMatching() { $0.name == name && $0.domain == domain }
     }
 }

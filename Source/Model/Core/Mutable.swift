@@ -9,14 +9,14 @@
 import Foundation
 
 open class Mutable: TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let text = text else {
             return nil
         }
         return service.parseValue(from: text)
     }
 
-    open static func isDeserializedInstanceMutable() -> Bool {
+    public static func isDeserializedInstanceMutable() -> Bool {
         return true
     }
 }

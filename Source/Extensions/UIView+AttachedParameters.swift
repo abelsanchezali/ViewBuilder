@@ -28,7 +28,7 @@ public extension UIView {
         }
     }
 
-    public final func setAttachedParameter(_ key: String, value: Any?) {
+    final func setAttachedParameter(_ key: String, value: Any?) {
         if let value = value {
             attachedParameters.data[key] = value
         } else {
@@ -36,7 +36,7 @@ public extension UIView {
         }
     }
 
-    public final func getAttachedParameter(_ key: String) -> Any? {
+    final func getAttachedParameter(_ key: String) -> Any? {
         return attachedParameters.data[key]
     }
 }

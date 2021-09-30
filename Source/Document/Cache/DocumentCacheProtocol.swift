@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol DocumentCacheProtocol: class {
+public protocol DocumentCacheProtocol: AnyObject {
     func getDocumentWithKey(_ key: AnyObject) -> DataDocument?
     func saveDocumentWithKey(_ key: AnyObject, document: DataDocument) -> Bool
     func removeDocumentWithKey(_ key: AnyObject) -> Bool

@@ -4,22 +4,22 @@
         <m:StackingViews orientation="d:Orientation(Vertical)">
             <UIView height="m:Constrained(70)" backgroundColor="d:Color(Gray)" horizontalAlignment="d:Alignment(Stretch)">
                 <m:AnchoringView anchor="m:Anchor(Center)">
-                    <UIButton title="d:StringForState(Center)"/>
+                    <UIButton titleString="d:StringForState(Center)"/>
                 </m:AnchoringView>
             </UIView>
             <UIView height="m:Constrained(70)" backgroundColor="d:Color(LightGray)" horizontalAlignment="d:Alignment(Stretch)">
                 <m:AnchoringView anchor="m:Anchor(CenterX,Top)">
-                    <UIButton title="d:StringForState(CenterX,Top)"/>
+                    <UIButton titleString="d:StringForState(CenterX,Top)"/>
                 </m:AnchoringView>
             </UIView>
             <UIView height="m:Constrained(70)" backgroundColor="d:Color(Gray)" horizontalAlignment="d:Alignment(Stretch)">
                 <m:AnchoringView anchor="m:Anchor(CenterY,Left)">
-                    <UIButton title="d:StringForState(CenterY,Left)"/>
+                    <UIButton titleString="d:StringForState(CenterY,Left)"/>
                 </m:AnchoringView>
             </UIView>
             <UIView height="m:Constrained(70)" backgroundColor="d:Color(LightGray)" horizontalAlignment="d:Alignment(Stretch)">
                 <m:AnchoringView anchor="m:Anchor(Center)" margin="d:EdgeInsets(0,10,0,0)">
-                    <UIButton title="d:StringForState(Center+10)"/>
+                    <UIButton titleString="d:StringForState(Center+10)"/>
                 </m:AnchoringView>
             </UIView>
         </m:StackingViews>

@@ -9,13 +9,13 @@
 import QuartzCore
 
 open class ShapeLayer: CAShapeLayer {
-
+    
     open private(set) var pathBoundingBox: CGRect = CGRect.zero
-
+    
     open func setPathData(_ data: String?) {
         path = VectorHelper.getPathFromSVGPathData(data: data)
     }
-
+    
     override open var path: CGPath? {
         didSet {
             if let value = path {

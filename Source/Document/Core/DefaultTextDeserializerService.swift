@@ -105,7 +105,7 @@ open class DefaultTextDeserializerService: TextDeserializerServiceProtocol {
     open func getValueAndMutability(_ text: String) -> (Any?, Bool) {
         var value: Any? = nil
         if text.hasPrefix("@") {
-            let key = text.substring(from: text.characters.index(text.startIndex, offsetBy: 1))
+            let key = text.substring(from: text.index(text.startIndex, offsetBy: 1))
             value = resolveValueForKey(key)
             if let value = value {
                 return (value, false)

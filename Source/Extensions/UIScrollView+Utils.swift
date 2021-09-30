@@ -8,23 +8,23 @@
 
 import UIKit
 
-extension UIScrollView {
-    public func scrollToBottom(_ animated: Bool) {
+public extension UIScrollView {
+    func scrollToBottom(_ animated: Bool) {
         let offset = CGPoint(x: contentOffset.x, y: contentSize.height - bounds.size.height)
         self.setContentOffset(offset, animated: animated)
     }
-
-    public func scrollToTop(_ animated: Bool) {
+    
+    func scrollToTop(_ animated: Bool) {
         let offset = CGPoint(x: contentOffset.x, y: 0)
         self.setContentOffset(offset, animated: animated)
     }
 
-    public func scrollToRight(_ animated: Bool) {
+    func scrollToRight(_ animated: Bool) {
         let offset = CGPoint(x: contentSize.width - bounds.size.width, y: contentOffset.y)
         self.setContentOffset(offset, animated: animated)
     }
 
-    public func scrollToLeft(_ animated: Bool) {
+    func scrollToLeft(_ animated: Bool) {
         let offset = CGPoint(x: contentSize.width - bounds.size.width, y: 0)
         self.setContentOffset(offset, animated: animated)
     }

@@ -9,7 +9,7 @@
 import CoreGraphics
 
 open class Path: NSObject {
-    open let path: CGPath
+    public let path: CGPath
     
     init(path: CGPath) {
         self.path = path

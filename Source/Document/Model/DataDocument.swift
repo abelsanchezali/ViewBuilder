@@ -19,7 +19,7 @@ public class DataDocument: NSObject {
     public let resourcesNode: DataNode?
     public let baseNode: DataNode
 
-    public lazy var resources: Resources = { [weak self] _ in
+    public lazy var resources: Resources = { [weak self] in
         guard let _self = self, let node = _self.resourcesNode else {
             return Resources()
         }
@@ -65,6 +65,11 @@ public class DataDocument: NSObject {
 
     @nonobjc private func resolveNode(_ node: DataNode) {
         node.referenceType = ReflectionHelper.classWithName(node.name, bundleIdentifier: node.domain)
+      if (node.referenceType == nil) {
+        if (options.verbose) {
+            Log.shared.write("Warning: Could not resolve Reference Type for node with name = \(node.name) with domain = \(String(describing: node.domain))")
+        }
+      }
         for child in node.childs {
             resolveNode(child)
         }
@@ -79,11 +84,11 @@ public class DataDocument: NSObject {
 
 fileprivate extension DataNode {
 
-    @nonobjc fileprivate func isContentNode() -> Bool {
+    @nonobjc func isContentNode() -> Bool {
         return name == Constants.Document.ContentNodeName && domain == Constants.Namespaces.FrameworkNamespace
     }
 
-    @nonobjc fileprivate func findResourcesNode() -> DataNode? {
+    @nonobjc func findResourcesNode() -> DataNode? {
         return findChildNodeWithNameAndDomain(Constants.Document.ResourcesNodeName, domain: Constants.Namespaces.FrameworkNamespace)
     }
 

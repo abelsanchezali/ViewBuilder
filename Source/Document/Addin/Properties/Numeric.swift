@@ -12,39 +12,69 @@ import CoreGraphics
 // MARK: IntMaxConvertible Protocol
 
 protocol IntMaxConvertible {
-    func toIntMax() -> IntMax
+    func toIntMax() -> Int64
 }
 
 // MARK: IntMaxConvertible for Integer Types
 
 extension Int: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension UInt: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension Int8: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension Int16: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension Int32: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension Int64: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension UInt8: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension UInt16: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension UInt32: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 extension UInt64: IntMaxConvertible {
+  func toIntMax() -> Int64 {
+      return Int64(self)
+  }
 }
 
 // MARK: Int

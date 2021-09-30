@@ -138,7 +138,7 @@ private extension Array {
 private extension String {
 
     var stringWithCapitalizedFirstLetter: String {
-        let firstLetterRange = startIndex..<characters.index(after: startIndex)
+        let firstLetterRange = startIndex..<index(after: startIndex)
         let capitalizedFirstLetter = substring(with: firstLetterRange).capitalized
         return replacingCharacters(in: firstLetterRange, with: capitalizedFirstLetter)
     }

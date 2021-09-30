@@ -10,14 +10,14 @@ import UIKit
 import ViewBuilder
 
 public class LayoutPerformanceViewController: UIViewController {
-
+    
     weak var scrollPanel: ScrollPanel!
     weak var infoLabel: UILabel!
     weak var overviewLabel: UILabel!
     var resultViews: [LayoutPerformanceResultView]!
     var measureCount = 0
     var isMeasuring = false
-
+    
     override public func loadView() {
         view = DocumentBuilder.shared.load(Constants.bundle.path(forResource: "LayoutPerformanceView", ofType: "xml")!)
         scrollPanel = view.documentReferences!["scrollPanel"] as! ScrollPanel
@@ -28,17 +28,18 @@ public class LayoutPerformanceViewController: UIViewController {
                        view.documentReferences!["resultView2"] as! LayoutPerformanceResultView,
                        view.documentReferences!["resultView3"] as! LayoutPerformanceResultView]
     }
-
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(composeHandler))
         scrollPanel.delegate = self
     }
-
+    
+    @objc
     func composeHandler() {
         NavigationHelper.presentDocumentVisualizer(self, path: Constants.bundle.path(forResource: "LayoutPerformanceView", ofType: "xml"), completion: nil)
     }
-
+    
     func startMeasuring() {
         isMeasuring = true
         let alert = UIAlertController(title: "Measuring...", message: nil, preferredStyle: .alert)
@@ -86,11 +87,11 @@ public class LayoutPerformanceViewController: UIViewController {
             })
         }
     }
-
+    
     // MARK: - Testing
-
+    
     let texts = [Lorem.paragraphs(2), Lorem.paragraphs(2), Lorem.paragraphs(2)]
-
+    
     func testView(_ view: CollectionViewCellProtocol,  times: Int) -> Double {
         var elapsed = 0.0
         for _ in 0..<times {

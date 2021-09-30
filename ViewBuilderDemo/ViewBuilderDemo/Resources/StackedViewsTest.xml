@@ -6,12 +6,12 @@
         <d:Item name="margin" value="d:EdgeInsets(1)"/>
         <d:Item name="vstyle">
             <d:ObjectStyle>
-                <d:Setter property="title" value="d:StringForState(value: V state: d:ControlState(Normal))"/>
+                <d:Setter property="titleString" value="d:StringForState(value: V state: d:ControlState(Normal))"/>
             </d:ObjectStyle>
         </d:Item>
         <d:Item name="hstyle">
             <d:ObjectStyle>
-                <d:Setter property="title" value="d:StringForState(value: H state: d:ControlState(Normal))"/>
+                <d:Setter property="titleString" value="d:StringForState(value: H state: d:ControlState(Normal))"/>
             </d:ObjectStyle>
         </d:Item>
     </d:Resources>

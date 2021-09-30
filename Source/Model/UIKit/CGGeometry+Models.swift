@@ -18,8 +18,8 @@ extension CGRect: NSValueConvertible {
 }
 
 open class Rect: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
-        guard let value = text, value.characters.count > 0 else {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+        guard let value = text, value.count > 0 else {
             return NSValue(cgRect: CGRect.zero)
         }
         guard let array = service.parseValidDoubleArray(from: value), array.count == 4 else {
@@ -44,8 +44,8 @@ extension CGPoint: NSValueConvertible {
 }
 
 open class Point: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
-        guard let value = text, value.characters.count > 0 else {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+        guard let value = text, value.count > 0 else {
             return NSValue(cgRect: CGRect.zero)
         }
         guard let array = service.parseValidDoubleArray(from: value), array.count == 2 else {
@@ -71,8 +71,8 @@ extension CGSize: NSValueConvertible {
 
 
 open class Size: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
-        guard let value = text, value.characters.count > 0 else {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+        guard let value = text, value.count > 0 else {
             return NSValue(cgRect: CGRect.zero)
         }
         guard let array = service.parseValidDoubleArray(from: value), array.count == 2 else {
@@ -91,8 +91,8 @@ extension CGVector: NSValueConvertible {
 }
 
 open class Vector: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
-        guard let value = text, value.characters.count > 0 else {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+        guard let value = text, value.count > 0 else {
             return NSValue(cgRect: CGRect.zero)
         }
         guard let array = service.parseValidDoubleArray(from: value), array.count == 2 else {

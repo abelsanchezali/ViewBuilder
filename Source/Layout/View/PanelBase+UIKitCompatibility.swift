@@ -21,11 +21,13 @@ extension PanelBase {
         patchedSet.insert(hash)
 
         // Check that method was already patched
-        let m1 = class_getInstanceMethod(classType, #selector(UIView.invalidateIntrinsicContentSize))
-        if m1 == nil || methodSet.contains(m1!) {
+        guard let m1 = class_getInstanceMethod(classType, #selector(UIView.invalidateIntrinsicContentSize)) else {
+          return false;
+        }
+        if methodSet.contains(m1) {
             return false
         }
-        methodSet.insert(m1!)
+        methodSet.insert(m1)
         // Get Method implementation
         let imp1 = class_getMethodImplementation(classType, #selector(UIView.invalidateIntrinsicContentSize))
         if imp1 == nil {
@@ -37,7 +39,7 @@ extension PanelBase {
         let curriedImplementation = unsafeBitCast(imp1, to: Function.self)
 
         // Build new implementation block
-        let invalidateIntrinsicContentSizeBlock : @convention(block) (UIView!) -> Void = { (_self : UIView!) -> (Void) in
+        let invalidateIntrinsicContentSizeBlock : @convention(block) (UIView?) -> Void = { (_self : UIView!) -> (Void) in
             // Call invalidateMeasure
             _self.invalidateMeasure()
             // Call previous implementation of invalidateIntrinsicContentSize

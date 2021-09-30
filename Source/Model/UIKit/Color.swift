@@ -47,7 +47,7 @@ open class Color: Object, TextDeserializer {
                                                   "Yellow": UIColor.yellow]
     #endif
 
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let value = text else {
             return nil
         }

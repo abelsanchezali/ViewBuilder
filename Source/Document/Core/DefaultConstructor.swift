@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol DefaultConstructor: class {
+public protocol DefaultConstructor: AnyObject {
     init()
 }

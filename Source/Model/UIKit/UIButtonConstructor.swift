@@ -20,10 +20,10 @@ open class UIButtonConstructor: ObjectConstructor {
         guard let type = objectType as? UIButton.Type else {
             return nil
         }
-        if let buttonType = parameters[UIButtonConstructor.UIButtonTypeParameter] as? UIButtonType {
+        if let buttonType = parameters[UIButtonConstructor.UIButtonTypeParameter] as? UIButton.ButtonType {
             return type.init(type: buttonType)
         }
-        return type.init(type: UIButtonType.system)
+      return type.init(type: UIButton.ButtonType.system)
     }
 }
 

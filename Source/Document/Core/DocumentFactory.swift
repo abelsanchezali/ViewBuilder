@@ -11,7 +11,7 @@ import Foundation
 public class DocumentFactory: NSObject {
 
     static let DomainsValuesPrefix = "domains."
-    static let DomainsValuesPrefixLength = DocumentFactory.DomainsValuesPrefix.characters.count
+    static let DomainsValuesPrefixLength = DocumentFactory.DomainsValuesPrefix.count
 
     public let document: DataDocument
     public let builder: DocumentBuilder
@@ -166,7 +166,7 @@ public class DocumentFactory: NSObject {
 
         func valueForKey(_ key: String) -> Any? {
             if key.hasPrefix(DocumentFactory.DomainsValuesPrefix) {
-                return domainForPrefix(key.substring(from: key.characters.index(key.startIndex, offsetBy: DocumentFactory.DomainsValuesPrefixLength)))
+                return domainForPrefix(key.substring(from: key.index(key.startIndex, offsetBy: DocumentFactory.DomainsValuesPrefixLength)))
             }
             if let resourceValue = document.resources[key] {
                 return resourceValue

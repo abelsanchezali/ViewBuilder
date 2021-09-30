@@ -3,8 +3,8 @@
     <d:Resources>
         <d:Item name="buttonStyle">
             <d:ObjectStyle>
-                <d:Setter property="title" value="d:StringForState(value: HIGHLIGTHED state: d:ControlState(Highlighted))"/>
-                <d:Setter property="title" value="d:StringForState(value: NORMAL state: d:ControlState(Normal))"/>
+                <d:Setter property="titleString" value="d:StringForState(value: HIGHLIGTHED state: d:ControlState(Highlighted))"/>
+                <d:Setter property="titleString" value="d:StringForState(value: NORMAL state: d:ControlState(Normal))"/>
             </d:ObjectStyle>
         </d:Item>
     </d:Resources>

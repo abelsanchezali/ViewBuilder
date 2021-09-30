@@ -10,8 +10,8 @@ import UIKit
 
 extension UIView: BoxProtocol {
     private static let BoxProtocolMarginParameterName = "BoxProtocolMarginParameterName"
-
-    public var margin: UIEdgeInsets {
+    
+    @objc public var margin: UIEdgeInsets {
         get {
             guard let value = getAttachedParameter(UIView.BoxProtocolMarginParameterName) as? NSValue else {
                 return UIEdgeInsets.zero
@@ -25,7 +25,7 @@ extension UIView: BoxProtocol {
 
     private static let BoxProtocolPaddingParameterName = "BoxProtocolPaddingParameterName"
 
-    public var padding: UIEdgeInsets {
+    @objc public var padding: UIEdgeInsets {
         get {
             guard let value = getAttachedParameter(UIView.BoxProtocolPaddingParameterName) as? NSValue else {
                 return UIEdgeInsets.zero
@@ -39,7 +39,7 @@ extension UIView: BoxProtocol {
 
     private static let BoxProtocolPreferredSizeParameterName = "BoxProtocolPreferredSizeParameterName"
 
-    public var preferredSize: CGSize {
+    @objc public var preferredSize: CGSize {
         get {
             guard let value = getAttachedParameter(UIView.BoxProtocolPreferredSizeParameterName) as? NSValue else {
                 return CGSize(width: -1, height: -1)
@@ -53,7 +53,7 @@ extension UIView: BoxProtocol {
 
     private static let BoxProtocolMaximumSizeParameterName = "BoxProtocolMaximumSizeParameterName"
 
-    public var maximumSize: CGSize {
+    @objc public var maximumSize: CGSize {
         get {
             guard let value = getAttachedParameter(UIView.BoxProtocolMaximumSizeParameterName) as? NSValue else {
                 return CGSize(width: -1, height: -1)

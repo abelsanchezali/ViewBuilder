@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol BoxProtocol {
+@objc public protocol BoxProtocol {
     // Distance to any sibling in all four edges
     var margin: UIEdgeInsets { get set }
     // Distance to child content in all four edges

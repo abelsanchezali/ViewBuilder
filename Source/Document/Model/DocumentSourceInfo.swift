@@ -9,8 +9,8 @@
 import Foundation
 
 open class DocumentSourceInfo: NSObject {
-    open let columnNumber: Int
-    open let lineNumber: Int
+    public let columnNumber: Int
+    public let lineNumber: Int
 
     public required init(columnNumber: Int, lineNumber: Int) {
         self.columnNumber = columnNumber

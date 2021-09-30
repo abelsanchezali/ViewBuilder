@@ -17,20 +17,20 @@ public struct PerformanceInspectorFlags : OptionSet {
         self.rawValue = rawValue
     }
 
-    public static let None                      = PerformanceInspectorFlags(rawValue: 0)
+    public static let None                      = PerformanceInspectorFlags([])
 
     public static let Window                    = PerformanceInspectorFlags(rawValue: 1 << 1)
     public static let FPS                       = PerformanceInspectorFlags(rawValue: 1 << 2)
     public static let Stalling                  = PerformanceInspectorFlags(rawValue: 1 << 3)
     public static let StallingException         = PerformanceInspectorFlags(rawValue: 1 << 4)
 
-    public static let All                       = PerformanceInspectorFlags(rawValue: 1 << 5 - 1)
+    public static let All                       = PerformanceInspectorFlags([.Window, .FPS, .Stalling, .StallingException])
 }
 
 open class PerformanceInspector: NSObject {
     static var flags: PerformanceInspectorFlags = PerformanceInspectorFlags.All
 
-    open static func start() {
+    public static func start() {
         if flags.contains(.FPS) {
             start_FPS()
         }
@@ -39,7 +39,7 @@ open class PerformanceInspector: NSObject {
         }
     }
 
-    open static func stop() {
+    public static func stop() {
         stop_FPS()
         stop_Window()
     }
@@ -65,14 +65,14 @@ extension PerformanceInspector {
         }
 
         displayLink = CADisplayLink(target: self, selector: #selector(displayLinkCallback))
-        displayLink?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
+      displayLink?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
 
         timerSource = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags(rawValue: 0),
                                                      queue: DispatchQueue.global())
 
-        timerSource!.scheduleRepeating(deadline: .now(),
-                                       interval: .milliseconds(Int(interval * 1000)),
-                                       leeway: .microseconds(0))
+        timerSource!.schedule(deadline: .now(),
+                              repeating: .milliseconds(Int(interval * 1000)),
+                              leeway: .microseconds(0))
 
         timerSource!.setEventHandler {
             let elapsedTime = CFAbsoluteTimeGetCurrent() - lastTime
@@ -89,6 +89,7 @@ extension PerformanceInspector {
         started_fps = true
     }
 
+  @objc
     static func displayLinkCallback(_ sender: CADisplayLink) {
         frames += 1
     }
@@ -124,11 +125,11 @@ extension PerformanceInspector {
         let frame = CGRect(origin: CGPoint.zero, size: size)
         inspectorWindow = UIWindow(frame: frame)
         inspectorWindow?.rootViewController = PerformanceInspectorViewController()
-        inspectorWindow?.windowLevel = UIWindowLevelAlert + 1
+      inspectorWindow?.windowLevel = UIWindow.Level.alert + 1
         inspectorWindow?.isHidden = false
         inspectorViewController = inspectorWindow?.rootViewController as? PerformanceInspectorViewController
 
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+      NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
     @objc private static func deviceRotated() {
@@ -141,7 +142,7 @@ extension PerformanceInspector {
         if !started_window {
             return
         }
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         inspectorViewController = nil
         inspectorWindow?.isHidden = true
         inspectorWindow = nil

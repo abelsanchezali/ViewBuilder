@@ -10,8 +10,8 @@ import ViewBuilder
 import UIKit
 
 public class StackingViews: UIViewAttachable {
-    public var padding: NSValue? = nil
-    public var orientation: LayoutOrientation = .vertical
+    @objc public var padding: NSValue? = nil
+    @objc public var orientation: LayoutOrientation = .vertical
 
     public var subviews = [UIView]()
 

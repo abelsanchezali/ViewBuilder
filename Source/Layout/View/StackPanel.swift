@@ -12,13 +12,13 @@ open class StackPanel: PanelBase {
 
     // MARK: - Properties
 
-    open var orientation: LayoutOrientation = .vertical {
+    @objc open var orientation: LayoutOrientation = .vertical {
         didSet {
             invalidateLayout()
         }
     }
 
-    open override var padding: UIEdgeInsets {
+    @objc open override var padding: UIEdgeInsets {
         didSet {
             invalidateLayout()
         }

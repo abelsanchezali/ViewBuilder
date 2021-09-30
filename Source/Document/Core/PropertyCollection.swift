@@ -46,7 +46,7 @@ open class PropertyCollection: Sequence {
         propertiesByName[property.name] = property
     }
 
-    open func makeIterator() -> LazyMapIterator<DictionaryIterator<String, Property>, Property> {
-        return propertiesByName.values.makeIterator()
+  open func makeIterator() -> Dictionary<String, Property>.Values.Iterator {
+    return propertiesByName.values.makeIterator();
     }
 }

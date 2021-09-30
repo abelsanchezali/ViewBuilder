@@ -9,8 +9,8 @@
 import Foundation
 
 open class Setter: NSObject {
-    open let property: String
-    open let hasPath: Bool
+    public let property: String
+    public let hasPath: Bool
     open var value: Any?
 
     public required init(property: String) {

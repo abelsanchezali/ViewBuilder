@@ -9,11 +9,11 @@
 import Foundation
 
 open class Resources: NSObject, Sequence {
-
+    
     public required override init() {
-
+        
     }
-
+    
     public required init?(path: String, builder: DocumentBuilder? = nil) {
         let builder = builder ?? DocumentBuilder.shared
         let options = BuildOptions()
@@ -24,38 +24,38 @@ open class Resources: NSObject, Sequence {
             return nil
         }
     }
-
+    
     internal var itemsByName = [String: Item]()
-
-
+    
+    
     open func addItem(_ item: Item) {
         itemsByName[item.name] = item
     }
-
+    
     open func addItems<T: Sequence>(_ items: T) where T.Iterator.Element == Item {
         for item in items {
             addItem(item)
         }
     }
-
+    
     open func mergeWithResource(_ resource: Resources) {
         addItems(resource)
     }
-
+    
     open subscript(name: String) -> Any? {
         return itemsByName[name]?.value
     }
-
+    
     open var count: Int {
         return itemsByName.count
     }
-
+    
     // MARK: - SequenceType
-
-    open func makeIterator() -> LazyMapIterator<DictionaryIterator<String, Item>, Item> {
+    
+    open func makeIterator() -> Dictionary<String, Item>.Values.Iterator {
         return itemsByName.values.makeIterator()
     }
-
+    
 }
 
 extension Resources: KeyValueResolverProtocol {
@@ -70,13 +70,13 @@ extension Resources {
     open override var description: String {
         get {
             let total = itemsByName.count
-
+            
             guard total > 0 else {
                 return "{Empty}"
             }
-
+            
             var summary = "{items = \(total)"
-
+            
             if total > 0 {
                 summary += ", names = ("
                 var count = 0
@@ -96,9 +96,9 @@ extension Resources {
                     summary += ")"
                 }
             }
-
+            
             summary += "}"
-
+            
             return summary
         }
     }

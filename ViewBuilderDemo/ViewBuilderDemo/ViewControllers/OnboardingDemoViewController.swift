@@ -17,9 +17,9 @@ public class OnboardingDemoViewController: UIViewController {
     weak var topView: UIView!
     weak var headlineLabel: UILabel!
     weak var screenView: OnboardingPhoneScreenView!
-
+    
     private var isInitialState: Bool = true
-
+    
     public override func loadView() {
         view = DocumentBuilder.shared.load(Constants.bundle.path(forResource: "OnboardingDemoView", ofType: "xml")!)
         topView = view.documentReferences!["topView"] as! UIView
@@ -32,17 +32,17 @@ public class OnboardingDemoViewController: UIViewController {
         continueButton.addTarget(self, action: #selector(handleContinueAction), for: .touchUpInside)
         infoButton.addTarget(self, action: #selector(handleInfoAction), for: .touchUpInside)
     }
-
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         gotoInitialState()
     }
-
+    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isInitialState {
@@ -52,15 +52,17 @@ public class OnboardingDemoViewController: UIViewController {
             })
         }
     }
-
+    
     public override var prefersStatusBarHidden : Bool {
         return true
     }
-
+    
+    @objc
     func handleContinueAction() {
         navigationController?.popViewController(animated: true)
     }
-
+    
+    @objc
     func handleInfoAction() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         NavigationHelper.presentDocumentVisualizer(self, path: Constants.bundle.path(forResource: "OnboardingDemoView", ofType: "xml"))
@@ -68,7 +70,7 @@ public class OnboardingDemoViewController: UIViewController {
 }
 
 extension OnboardingDemoViewController {
-
+    
     func gotoInitialState() {
         topView.alpha = 0
         topView.verticalAlignment = .center
@@ -82,79 +84,79 @@ extension OnboardingDemoViewController {
         continueButton.layer.transform = CATransform3DMakeTranslation(0, 24, 0)
         screenView.gotoIntialState()
     }
-
+    
     func playBringTitle() {
         UIView.animate(withDuration: 0.5,
-                                   delay: 0,
-                                   options: [.curveEaseOut, .beginFromCurrentState],
-                                   animations: {
-                                    self.topView.alpha = 1
-        }, completion: nil)
+                       delay: 0,
+                       options: [.curveEaseOut, .beginFromCurrentState],
+                       animations: {
+                        self.topView.alpha = 1
+                       }, completion: nil)
         AnimationHelper.delayedBlock(1.0, block: {
             self.topView.verticalAlignment = .minimum
             UIView.animate(withDuration: 1.5,
-                delay: 0.0,
-                usingSpringWithDamping: 1.0,
-                initialSpringVelocity: 0.0,
-                options: .beginFromCurrentState,
-                animations: {
-                    self.view.setNeedsLayout()
-                    self.view.layoutIfNeeded()
-                }, completion: nil)
+                           delay: 0.0,
+                           usingSpringWithDamping: 1.0,
+                           initialSpringVelocity: 0.0,
+                           options: .beginFromCurrentState,
+                           animations: {
+                            self.view.setNeedsLayout()
+                            self.view.layoutIfNeeded()
+                           }, completion: nil)
         })
         AnimationHelper.delayedBlock(3.25, block: {
             self.headlineLabel.isHidden = false
             UIView.animate(withDuration: 0.5,
-                delay: 0,
-                options: [.curveEaseOut, .beginFromCurrentState],
-                animations: {
-                    self.headlineLabel.alpha = 1
-                }, completion: nil)
+                           delay: 0,
+                           options: [.curveEaseOut, .beginFromCurrentState],
+                           animations: {
+                            self.headlineLabel.alpha = 1
+                           }, completion: nil)
         })
-
+        
         //
-
+        
         AnimationHelper.delayedBlock(1.0, block: {
             self.playBringContent()
         })
     }
-
+    
     func playBringContent() {
         UIView.animate(withDuration: 0.25,
-                                   delay: 0,
-                                   options: [.curveEaseOut, .beginFromCurrentState],
-                                   animations: {
-                                    self.bottomView.alpha = 1
-            }, completion: nil)
+                       delay: 0,
+                       options: [.curveEaseOut, .beginFromCurrentState],
+                       animations: {
+                        self.bottomView.alpha = 1
+                       }, completion: nil)
         UIView.animate(withDuration: 1.0,
-                                   delay: 0,
-                                   options: .beginFromCurrentState,
-                                   animations: {
-                                    self.bottomView.layer.transform = CATransform3DIdentity
-        }, completion: nil)
+                       delay: 0,
+                       options: .beginFromCurrentState,
+                       animations: {
+                        self.bottomView.layer.transform = CATransform3DIdentity
+                       }, completion: nil)
         UIView.animate(withDuration: 0.75,
-                                   delay: 3.85,
-                                   usingSpringWithDamping: 1.0,
-                                   initialSpringVelocity: 0.1,
-                                   options: [.curveEaseOut, .beginFromCurrentState],
-                                   animations: { 
-                                    self.continueButton.alpha = 1
-                                    self.continueButton.layer.transform = CATransform3DIdentity
-        }, completion: nil)
+                       delay: 3.85,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 0.1,
+                       options: [.curveEaseOut, .beginFromCurrentState],
+                       animations: {
+                        self.continueButton.alpha = 1
+                        self.continueButton.layer.transform = CATransform3DIdentity
+                       }, completion: nil)
         UIView.animate(withDuration: 1.0,
-                                   delay: 2.0,
-                                   usingSpringWithDamping: 1.0,
-                                   initialSpringVelocity: 0.1,
-                                   options: [.curveEaseOut, .beginFromCurrentState],
-                                   animations: {
-                                    self.centerView.alpha = 1
-                                    self.centerView.layer.transform = CATransform3DIdentity
-            }, completion: { completed in
-                if completed {
-                    self.screenView.playAnimation()
-                }
-        })
+                       delay: 2.0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 0.1,
+                       options: [.curveEaseOut, .beginFromCurrentState],
+                       animations: {
+                        self.centerView.alpha = 1
+                        self.centerView.layer.transform = CATransform3DIdentity
+                       }, completion: { completed in
+                        if completed {
+                            self.screenView.playAnimation()
+                        }
+                       })
     }
-
+    
     
 }

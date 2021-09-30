@@ -12,8 +12,8 @@ open class InstantiationOptions: NSObject {
 
     open var verbose = true
 
-    open let baseInstance: Any?
-
+    public let baseInstance: Any?
+    
     public init(instance: Any?) {
         baseInstance = instance
     }

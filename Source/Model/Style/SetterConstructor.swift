@@ -12,7 +12,7 @@ open class SetterConstructor: ObjectConstructor {
     private static let PropertyParameter = "property"
     private static let ValueParameter = "value"
     private static let Parameters = [SetterConstructor.PropertyParameter, SetterConstructor.ValueParameter]
-
+    
     open func parametersKeys() -> [String] {
         return SetterConstructor.Parameters
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc
 open class Panel: PanelBase {
     
     // MARK: - Properties

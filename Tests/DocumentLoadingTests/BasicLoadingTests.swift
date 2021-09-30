@@ -31,7 +31,7 @@ class BasicLoadingTests: XCTestCase {
         XCTAssertEqual(contentView.frame, CGRect(x: 0, y: 0, width: 300, height: 900))
         XCTAssertEqual(contentView.subviews.count, 15)
 
-        let labels = contentView.subviews.flatMap { $0 as? UILabel }
+        let labels = contentView.subviews.compactMap { $0 as? UILabel }
         XCTAssertEqual(labels.count, 15)
 
         // Validate Text
@@ -43,7 +43,7 @@ class BasicLoadingTests: XCTestCase {
         XCTAssertEqual(labels[ 5].text, "Tight Tight Tight")
         XCTAssertEqual(labels[ 6].text, "Loose Loose Loose")
         XCTAssertEqual(labels[ 7].text, "HelveticaNeue-UltraLight")
-        XCTAssertEqual(labels[ 8].text, "GurmukhiMN-Bold")
+        XCTAssertEqual(labels[ 8].text, "Didot-Italic")
         XCTAssertEqual(labels[ 9].text, "GillSans-BoldItalic")
         XCTAssertEqual(labels[10].text, "MarkerFelt-Wide")
         XCTAssertEqual(labels[11].text, "CourierNewPSMT")
@@ -106,7 +106,7 @@ class BasicLoadingTests: XCTestCase {
         XCTAssertEqual(labels[ 6].text, "Tight Tight Tight")
         XCTAssertEqual(labels[ 7].text, "Loose Loose Loose")
         XCTAssertEqual(labels[ 8].text, "HelveticaNeue-UltraLight")
-        XCTAssertEqual(labels[ 9].text, "GurmukhiMN-Bold")
+        XCTAssertEqual(labels[ 9].text, "Didot-Italic")
         XCTAssertEqual(labels[10].text, "CourierNewPSMT")
         XCTAssertEqual(labels[11].text, "Futura-CondensedExtraBold")
 
@@ -204,7 +204,7 @@ class BasicLoadingTests: XCTestCase {
         XCTAssertEqual(imageView.preferredSize, CGSize(width: 50, height: 50))
         XCTAssertEqual(imageView.cornerRadius, 2)
         XCTAssertEqual(imageView.backgroundColor, UIColor.orange)
-        XCTAssertEqual(imageView.margin, UIEdgeInsetsMake(0, 0, 0, 8))
+      XCTAssertEqual(imageView.margin, UIEdgeInsets(top:0, left:0, bottom:0, right:8))
 
         guard let summaryLabel = references["summaryLabel"] as? UILabel else {
             XCTFail("Reference with name summaryLabel not provided")
@@ -224,7 +224,7 @@ class BasicLoadingTests: XCTestCase {
             return
         }
         XCTAssertEqual(button.buttonType, .custom)
-        XCTAssertEqual(button.margin, UIEdgeInsetsMake(4, 60, 0, 0))
+      XCTAssertEqual(button.margin, UIEdgeInsets(top:4, left:60, bottom:0, right:0))
         XCTAssertEqual(button.title(for: .normal), "Say thanks")
 
         container.frame = CGRect(origin: CGPoint.zero, size: container.sizeThatFits(CGSize(width: 300, height: 10000)))

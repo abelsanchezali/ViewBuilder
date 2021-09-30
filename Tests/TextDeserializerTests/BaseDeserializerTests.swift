@@ -89,33 +89,33 @@ class BaseDeserializerTests: XCTestCase {
         let service = DefaultTextDeserializerService()
         let delegate = buildDefaultTextDeserializerServiceProtocolDelegate()
         service.delegate = delegate
-        XCTAssertEqual(UIViewContentMode.bottom, ContentMode.deserialize(text: "Bottom", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.bottomLeft, ContentMode.deserialize(text: "BottomLeft", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.bottomRight, ContentMode.deserialize(text: "BottomRight", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.center, ContentMode.deserialize(text: "Center", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.left, ContentMode.deserialize(text: "Left", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.redraw, ContentMode.deserialize(text: "Redraw", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.right, ContentMode.deserialize(text: "Right", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.scaleAspectFill, ContentMode.deserialize(text: "ScaleAspectFill", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.scaleAspectFit, ContentMode.deserialize(text: "ScaleAspectFit", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.scaleToFill, ContentMode.deserialize(text: "ScaleToFill", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.top, ContentMode.deserialize(text: "Top", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.topLeft, ContentMode.deserialize(text: "TopLeft", service: service) as? UIViewContentMode)
-        XCTAssertEqual(UIViewContentMode.topRight, ContentMode.deserialize(text: "TopRight", service: service) as? UIViewContentMode)
+      XCTAssertEqual(UIView.ContentMode.bottom, ContentMode.deserialize(text: "Bottom", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.bottomLeft, ContentMode.deserialize(text: "BottomLeft", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.bottomRight, ContentMode.deserialize(text: "BottomRight", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.center, ContentMode.deserialize(text: "Center", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.left, ContentMode.deserialize(text: "Left", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.redraw, ContentMode.deserialize(text: "Redraw", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.right, ContentMode.deserialize(text: "Right", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.scaleAspectFill, ContentMode.deserialize(text: "ScaleAspectFill", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.scaleAspectFit, ContentMode.deserialize(text: "ScaleAspectFit", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.scaleToFill, ContentMode.deserialize(text: "ScaleToFill", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.top, ContentMode.deserialize(text: "Top", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.topLeft, ContentMode.deserialize(text: "TopLeft", service: service) as? UIView.ContentMode)
+      XCTAssertEqual(UIView.ContentMode.topRight, ContentMode.deserialize(text: "TopRight", service: service) as? UIView.ContentMode)
     }
 
     func testControlState() {
         let service = DefaultTextDeserializerService()
         let delegate = buildDefaultTextDeserializerServiceProtocolDelegate()
         service.delegate = delegate
-        XCTAssertEqual(UIControlState.normal, ControlState.deserialize(text: "Normal", service: service) as? UIControlState)
-        XCTAssertEqual(UIControlState.highlighted, ControlState.deserialize(text: "Highlighted", service: service) as? UIControlState)
-        XCTAssertEqual(UIControlState.disabled, ControlState.deserialize(text: "Disabled", service: service) as? UIControlState)
-        XCTAssertEqual(UIControlState.selected, ControlState.deserialize(text: "Selected", service: service) as? UIControlState)
-        XCTAssertEqual(UIControlState.application, ControlState.deserialize(text: "Application", service: service) as? UIControlState)
-        XCTAssertEqual(UIControlState.reserved, ControlState.deserialize(text: "Reserved", service: service) as? UIControlState)
+        XCTAssertEqual(UIControl.State.normal, ControlState.deserialize(text: "Normal", service: service) as? UIControl.State)
+        XCTAssertEqual(UIControl.State.highlighted, ControlState.deserialize(text: "Highlighted", service: service) as? UIControl.State)
+        XCTAssertEqual(UIControl.State.disabled, ControlState.deserialize(text: "Disabled", service: service) as? UIControl.State)
+        XCTAssertEqual(UIControl.State.selected, ControlState.deserialize(text: "Selected", service: service) as? UIControl.State)
+        XCTAssertEqual(UIControl.State.application, ControlState.deserialize(text: "Application", service: service) as? UIControl.State)
+        XCTAssertEqual(UIControl.State.reserved, ControlState.deserialize(text: "Reserved", service: service) as? UIControl.State)
         if #available(iOS 9.0, *) {
-            XCTAssertEqual(UIControlState.focused, ControlState.deserialize(text: "Focused", service: service) as? UIControlState)
+            XCTAssertEqual(UIControl.State.focused, ControlState.deserialize(text: "Focused", service: service) as? UIControl.State)
         }
     }
 
@@ -126,27 +126,27 @@ class BaseDeserializerTests: XCTestCase {
         // Default usage
         let state0 = StringForState.deserialize(text: "HolaMundo", service: service) as? StringForState
         XCTAssertEqual("HolaMundo", state0?.value)
-        XCTAssertEqual(UIControlState.normal, state0?.state)
+        XCTAssertEqual(UIControl.State.normal, state0?.state)
         // Using with literal string
         let state1 = StringForState.deserialize(text: "f:Text(f:Text())", service: service) as? StringForState
         XCTAssertEqual("f:Text()", state1?.value)
-        XCTAssertEqual(UIControlState.normal, state1?.state)
+        XCTAssertEqual(UIControl.State.normal, state1?.state)
         // Using with number string
         let state2 = StringForState.deserialize(text: "13", service: service) as? StringForState
         XCTAssertEqual("13", state2?.value)
-        XCTAssertEqual(UIControlState.normal, state2?.state)
+        XCTAssertEqual(UIControl.State.normal, state2?.state)
         // Testing unsing state parameter
         let state3 = StringForState.deserialize(text: "value: HolaMundo, state: f:ControlState(Normal)", service: service) as? StringForState
         XCTAssertEqual("HolaMundo", state3?.value)
-        XCTAssertEqual(UIControlState.normal, state3?.state)
+        XCTAssertEqual(UIControl.State.normal, state3?.state)
         // Using with literal string with state parameter
         let state4 = StringForState.deserialize(text: "value: f:Text(f:Text()), state: f:ControlState(Selected)", service: service) as? StringForState
         XCTAssertEqual("f:Text()", state4?.value)
-        XCTAssertEqual(UIControlState.selected, state4?.state)
+        XCTAssertEqual(UIControl.State.selected, state4?.state)
         // Using with number string with state parameter
         let state5 = StringForState.deserialize(text: "value: 13, state: f:ControlState(Disabled)", service: service) as? StringForState
         XCTAssertEqual("13", state5?.value)
-        XCTAssertEqual(UIControlState.disabled, state5?.state)
+        XCTAssertEqual(UIControl.State.disabled, state5?.state)
     }
 
     func testColor() {
@@ -276,10 +276,10 @@ class BaseDeserializerTests: XCTestCase {
         let delegate = buildDefaultTextDeserializerServiceProtocolDelegate()
         service.delegate = delegate
         let state0 = ColorForState.deserialize(text: "f:Color(Red)", service: service) as? ColorForState
-        XCTAssertEqual(state0?.state, UIControlState.normal)
+        XCTAssertEqual(state0?.state, UIControl.State.normal)
         XCTAssertEqual(state0?.value, UIColor.red)
         let state1 = ColorForState.deserialize(text: "value: f:Color(Red), state: f:ControlState(Disabled)", service: service) as? ColorForState
-        XCTAssertEqual(state1?.state, UIControlState.disabled)
+        XCTAssertEqual(state1?.state, UIControl.State.disabled)
         XCTAssertEqual(state1?.value, UIColor.red)
     }
 
@@ -287,13 +287,13 @@ class BaseDeserializerTests: XCTestCase {
         let service = DefaultTextDeserializerService()
         let delegate = buildDefaultTextDeserializerServiceProtocolDelegate()
         service.delegate = delegate
-        XCTAssertEqual(UIButtonType.contactAdd, ButtonType.deserialize(text: "ContactAdd", service: service) as? UIButtonType)
-        XCTAssertEqual(UIButtonType.custom, ButtonType.deserialize(text: "Custom", service: service) as? UIButtonType)
-        XCTAssertEqual(UIButtonType.detailDisclosure, ButtonType.deserialize(text: "DetailDisclosure", service: service) as? UIButtonType)
-        XCTAssertEqual(UIButtonType.infoLight, ButtonType.deserialize(text: "InfoLight", service: service) as? UIButtonType)
-        XCTAssertEqual(UIButtonType.infoDark, ButtonType.deserialize(text: "InfoDark", service: service) as? UIButtonType)
-        XCTAssertEqual(UIButtonType.roundedRect, ButtonType.deserialize(text: "RoundedRect", service: service) as? UIButtonType)
-        XCTAssertEqual(UIButtonType.system, ButtonType.deserialize(text: "System", service: service) as? UIButtonType)
+        XCTAssertEqual(UIButton.ButtonType.contactAdd, ButtonType.deserialize(text: "ContactAdd", service: service) as? UIButton.ButtonType)
+        XCTAssertEqual(UIButton.ButtonType.custom, ButtonType.deserialize(text: "Custom", service: service) as? UIButton.ButtonType)
+        XCTAssertEqual(UIButton.ButtonType.detailDisclosure, ButtonType.deserialize(text: "DetailDisclosure", service: service) as? UIButton.ButtonType)
+        XCTAssertEqual(UIButton.ButtonType.infoLight, ButtonType.deserialize(text: "InfoLight", service: service) as? UIButton.ButtonType)
+        XCTAssertEqual(UIButton.ButtonType.infoDark, ButtonType.deserialize(text: "InfoDark", service: service) as? UIButton.ButtonType)
+        XCTAssertEqual(UIButton.ButtonType.roundedRect, ButtonType.deserialize(text: "RoundedRect", service: service) as? UIButton.ButtonType)
+        XCTAssertEqual(UIButton.ButtonType.system, ButtonType.deserialize(text: "System", service: service) as? UIButton.ButtonType)
 
     }
 
@@ -342,11 +342,11 @@ class BaseDeserializerTests: XCTestCase {
         let service = DefaultTextDeserializerService()
         let delegate = buildDefaultTextDeserializerServiceProtocolDelegate()
         service.delegate = delegate
-        XCTAssertEqual(UIEdgeInsetsMake(8, 8, 8, 8),
+      XCTAssertEqual(UIEdgeInsets(top:8, left:8, bottom:8, right:8),
                        EdgeInsets.deserialize(text: "8", service: service) as? UIEdgeInsets)
-        XCTAssertEqual(UIEdgeInsetsMake(8, 2.0, 8, 2.0),
+      XCTAssertEqual(UIEdgeInsets(top:8, left:2.0, bottom:8, right:2.0),
                        EdgeInsets.deserialize(text: "8, 2.0", service: service) as? UIEdgeInsets)
-        XCTAssertEqual(UIEdgeInsetsMake(1.0, 2.0, 3, 4.0),
+      XCTAssertEqual(UIEdgeInsets(top:1.0, left:2.0, bottom:3, right:4.0),
                        EdgeInsets.deserialize(text: "1.0, 2.0, 3, 4.0", service: service) as? UIEdgeInsets)
     }
 
@@ -355,17 +355,17 @@ class BaseDeserializerTests: XCTestCase {
         let delegate = buildDefaultTextDeserializerServiceProtocolDelegate()
         service.delegate = delegate
         // Simple
-        XCTAssertEqual(FontTraits.deserialize(text: "Italic", service: service) as? UIFontDescriptorSymbolicTraits, .traitItalic)
-        XCTAssertEqual(FontTraits.deserialize(text: "Bold", service: service) as? UIFontDescriptorSymbolicTraits, .traitBold)
-        XCTAssertEqual(FontTraits.deserialize(text: "Expanded", service: service) as? UIFontDescriptorSymbolicTraits, .traitExpanded)
-        XCTAssertEqual(FontTraits.deserialize(text: "Condensed", service: service) as? UIFontDescriptorSymbolicTraits, .traitCondensed)
-        XCTAssertEqual(FontTraits.deserialize(text: "Monospace", service: service) as? UIFontDescriptorSymbolicTraits, .traitMonoSpace)
-        XCTAssertEqual(FontTraits.deserialize(text: "Vertical", service: service) as? UIFontDescriptorSymbolicTraits, .traitVertical)
-        XCTAssertEqual(FontTraits.deserialize(text: "Optimized", service: service) as? UIFontDescriptorSymbolicTraits, .traitUIOptimized)
-        XCTAssertEqual(FontTraits.deserialize(text: "Tight", service: service) as? UIFontDescriptorSymbolicTraits, .traitTightLeading)
-        XCTAssertEqual(FontTraits.deserialize(text: "Loose", service: service) as? UIFontDescriptorSymbolicTraits, .traitLooseLeading)
+        XCTAssertEqual(FontTraits.deserialize(text: "Italic", service: service) as? UIFontDescriptor.SymbolicTraits, .traitItalic)
+        XCTAssertEqual(FontTraits.deserialize(text: "Bold", service: service) as? UIFontDescriptor.SymbolicTraits, .traitBold)
+        XCTAssertEqual(FontTraits.deserialize(text: "Expanded", service: service) as? UIFontDescriptor.SymbolicTraits, .traitExpanded)
+        XCTAssertEqual(FontTraits.deserialize(text: "Condensed", service: service) as? UIFontDescriptor.SymbolicTraits, .traitCondensed)
+        XCTAssertEqual(FontTraits.deserialize(text: "Monospace", service: service) as? UIFontDescriptor.SymbolicTraits, .traitMonoSpace)
+        XCTAssertEqual(FontTraits.deserialize(text: "Vertical", service: service) as? UIFontDescriptor.SymbolicTraits, .traitVertical)
+        XCTAssertEqual(FontTraits.deserialize(text: "Optimized", service: service) as? UIFontDescriptor.SymbolicTraits, .traitUIOptimized)
+        XCTAssertEqual(FontTraits.deserialize(text: "Tight", service: service) as? UIFontDescriptor.SymbolicTraits, .traitTightLeading)
+        XCTAssertEqual(FontTraits.deserialize(text: "Loose", service: service) as? UIFontDescriptor.SymbolicTraits, .traitLooseLeading)
         // Compound
-        XCTAssertEqual(FontTraits.deserialize(text: "Italic, Bold,Expanded", service: service) as? UIFontDescriptorSymbolicTraits,
+        XCTAssertEqual(FontTraits.deserialize(text: "Italic, Bold,Expanded", service: service) as? UIFontDescriptor.SymbolicTraits,
                        [.traitItalic, .traitBold, .traitExpanded])
     }
 
@@ -373,17 +373,17 @@ class BaseDeserializerTests: XCTestCase {
         let service = DefaultTextDeserializerService()
         let delegate = buildDefaultTextDeserializerServiceProtocolDelegate()
         service.delegate = delegate
-        XCTAssertEqual(TextStyle.deserialize(text: "Headline", service: service) as? UIFontTextStyle, UIFontTextStyle.headline)
-        XCTAssertEqual(TextStyle.deserialize(text: "Subheadline", service: service) as? UIFontTextStyle, UIFontTextStyle.subheadline)
-        XCTAssertEqual(TextStyle.deserialize(text: "Body", service: service) as? UIFontTextStyle, UIFontTextStyle.body)
-        XCTAssertEqual(TextStyle.deserialize(text: "Footnote", service: service) as? UIFontTextStyle, UIFontTextStyle.footnote)
-        XCTAssertEqual(TextStyle.deserialize(text: "Caption1", service: service) as? UIFontTextStyle, UIFontTextStyle.caption1)
-        XCTAssertEqual(TextStyle.deserialize(text: "Caption2", service: service) as? UIFontTextStyle, UIFontTextStyle.caption2)
+        XCTAssertEqual(TextStyle.deserialize(text: "Headline", service: service) as? UIFont.TextStyle, UIFont.TextStyle.headline)
+        XCTAssertEqual(TextStyle.deserialize(text: "Subheadline", service: service) as? UIFont.TextStyle, UIFont.TextStyle.subheadline)
+        XCTAssertEqual(TextStyle.deserialize(text: "Body", service: service) as? UIFont.TextStyle, UIFont.TextStyle.body)
+        XCTAssertEqual(TextStyle.deserialize(text: "Footnote", service: service) as? UIFont.TextStyle, UIFont.TextStyle.footnote)
+        XCTAssertEqual(TextStyle.deserialize(text: "Caption1", service: service) as? UIFont.TextStyle, UIFont.TextStyle.caption1)
+        XCTAssertEqual(TextStyle.deserialize(text: "Caption2", service: service) as? UIFont.TextStyle, UIFont.TextStyle.caption2)
         if #available(iOS 9.0, *) {
-            XCTAssertEqual(TextStyle.deserialize(text: "Title1", service: service) as? UIFontTextStyle, UIFontTextStyle.title1)
-            XCTAssertEqual(TextStyle.deserialize(text: "Title2", service: service) as? UIFontTextStyle, UIFontTextStyle.title2)
-            XCTAssertEqual(TextStyle.deserialize(text: "Title3", service: service) as? UIFontTextStyle, UIFontTextStyle.title3)
-            XCTAssertEqual(TextStyle.deserialize(text: "Callout", service: service) as? UIFontTextStyle, UIFontTextStyle.callout)
+            XCTAssertEqual(TextStyle.deserialize(text: "Title1", service: service) as? UIFont.TextStyle, UIFont.TextStyle.title1)
+            XCTAssertEqual(TextStyle.deserialize(text: "Title2", service: service) as? UIFont.TextStyle, UIFont.TextStyle.title2)
+            XCTAssertEqual(TextStyle.deserialize(text: "Title3", service: service) as? UIFont.TextStyle, UIFont.TextStyle.title3)
+            XCTAssertEqual(TextStyle.deserialize(text: "Callout", service: service) as? UIFont.TextStyle, UIFont.TextStyle.callout)
         }
     }
 
@@ -442,7 +442,7 @@ class BaseDeserializerTests: XCTestCase {
                 XCTFail("Font not decoded")
                 return
             }
-            XCTAssertEqual(UIFont.monospacedDigitSystemFont(ofSize: 16, weight: 12), font6)
+          XCTAssertEqual(UIFont.monospacedDigitSystemFont(ofSize: 16, weight: UIFont.Weight(12)), font6)
         }
         // Testing format "style"
         if #available(iOS 9.0, *) {
@@ -463,7 +463,7 @@ class BaseDeserializerTests: XCTestCase {
                 XCTFail("Font not decoded")
                 return
             }
-            XCTAssertEqual(UIFont.systemFont(ofSize: 16, weight: 21.0), font10)
+            XCTAssertEqual(UIFont.systemFont(ofSize: 16, weight: UIFont.Weight(21.0)), font10)
         }
         // Testing format "system"
         if #available(iOS 8.2, *) {
@@ -530,7 +530,7 @@ class BaseDeserializerTests: XCTestCase {
                 XCTFail("Font not decoded")
                 return
             }
-            XCTAssertEqual(UIFont.monospacedDigitSystemFont(ofSize: 16, weight: 12), font6)
+            XCTAssertEqual(UIFont.monospacedDigitSystemFont(ofSize: 16, weight: UIFont.Weight(12)), font6)
         }
         // Testing format "style"
         if #available(iOS 9.0, *) {
@@ -551,7 +551,7 @@ class BaseDeserializerTests: XCTestCase {
                 XCTFail("Font not decoded")
                 return
             }
-            XCTAssertEqual(UIFont.systemFont(ofSize: 16, weight: 21.0), font10)
+            XCTAssertEqual(UIFont.systemFont(ofSize: 16, weight: UIFont.Weight(21.0)), font10)
         }
         // Testing format "system"
         if #available(iOS 8.2, *) {

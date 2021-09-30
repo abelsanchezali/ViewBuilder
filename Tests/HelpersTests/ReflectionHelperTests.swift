@@ -28,10 +28,10 @@ extension TestEnumForReflection: NSValueConvertible {
 }
 
 @objc public class TestClassForObjCKVO: NSObject {
-    public var intProperty: Int = 0
-    public var stringProperty: String = ""
-    public var enumProperty: TestEnumForReflection = .case0
-    public var instanceProperty: TestClassForObjCKVO? = nil
+    @objc public var intProperty: Int = 0
+    @objc public var stringProperty: String = ""
+    @objc public var enumProperty: TestEnumForReflection = .case0
+    @objc public var instanceProperty: TestClassForObjCKVO? = nil
 }
 
 class ReflectionHelperTests: XCTestCase {
@@ -62,7 +62,7 @@ class ReflectionHelperTests: XCTestCase {
 
     func testFindBundleWithModuleName() {
         XCTAssertEqual(ReflectionHelper.findBundleWithModuleName("ViewBuilder"), ConstantsHelper.Bundles.ViewBuilderBundle)
-        XCTAssertEqual(ReflectionHelper.findBundleWithModuleName("UIKit"), ConstantsHelper.Bundles.UIKitBundle)
+        XCTAssertEqual(ReflectionHelper.findBundleWithModuleName("UIKitCore"), ConstantsHelper.Bundles.UIKitBundle)
         XCTAssertEqual(ReflectionHelper.findBundleWithModuleName("Foundation")?.bundleIdentifier?.hasSuffix(".Foundation"), true)
         XCTAssertEqual(ReflectionHelper.findBundleWithModuleName("CoreFoundation")?.bundleIdentifier?.hasSuffix(".CoreFoundation"), true)
         XCTAssertNil(ReflectionHelper.findBundleWithModuleName("NotValid"))

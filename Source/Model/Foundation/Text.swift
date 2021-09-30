@@ -9,7 +9,7 @@
 import Foundation
 
 open class Text: Object, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         return text
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<d:Content xmlns:d="@framework" xmlns="com.apple.UIKit" xmlns:m="@document">
+<d:Content xmlns:d="@framework" xmlns="com.apple.UIKitCore" xmlns:m="@document">
     <d:Resources path="d:PathFromBundle(CardResources.xml)"/>
     <UIView style="@cellStyle" backgroundColor="@color">
         <m:AnchoringView margin="d:EdgeInsets(12)">
@@ -16,7 +16,7 @@
                 <UILabel d:name="insightLabel" numberOfLines="0" font="@font2" text="@insight"/>
                 <UIView>
                     <m:AnchoringView anchor="m:Anchor(Left,Top,Bottom)">
-                        <UIButton d:name="button" type="d:ButtonType(Custom)" style="@buttonStyle" margin="d:EdgeInsets(0,60,0,0)" font="@font3" title="d:StringForState(Say thanks)"/>
+                        <UIButton d:name="button" type="d:ButtonType(Custom)" style="@buttonStyle" margin="d:EdgeInsets(0,60,0,0)" font="@font3" titleString="d:StringForState(Say thanks)"/>
                     </m:AnchoringView>
                 </UIView>
             </UIStackView>

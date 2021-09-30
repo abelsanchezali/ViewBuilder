@@ -14,13 +14,13 @@ public protocol TextDeserializer {
 }
 
 public extension TextDeserializer {
-    public static func isDeserializedInstanceMutable() -> Bool {
+    static func isDeserializedInstanceMutable() -> Bool {
         return false
     }
 }
 
 public extension TextDeserializer {
-    public static func deserialize(text: String?) -> Any? {
+    static func deserialize(text: String?) -> Any? {
         return deserialize(text: text, service: DefaultTextDeserializerService.shared)
     }
 }

@@ -24,7 +24,7 @@ public class LayoutPerformanceResultView: StackPanel {
         resetResults()
     }
 
-    public var title: String? {
+    @objc public var title: String? {
         didSet {
             titleLabel.text = title
         }

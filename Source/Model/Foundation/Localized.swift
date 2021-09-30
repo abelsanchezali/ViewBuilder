@@ -9,7 +9,7 @@
 import Foundation
 
 open class Localized: NSObject, TextDeserializer {
-    open static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
+    public static func deserialize(text: String?, service: TextDeserializerServiceProtocol) -> Any? {
         guard let text = text else {
             Log.shared.write("Warning: Missing parameter")
             return nil
